@@ -11,14 +11,14 @@
 ## 0. Cómo debe usar este plan el agente Build
 
 1. Implementa **una tarea por sesión**, en el orden numérico (T01 → T25). No adelantes tareas.
-2. Antes de empezar: lee `AGENTS.md` y la última entrada de §11 (Handoff).
+2. Antes de empezar: lee `AGENTS.md` y la última entrada de §10 (Handoff).
 3. Al terminar cada tarea:
    - `python -m pytest -q` en verde.
    - `python -m app` abre la ventana sin excepciones.
    - `ruff check app tests` y `black --check app tests` sin errores.
    - Commit pequeño (`feat:`, `fix:`, `test:`, `docs:`).
-   - Actualiza `AGENTS.md` §11 (ver §5 de este plan).
-4. Si una tarea supera ~200 líneas cambiadas, **pártela** y anótalo en §11 como tarea nueva; no la entregues a medias.
+   - Actualiza `AGENTS.md` §10 (ver §5 de este plan).
+4. Si una tarea supera ~200 líneas cambiadas, **pártela** y anótalo en §10 como tarea nueva; no la entregues a medias.
 5. Si encuentras una contradicción o un requisito no cubierto: **no improvises**. Anótalo en `PLAN.md` → §3 "Preguntas abiertas" con la decisión provisional que tomaste, y sigue.
 
 ### Definición de terminado (aplica a toda tarea)
@@ -30,7 +30,7 @@
 - [ ] Ningún texto visible al usuario fuera de `app/ui/texts_es.py`.
 - [ ] Ningún `setGeometry` ni coordenadas absolutas en `app/`.
 - [ ] `original_df` nunca se muta (usar `.copy()`).
-- [ ] `AGENTS.md` §11 actualizado al cerrar la sesión.
+- [ ] `AGENTS.md` §10 actualizado al cerrar la sesión.
 
 ---
 
@@ -133,7 +133,7 @@
   - **desarrollo:** `pytest`, `pytest-qt`, `ruff`, `black`, `pyinstaller`.
 - `pyproject.toml` (ruff/black línea 100, pytest con `pythonpath = ["."]`).
 - `git init`, `.gitignore`, primer commit.
-- `app/__init__.py` con `__version__ = "0.0.1-alpha"` (fuente única para el título, el "Acerca de" y los metadatos del `.exe`), `app/__main__.py`, `app/main_window.py` con `QMainWindow`: 1200×800, mínimo 900×600.
+- `app/__init__.py` con `__version__ = "0.0.1-alpha"` (fuente única para el título, el "Acerca de" y los metadatos del `.exe`), `app/__main__.py`, `app/main_window.py` con `QMainWindow`: 1920×1080, mínimo 900×600.
 - Layout: `QHBoxLayout` → sidebar fija 240 px (`QSizePolicy.Fixed`) + `QStackedWidget` `Expanding` con un placeholder.
 - `tests/test_smoke.py` con `pytest-qt` que instancia `MainWindow`.
 
@@ -155,7 +155,7 @@
 - `app/theme.qss` + `app/theme.py` (carga el QSS una sola vez al arrancar).
 - `app/widgets/cards.py`: `StatCard` y `InfoCard` (fondo claro, borde redondeado).
 - `app/widgets/banner.py`: `WarningBanner` (amarillo).
-- `app/widgets/step_header.py`: título con círculo azul numerado.
+- `app/widgets/step_header.py`: título con círculo lila numerado.
 - `app/widgets/buttons.py`: `DangerButton` (rojo con borde).
 - Tests de humo: instanciar cada widget.
 
@@ -270,7 +270,7 @@
 
 **Entregable**
 - `app/widgets/dataframe_table.py`: `DataFrameTableModel(QAbstractTableModel)` de solo lectura + `DataFrameTable(QTableView)`.
-- Encabezados: verde claro para numéricas, morado claro para categóricas (QSS o `headerData`).
+- Encabezados: rosa para columnas numéricas, verde claro para categóricas (según AGENTS.md §4).
 - Formato de miles en celdas numéricas; `None`/`NaN` como "—".
 - Scroll propio, `QSizePolicy.Expanding`, sin `setGeometry`.
 
@@ -509,15 +509,15 @@
 ### T23 — Pulido visual y pruebas de reescalado
 
 **Entregable**
-- QSS completo: barra superior azul redondeada con título y nombres del equipo, sidebar con paso activo resaltado y sub-pasos A–E indentados, tarjetas, banner amarillo, botón rojo.
-- `tests/test_resize.py`: con `pytest-qt`, redimensionar a 900×600 y 1600×1000 y verificar `minimumSizeHint` respetado y que ningún widget hijo exceda el rectángulo del padre.
+- QSS completo: barra superior lila redondeada con el título DataClean, sidebar con paso activo resaltado en lila y sub-pasos A–E indentados, tarjetas con fondo gris muy claro, encabezados rosa para numéricas y verde claro para categóricas, banner amarillo, botón rojo.
+- `tests/test_resize.py`: con `pytest-qt`, redimensionar a 900×600 y 1920×1080 y verificar `minimumSizeHint` respetado y que ningún widget hijo exceda el rectángulo del padre.
 - HiDPI: `QT_ENABLE_HIGHDPI_SCALING` documentado en `__main__.py`.
 
 **Criterio de aceptación**
 - [ ] De 900×600 a pantalla completa no hay texto cortado ni solapamientos (revisión visual + test).
 - [ ] Tablas y gráficos mantienen scroll interno.
 - [ ] Un solo archivo de tema controla todos los colores.
-- [ ] Checklist de §10 de `AGENTS.md` verificado (etiqueta "Columnas irrelevantes", mapa con todas las columnas, unión de filas, sin datos hardcodeados, círculo "5").
+- [ ] Checklist de diseño y template verificado (etiqueta "Columnas irrelevantes", mapa de calor con todas las columnas reales, banner con unión de filas, sin ciudades/datos hardcodeados, círculo "5").
 
 ---
 
@@ -557,12 +557,12 @@
 - `pytest -q` completo en verde; `ruff` y `black --check` limpios.
 - Verificación manual de los 8 criterios de §9 de `AGENTS.md`.
 - Build final del `.exe` desde el código definitivo y prueba con `tests/data/sample.csv`.
-- `AGENTS.md`: marcar §9, reescribir §11 con el estado real y las notas para el siguiente agente.
+- `AGENTS.md`: marcar §9, reescribir §10 con el estado real y las notas para el siguiente agente.
 - `PLAN.md`: marcar tareas completadas y mover pendientes a §3 si aplica.
 
 **Criterio de aceptación**
 - [ ] Todos los checks de §9 marcados **solo** si fueron verificados.
-- [ ] §11 incluye fecha, estado de pruebas, si la app abre y commits por tarea.
+- [ ] §10 incluye fecha, estado de pruebas, si la app abre y commits por tarea.
 - [ ] El `.exe` final carga CSV/Excel/Parquet y exporta `<stem>_nuevo.csv`.
 - [ ] No quedan tareas `⚠️ PRIORITARIA` sin resolver o justificadas.
 
@@ -570,21 +570,21 @@
 
 ## 5. Instrucciones para Build sobre `AGENTS.md`
 
-> Esto responde a dos problemas detectados al revisar `AGENTS.md`. Build debe resolverlos **en el archivo `AGENTS.md`**, sin tocar la especificación (§1–§10).
+> Esto responde a la adaptación entre el plan y `AGENTS.md`. Build debe actualizar los estados **en la sección 10 (Handoff)** de `AGENTS.md`.
 
-### 5.1 Reestructurar §11 en la primera sesión (T01)
+### 5.1 Reestructuración de §10 (realizada en T01)
 
-La tabla actual de §11 tiene 9 tareas; la #9 mezcla hilos + QSS + pruebas + dataset y el dataset de ejemplo está al final aunque se necesita desde T05. Al cerrar T01, Build debe:
+La tabla original de 9 tareas fue descompuesta en las 25 tareas del plan:
 
-1. **Partir la tarea 9** en tres filas nuevas:
+1. **La tarea 9 fue partida** en tres tareas:
    - "Hilos para operaciones pesadas" → T21
    - "Logging y borde de errores" → T22
    - "Pulido QSS y pruebas de reescalado" → T23
-2. **Mover el dataset de ejemplo** de la tarea 9 a su propia fila prioritaria (posición 4), porque todos los servicios lo usan como fixture → T04.
-3. **Añadir dos filas nuevas** que no existían en §11: empaquetado `.exe` con PyInstaller (T24) y cierre/verificación final (T25).
-4. Mantener la numeración de §11 alineada con este plan. Mapa de equivalencia:
+2. **El dataset de ejemplo** fue promovido a su propia tarea prioritaria (posición 4) → T04.
+3. **Se agregaron dos tareas finales**: empaquetado `.exe` con PyInstaller (T24) y cierre/verificación final (T25).
+4. La numeración en `AGENTS.md` §10 está alineada con este plan:
 
-| Tarea antigua (§11) | Tareas nuevas del plan |
+| Tarea original | Tareas del plan |
 |---|---|
 | 1. Estructura + ventana | T01, T02 |
 | 2. `WorkflowController` + `AppState` | T03 |
@@ -603,15 +603,15 @@ La tabla actual de §11 tiene 9 tareas; la #9 mezcla hilos + QSS + pruebas + dat
 
 ### 5.2 Reglas de edición de `AGENTS.md`
 
-- **Prohibido** reescribir §1–§10 para "adaptarlas" al código. Si algo no se puede cumplir, se anota en `PLAN.md` §3 y se escala al usuario.
-- Actualizar **siempre** las tres líneas de cabecera de §11:
+- **Prohibido** reescribir la especificación para "adaptarla" al código. Si algo no se puede cumplir, se anota en `PLAN.md` §3 y se escala al usuario.
+- Actualizar **siempre** las tres líneas de cabecera de §10:
   - `Última actualización:` fecha / agente / modo.
   - `Estado de pruebas:` `pasan (N)` o `fallan: <test>`.
   - `¿La app abre?:` sí/no + error.
-- §11 "Notas para el siguiente agente": máximo 15 líneas, con decisiones, trampas y comandos útiles. No pegar logs.
+- §10 "Notas para el siguiente agente": máximo 15 líneas, con decisiones, trampas y comandos útiles. No pegar logs.
 - Marcar §9 (criterios globales) **solo** con evidencia: test que lo cubre o verificación manual escrita.
 
-### 5.3 Cosas de §10 que Build debe comprobar, no asumir
+### 5.3 Cosas del template que Build debe comprobar, no asumir
 
 Al cerrar T23/T25, verificar explícitamente:
 - [ ] La pestaña B dice "Columnas irrelevantes" (no "Columnsir irrelevantes").
