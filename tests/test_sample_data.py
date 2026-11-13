@@ -112,8 +112,12 @@ def test_generator_is_idempotent(tmp_path: Path, sample_path: Path) -> None:
     _run_generator(first)
     _run_generator(second)
 
+    # Idempotencia estricta: mismo contenido byte por byte entre ejecuciones.
     assert _sha256(first) == _sha256(second)
-    assert _sha256(first) == _sha256(sample_path)
+
+    # El CSV commiteado debe ser el que produce el script (se compara el contenido,
+    # no los bytes, porque git puede convertir los finales de línea al hacer checkout).
+    pd.testing.assert_frame_equal(pd.read_csv(first), pd.read_csv(sample_path))
 
 
 def test_fixtures_are_consistent(
