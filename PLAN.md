@@ -130,6 +130,7 @@
 **Entregable**
 - `.venv` con Python 3.13 y `requirements.txt` en dos bloques comentados:
   - **runtime:** `PySide6`, `pandas`, `pyarrow`, `openpyxl`, `matplotlib`, `rapidfuzz`.
+    (T05 añade `xlrd`, necesario para leer Excel antiguo `.xls`; ver nota en T05.)
   - **desarrollo:** `pytest`, `pytest-qt`, `ruff`, `black`, `pyinstaller`.
 - `pyproject.toml` (ruff/black línea 100, pytest con `pythonpath = ["."]`).
 - `git init`, `.gitignore`, primer commit.
@@ -218,11 +219,16 @@
 - `LoaderError` con mensajes en español (vacío, corrupto, sin permisos, formato no soportado).
 - Tests con CSV `;` + latin-1, CSV tabulado, Excel de 2 hojas, Parquet, archivo vacío y corrupto.
 
+**Dependencia añadida (T05):** `xlrd>=2.0.1` en `requirements.txt`. Justificación: la especificación
+exige aceptar `.xls` además de `.xlsx`, pero `openpyxl` solo lee el formato moderno. `xlrd` es la
+librería que pandas usa como motor para `.xls` (solo lectura, sin escritura). Si faltara, el servicio
+lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
+
 **Criterio de aceptación**
-- [ ] Los 4 formatos cargan con tipos correctos.
-- [ ] Archivo vacío/corrupto lanza `LoaderError`, no `ValueError` crudo.
-- [ ] `app/services/` no contiene imports de Qt.
-- [ ] El DataFrame cargado es independiente del archivo (modificarlo no toca el disco).
+- [x] Los 4 formatos cargan con tipos correctos.
+- [x] Archivo vacío/corrupto lanza `LoaderError`, no `ValueError` crudo.
+- [x] `app/services/` no contiene imports de Qt.
+- [x] El DataFrame cargado es independiente del archivo (modificarlo no toca el disco).
 
 ---
 
