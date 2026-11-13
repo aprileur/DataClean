@@ -9,6 +9,7 @@ from pathlib import Path
 import pandas as pd
 from PySide6.QtCore import QObject, Signal
 
+from app.history import History
 from app.ui import texts_es
 
 
@@ -80,6 +81,7 @@ class AppState:
     completed: set[Step] = field(default_factory=set)
     current: Step = Step.LOAD
     file_path: Path | None = None
+    history: History = field(default_factory=History)
 
     @property
     def has_data(self) -> bool:
@@ -97,6 +99,7 @@ class AppState:
         self.completed.clear()
         self.current = Step.LOAD
         self.file_path = None
+        self.history.clear()
 
 
 class WorkflowController(QObject):
@@ -211,3 +214,4 @@ class WorkflowController(QObject):
         self.state.original_df = df.copy()
         self.state.working_df = df.copy()
         self.state.file_path = Path(file_path) if file_path else None
+        self.state.history.restore_original(df)
