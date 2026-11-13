@@ -215,6 +215,7 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 
 | # | Tarea | Estado | Prioridad | Razón si no se terminó |
 |---|-------|--------|-----------|------------------------|
+| T-PUSH | Publicar rama `feature/vistas-limpieza` y abrir PR a `main` | BLOQUEADA | ⚠️ PRIORITARIA | Sin credenciales de GitHub en el entorno: `git push` falla con `could not read Username for 'https://github.com'` (no hay credential helper), no existe `gh`, no hay claves SSH (`~/.ssh` inexistente) y `ssh -T git@github.com` falla con `Host key verification failed`. Todo el trabajo está commiteado en local (8 commits, `1f4ba75`…`26040ea`). Para continuar: configurar un PAT/helper o una clave SSH y ejecutar `git push -u origin feature/vistas-limpieza`; después abrir el PR a `main` con título `feat: vistas del Paso 5 — limpieza A–E y contenedor`. |
 | T19 | Historial, deshacer y restaurar original (UI) | PENDIENTE | Normal | `app/history.py` listo (2150cb8); faltan botones en la UI |
 | T20 | Vista de exportación y resumen final | PENDIENTE | Normal | `app/services/exporter.py` listo (eeac5a0); falta `app/views/export.py` |
 | T21 | Hilos para operaciones pesadas (`QThread` worker) | PENDIENTE | Normal | — |
@@ -256,4 +257,5 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 - Para pruebas de UI usar `QT_QPA_PLATFORM=offscreen`; `tests/test_views_step5.py` tiene 16 pruebas de humo e integración.
 - `Step` sigue siendo `StrEnum`; recordar comparar con `Step.CLEAN_X`, no con cadenas.
 - Suite: 235 tests; `ruff check app tests` y `black --check app tests` limpios.
+- **Publicación pendiente:** la rama `feature/vistas-limpieza` existe solo en local. Antes de dar por cerrada la entrega, resolver T-PUSH (credenciales + `git push -u origin feature/vistas-limpieza` + PR a `main`).
 
