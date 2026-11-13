@@ -180,11 +180,11 @@
 - `tests/test_workflow.py` con los 4 casos obligatorios de §6.
 
 **Criterio de aceptación**
-- [ ] Saltar de `LOAD` a `CLEAN_A` lanza `StepLockedError`.
-- [ ] Completar un paso desbloquea **solo** el siguiente.
-- [ ] Completar hasta `CLEAN_C` y volver a modificar `CLEAN_A` deja `CLEAN_B..CLEAN_E` en pendiente.
-- [ ] `reset()` vuelve a `LOAD` y limpia `completed`.
-- [ ] Retroceder a un paso completado está permitido.
+- [x] Saltar de `LOAD` a `CLEAN_A` lanza `StepLockedError`.
+- [x] Completar un paso desbloquea **solo** el siguiente.
+- [x] Completar hasta `CLEAN_C` y volver a modificar `CLEAN_A` deja `CLEAN_B..CLEAN_E` en pendiente.
+- [x] `reset()` vuelve a `LOAD` y limpia `completed`.
+- [x] Retroceder a un paso completado está permitido.
 
 ---
 

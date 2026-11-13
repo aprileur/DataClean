@@ -208,14 +208,13 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 > 5. Indica siempre el estado de las pruebas (`pytest`) y si la app abre.
 
 **Última actualización:** 2026-11-12 / Antigravity Plus / Build
-**Estado de pruebas:** pasan (6)
-**¿La app abre?:** sí (DataClean 0.0.1-alpha con tema QSS)
+**Estado de pruebas:** pasan (15)
+**¿La app abre?:** sí (DataClean 0.0.1-alpha con tema QSS y WorkflowController)
 
 ### Tareas en orden de importancia
 
 | # | Tarea | Estado | Prioridad | Razón si no se terminó |
 |---|-------|--------|-----------|------------------------|
-| T03 | AppState + WorkflowController + pruebas | PENDIENTE | Normal | — |
 | T04 | Dataset de ejemplo y fixtures (`tests/data/sample.csv`) | PENDIENTE | Normal | — |
 | T05 | `services/loader.py` + pruebas | PENDIENTE | Normal | — |
 | T06 | Vista Paso 1 (carga) | PENDIENTE | Normal | — |
@@ -240,6 +239,7 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 | T25 | Cierre: suite completa y verificación de criterios | PENDIENTE | Normal | — |
 | T01 | Andamiaje: venv, git, estructura, ventana base | COMPLETADA | Normal | 2026-11-12 (commit b2532a3) |
 | T02 | Textos ES, tema QSS y widgets base | COMPLETADA | Normal | 2026-11-12 (commit b55b534) |
+| T03 | AppState + WorkflowController + pruebas | COMPLETADA | Normal | 2026-11-12 (commit 45ae93b) |
 
 ### Plantilla para marcar una tarea no terminada
 
@@ -248,9 +248,9 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 ```
 
 ### Notas para el siguiente agente
-- Textos centralizados en `app/ui/texts_es.py`. Ningún string de UI visible hardcodeado.
-- Estilo visual QSS centralizado en `app/theme.qss` y gestor `app/theme.py`.
-- Widgets base creados y probados: `StatCard`, `InfoCard`, `WarningBanner`, `StepHeader`, `PrimaryButton`, `DangerButton`.
-- `MainWindow` cuenta con barra superior lila (`#topBar`), sidebar y contenedor con QSS aplicado.
-- Suite con 6 tests pasando en limpio. Ruff y Black al 100%.
-- La siguiente tarea en orden es **T03: AppState + WorkflowController + pruebas**.
+- `AppState` y `WorkflowController` implementados en `app/state.py` con `Step(StrEnum)` y `STEP_ORDER`.
+- Cumple todas las reglas de control de flujo de §6: bloqueo de saltos (`StepLockedError`), avance paso a paso, retroceso libre, invalidación en cascada y reinicio completo.
+- Señales Qt disponibles: `step_changed`, `step_completed`, `steps_invalidated`, `state_reset`.
+- `MainWindow` inicializa y enlaza `self.controller = WorkflowController(parent=self)`.
+- Suite con 15 tests pasando en limpio. Ruff y Black al 100%.
+- La siguiente tarea en orden es **T04: Dataset de ejemplo y fixtures (`tests/data/sample.csv`)**.
