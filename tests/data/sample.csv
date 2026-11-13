@@ -1,0 +1,1001 @@
+id,edad,genero,ingreso,gastos,ciudad,estado,tipocliente
+23,19,F,19209.7,6727.79,Lerma,México,Nuevo
+565,55,M,18531.49,7595.26,Guadalajara,Jalisco,Premium
+751,73,F,12922.36,8045.95,Puebla,Puebla,Nuevo
+522,50,F,17744.12,9650.53,Puebla,Puebla,Nuevo
+649,56,M,10156.53,4076.35,CDMX,Ciudad de México,Nuevo
+44,55,M,187500.0,13468.51,,Ciudad de México,Nuevo
+695,22,M,12884.83,5718.46,Metepec,México,Nuevo
+94,34,M,21882.79,14241.41,Puebla,Puebla,Nuevo
+179,52,F,13948.03,10178.61,Guadalajara,Jalisco,Frecuente
+342,67,F,11050.85,7948.24,Puebla,Puebla,Nuevo
+537,62,M,17538.77,7385.28,TOLUCA,México,Nuevo
+266,25,M,12289.71,8557.56,Lerma,México,Nuevo
+848,,F,18437.04,8268.98,Toluca,México,Frecuente
+66,,Otro,15012.76,,Lerma,México,Nuevo
+773,56,F,17946.65,7151.65,Puebla,Puebla,Frecuente
+961,20,M,16483.4,9569.29,Toluca,México,Frecuente
+748,24,M,26274.19,11940.12,CDMX,Ciudad de México,Frecuente
+815,52,F,21614.91,11450.58,Monterrey,Nuevo León,Nuevo
+509,20,F,22591.38,15374.67,Guadalajara,Jalisco,Premium
+426,64,F,14576.39,5602.32,Puebla,Puebla,Nuevo
+435,72,F,11799.45,6900.34,Lerma,México,Nuevo
+664,58,M,24437.86,12884.26,Metepec,México,Frecuente
+339,34,F,19206.32,9208.29,Metepec,México,Nuevo
+772,41,M,23019.65,14912.99,Metepec,México,Premium
+401,57,F,10450.06,6419.15,Toluca,México,Nuevo
+853,62,M,27930.04,18938.06,Toluca,México,Nuevo
+1,65,F,17207.5,7915.65,Metepec,México,Frecuente
+141,71,M,17660.02,9063.06,Metepec,México,Nuevo
+651,26,F,15908.72,11743.76,CDMX,Ciudad de México,Frecuente
+902,71,M,20003.55,13564.53,Monterrey,Nuevo León,Nuevo
+293,54,F,26954.55,12287.56,Toluca,México,Frecuente
+20,18,M,18633.15,8709.14,Toluca,México,Premium
+40,36,F,27585.98,17582.29,Toluca,México,Nuevo
+340,55,M,20777.16,9490.96,Lerma,México,Nuevo
+154,,M,25650.84,12876.82,Lerma,México,Nuevo
+232,56,F,4500.0,2310.78,Lerma,México,Frecuente
+602,67,F,24992.99,10331.45,Monterrey,Nuevo León,Frecuente
+911,25,M,22232.1,12672.24,Monterrey,Nuevo León,Nuevo
+211,55,M,12954.12,5108.53,Guadalajara,Jalisco,Frecuente
+780,60,F,5246.04,1884.59,Monterrey,Nuevo León,Frecuente
+428,63,F,19037.18,7174.54,Toluca,México,Frecuente
+259,42,Otro,16886.42,11809.22,Toluca,México,Nuevo
+514,34,M,21621.69,13143.26,Guadalajara,Jalisco,Nuevo
+347,27,F,24412.75,13480.59,Guadalajara,Jalisco,Premium
+510,40,F,25000.76,10233.55,Monterrey,Nuevo León,Nuevo
+304,43,F,12599.2,5742.58,CDMX,Ciudad de México,Nuevo
+424,41,F,16752.62,10471.49,Metepec,México,Frecuente
+650,56,M,13780.33,9681.46,CDMX,Ciudad de México,Frecuente
+760,29,Otro,17583.55,10195.08,Metepec,México,Premium
+883,66,M,4500.0,1645.65,CDMX,Ciudad de México,Nuevo
+31,77,M,18615.82,8110.81,Toluca,México,Frecuente
+334,39,F,14568.16,8408.52,Toluca,México,Premium
+353,44,F,19114.5,14170.22,Guadalajara,Jalisco,Premium
+916,61,F,6401.32,3612.61,TOLUCA,México,Premium
+683,25,M,12662.39,6034.41,CDMX,Ciudad de México,Frecuente
+272,58,F,20889.51,15231.83,Toluca,México,Frecuente
+669,68,M,19141.57,13155.16,Lerma,México,Nuevo
+623,35,M,15044.51,10648.67,Querétaro,Querétaro,Nuevo
+697,38,F,8881.14,6513.99,Toluca,México,Nuevo
+698,71,F,13926.61,8995.57,CDMX,Ciudad de México,Frecuente
+785,73,M,10398.96,7234.52,CDMX,Ciudad de México,Nuevo
+693,59,M,26641.53,19875.4,CDMX,Ciudad de México,Nuevo
+163,40,M,28776.57,11299.45,CDMX,Ciudad de México,Premium
+839,69,M,19041.65,11556.41,Toluca,México,Nuevo
+430,47,F,11371.76,5485.69,CDMX,Ciudad de México,Nuevo
+21,73,M,17455.4,7356.77,,Puebla,Frecuente
+641,24,M,10931.83,5414.73,CDMX,Ciudad de México,Nuevo
+591,64,M,26419.1,15291.82,Toluca,México,Frecuente
+967,62,M,8857.53,4143.97,Toluca,México,Frecuente
+852,65,F,19096.78,12248.57,Toluca,México,Premium
+64,52,F,13317.32,6790.12,Querétaro,Querétaro,Nuevo
+34,69,M,20423.58,7643.42,Monterrey,Nuevo León,Nuevo
+680,59,M,15231.67,11278.89,Monterrey,Nuevo León,Nuevo
+774,67,F,19099.66,11644.15,Toluca,México,Nuevo
+766,43,F,24189.72,15744.56,CDMX,Ciudad de México,Nuevo
+197,,F,9165.3,4669.65,Monterrey,Nuevo León,Frecuente
+854,65,M,13075.59,7040.89,Lerma,México,Nuevo
+730,36,M,6689.66,2963.55,Puebla,Puebla,Frecuente
+48,28,F,237500.0,11947.77,CDMX,Ciudad de México,Frecuente
+166,56,M,10841.48,5035.63,Monterrey,Nuevo León,Nuevo
+789,66,M,15274.57,5410.59,CDMX,Ciudad de México,Nuevo
+28,75,M,19762.16,12226.35,CDMX,Ciudad de México,Nuevo
+128,21,F,12276.08,5601.0,Toluca,México,Nuevo
+307,66,F,10305.79,5004.84,Querétaro,Querétaro,Frecuente
+676,41,M,14452.14,10326.55,Monterrey,Nuevo León,Frecuente
+389,61,M,12104.95,9031.42,Metepec,México,Nuevo
+420,62,M,17633.11,6430.9,Querétaro,Querétaro,Frecuente
+356,71,F,12177.52,4882.44,Querétaro,Querétaro,Nuevo
+493,76,M,16199.75,7124.75,Metepec,México,Nuevo
+582,29,M,14086.94,7601.86,Toluca,México,Nuevo
+579,23,F,12146.07,5507.81,Puebla,Puebla,Nuevo
+576,76,F,11418.55,5136.02,CDMX,Ciudad de México,Nuevo
+239,36,M,18363.95,13772.79,Toluca,México,Nuevo
+513,43,F,26874.27,11795.53,Toluca,México,Frecuente
+315,20,M,10297.0,4212.61,Guadalajara,Jalisco,Frecuente
+744,28,F,27053.84,12057.97,Toluca,México,Nuevo
+102,45,M,26493.0,17566.29,Lerma,México,Nuevo
+557,51,F,18160.28,6799.09,CDMX,Ciudad de México,Frecuente
+715,70,F,17396.25,7183.66,Guadalajara,Jalisco,Nuevo
+551,70,M,16161.56,5681.21,Toluca,México,Frecuente
+543,74,F,12689.29,5285.54,CDMX,Ciudad de México,Frecuente
+926,51,M,15950.68,8561.53,Toluca,México,Frecuente
+534,28,M,9026.03,4374.23,Lerma,México,Nuevo
+869,67,F,27694.09,14457.03,Puebla,Puebla,Premium
+638,23,M,18046.5,10337.98,Toluca,México,Premium
+129,62,F,17953.26,8356.24,Tolucaa,México,Nuevo
+74,23,F,14986.88,10017.38,Toluca,México,Frecuente
+123,78,M,15387.45,9137.87,Monterrey,Nuevo León,Frecuente
+234,39,F,22239.88,15846.74,Puebla,Puebla,Frecuente
+864,19,M,15140.86,7644.14,Querétaro,Querétaro,Premium
+349,47,M,8018.29,4260.7,CDMX,Ciudad de México,Frecuente
+666,29,M,11085.73,6907.11,Toluca,México,Nuevo
+229,46,F,20836.58,11471.51,Querétaro,Querétaro,Premium
+330,59,F,17553.84,12912.0,Lerma,México,Frecuente
+878,22,F,23574.61,17570.09,Monterrey,Nuevo León,Premium
+132,61,M,20009.65,14613.34,Querétaro,Querétaro,Frecuente
+144,74,F,12522.45,9000.48,CDMX,Ciudad de México,Nuevo
+727,73,F,25660.28,13410.03,CDMX,Ciudad de México,Frecuente
+164,60,F,17957.58,,Querétaro,Querétaro,Nuevo
+865,64,F,18768.7,9518.33,Toluca,México,Premium
+640,47,F,9208.98,3423.07,Metepec,México,Frecuente
+410,18,M,18217.67,9712.65,Toluca,México,Nuevo
+589,61,F,21380.03,12614.5,Guadalajara,Jalisco,Nuevo
+251,39,M,18767.53,7312.45,Monterrey,Nuevo León,Nuevo
+528,54,M,15171.3,9578.87,Lerma,México,Frecuente
+351,22,M,17809.49,6555.96,Lerma,México,Nuevo
+199,26,M,23027.42,14917.98,CDMX,Ciudad de México,Frecuente
+278,36,M,18572.06,9815.51,Querétaro,Querétaro,Premium
+915,54,M,22947.25,8545.76,CDMX,Ciudad de México,Nuevo
+302,21,F,17402.79,7766.72,Guadalajara,Jalisco,Nuevo
+2,20,F,17049.03,9686.35,Guadalajara,Jalisco,Nuevo
+77,42,M,6981.67,4051.24,Monterrey,Nuevo León,Nuevo
+779,46,F,20513.94,13316.79,CDMX,Ciudad de México,Nuevo
+190,24,F,18427.59,12184.45,CDMX,Ciudad de México,Nuevo
+13,31,M,18184.42,8659.08,cdmx,México,Frecuente
+376,38,M,16910.95,10805.51,Monterrey,Nuevo León,Nuevo
+91,52,F,16297.88,11698.89,Querétaro,Querétaro,Nuevo
+143,47,M,16423.98,8918.22,CDMX,Ciudad de México,Nuevo
+257,29,M,17921.08,8801.52,Guadalajara,Jalisco,Nuevo
+500,60,F,28355.28,20710.59,Toluca,México,Frecuente
+210,46,F,11519.32,7081.8,CDMX,Ciudad de México,Nuevo
+870,53,M,10829.77,7763.26,Lerma,México,Frecuente
+130,46,F,10862.32,4984.7,CDMX,Ciudad de México,Nuevo
+491,33,F,18887.18,6943.21,Puebla,Puebla,Nuevo
+752,32,M,26038.9,9817.23,Guadalajara,Jalisco,Nuevo
+863,69,F,15149.15,11230.03,CDMX,Ciudad de México,Nuevo
+838,70,M,22644.54,15107.57,Toluca,México,Frecuente
+176,76,M,23371.42,16446.33,Guadalajara,Jalisco,Frecuente
+226,21,F,20286.4,9619.06,CDMX,Ciudad de México,Nuevo
+610,63,M,15251.94,8416.84,Toluca,México,Nuevo
+489,49,M,16047.8,8538.7,CDMX,Ciudad de México,Nuevo
+596,47,M,20042.81,9994.81,Guadalajara,Jalisco,Nuevo
+659,66,M,17962.92,11249.06,Metepec,México,Nuevo
+80,69,F,14195.97,9785.77,CDMX,Ciudad de México,Frecuente
+192,43,F,12132.57,4541.59,CDMX,Ciudad de México,Nuevo
+550,21,F,30999.34,14340.58,Metepec,México,Frecuente
+294,36,M,14999.83,8238.13,Guadalajara,Jalisco,Nuevo
+689,20,F,18794.3,13154.26,Toluca,México,Frecuente
+637,19,F,13206.15,9802.51,Monterrey,Nuevo León,Nuevo
+139,36,F,16326.9,7458.5,Toluca,México,Frecuente
+593,24,M,23947.88,16777.83,Toluca,México,Frecuente
+776,69,M,17377.26,7088.87,Toluca,México,Nuevo
+100,22,M,22067.67,11224.98,Monterrey,Nuevo León,Frecuente
+279,63,F,18914.83,7180.46,Toluca,México,Nuevo
+937,29,M,25241.59,11440.02,CDMX,Ciudad de México,Frecuente
+628,71,M,14657.65,5299.13,Guadalajara,Jalisco,Premium
+373,,M,20670.04,,CDMX,Ciudad de México,Frecuente
+754,39,F,30565.77,15575.47,Monterrey,Nuevo León,Premium
+686,60,F,23069.46,12113.09,CDMX,Ciudad de México,Nuevo
+181,46,M,22132.91,13857.69,,México,Premium
+569,48,M,9034.66,5657.55,Toluca,México,Premium
+667,72,F,22305.47,10164.51,Toluca,México,Nuevo
+155,36,Otro,10627.12,4717.46,Guadalajara,Jalisco,Frecuente
+586,36,F,13058.87,7503.4,Guadalajara,Jalisco,Nuevo
+552,28,M,18104.67,7782.65,Toluca,México,Premium
+160,34,M,24721.86,13212.84,Metepec,México,Premium
+860,56,M,19322.17,13748.67,CDMX,Ciudad de México,Nuevo
+283,47,M,18534.42,9162.65,Guadalajara,Jalisco,Frecuente
+386,50,M,18670.21,10535.51,Metepec,México,Frecuente
+299,73,M,30597.94,21285.93,CDMX,Ciudad de México,Frecuente
+601,66,M,21462.73,7552.42,Metepec,México,Frecuente
+259,42,Otro,16886.42,11809.22,Toluca,México,Nuevo
+578,73,M,22522.39,13234.55,Toluca,México,Frecuente
+157,21,F,20327.79,7350.1,Lerma,México,Nuevo
+343,26,M,21975.14,13093.89,Toluca,México,Nuevo
+72,36,F,25596.32,14568.78,Toluca,México,Frecuente
+397,68,Otro,14964.21,7535.06,Monterrey,Nuevo León,Frecuente
+327,32,F,18119.47,12902.4,Metepec,México,Nuevo
+215,45,F,15467.21,7870.16,Monterrey,Nuevo León,Premium
+720,23,F,14894.74,9155.77,Metepec,México,Frecuente
+645,44,F,8755.72,5574.9,Toluca,México,Frecuente
+142,49,M,18847.01,7482.01,Puebla,Puebla,Nuevo
+837,31,M,17817.7,10302.1,Guadalajara,Jalisco,Frecuente
+499,58,M,25467.39,9157.16,CDMX,Ciudad de México,Premium
+611,21,M,21018.31,11852.09,Toluca,México,Frecuente
+352,48,F,10774.72,7625.13,Querétaro,Querétaro,Nuevo
+527,62,F,19928.13,11697.97,Monterrey,Nuevo León,Frecuente
+312,37,M,12023.07,4735.19,CDMX,Ciudad de México,Frecuente
+237,23,M,14105.28,10562.96,Puebla,Puebla,Nuevo
+949,37,M,13522.51,5845.3,Puebla,Puebla,Premium
+329,48,M,21193.93,12952.82,Puebla,Puebla,Nuevo
+792,43,F,26920.57,13855.87,Guadalajara,Jalisco,Frecuente
+456,74,F,23648.99,15369.97,Guadalajara,Jalisco,Premium
+473,56,F,17610.88,10062.13,Guadalajara,Jalisco,Premium
+885,75,F,20301.15,14568.37,Guadalajara,Jalisco,Frecuente
+170,51,M,20191.65,11423.69,Querétaro,Querétaro,Nuevo
+381,52,Otro,22265.08,12141.74,Puebla,Puebla,Premium
+195,25,M,16182.86,8448.74,Monterrey,Nuevo León,Frecuente
+101,69,F,18381.84,8651.1,Guadalajara,Jalisco,Premium
+16,26,M,19103.16,11145.04,CDMX,Ciudad de México,Nuevo
+112,45,Otro,18328.17,9884.46,CDMX,Ciudad de México,Frecuente
+711,42,M,16668.5,9691.94,Guadalajara,Jalisco,Nuevo
+886,25,F,21975.32,11661.85,Monterrey,Nuevo León,Frecuente
+326,26,F,23948.67,17319.91,Guadalajara,Jalisco,Frecuente
+945,37,M,13982.59,5440.09,CDMX,Ciudad de México,Nuevo
+825,51,F,20033.2,9446.89,Querétaro,Querétaro,Frecuente
+549,77,M,10736.69,5515.57,CDMX,Ciudad de México,Nuevo
+18,34,Otro,18773.32,11045.38,CDMX,Ciudad de México,Premium
+678,18,M,18381.94,13464.96,CDMX,Ciudad de México,Nuevo
+207,51,F,26189.75,,Tolucaa,México,Nuevo
+399,67,F,24659.0,14685.57,Guadalajara,Jalisco,Frecuente
+662,44,M,10947.97,4037.52,CDMX,Ciudad de México,Premium
+198,77,M,23314.12,11650.54,Toluca,México,Nuevo
+38,,F,5569.95,3875.91,Puebla,Puebla,Premium
+851,30,M,15113.38,5560.98,Monterrey,Nuevo León,Nuevo
+545,19,F,18920.85,12670.87,Toluca,México,Premium
+385,18,F,11672.74,4116.33,CDMX,Ciudad de México,Frecuente
+806,25,F,11057.36,7689.99,Toluca,México,Nuevo
+944,54,M,24458.2,9322.43,Querétaro,Querétaro,Nuevo
+740,42,M,8352.08,3190.63,,México,Nuevo
+219,32,F,16195.33,11307.74,Monterrey,Nuevo León,Nuevo
+118,48,F,16877.07,5989.78,Metepec,México,Nuevo
+359,19,F,20093.27,13189.65,Puebla,Puebla,Nuevo
+105,47,F,13545.46,9723.57,Monterrey,Nuevo León,Frecuente
+277,25,F,21482.37,11967.79,Puebla,Puebla,Nuevo
+569,48,M,9034.66,5657.55,Toluca,México,Premium
+206,73,F,12904.84,6270.85,Toluca,México,Frecuente
+952,21,F,17556.6,8737.73,CDMX,Ciudad de México,Frecuente
+567,54,M,26228.86,11951.3,Guadalajara,Jalisco,Nuevo
+202,60,M,15914.99,9249.27,TOLUCA,México,Frecuente
+757,27,M,18993.21,8544.63,Guadalajara,Jalisco,Nuevo
+498,,M,27309.01,17997.87,Toluca,México,Frecuente
+244,48,M,4500.0,2132.04,Monterrey,Nuevo León,Nuevo
+193,27,F,16606.18,11785.52,Lerma,México,Nuevo
+39,64,Otro,17081.52,9087.43,CDMX,Ciudad de México,Frecuente
+265,36,F,20488.38,,Guadalajara,Jalisco,Frecuente
+402,42,M,21446.24,8136.76,Metepec,México,Frecuente
+675,34,M,22058.07,,Toluca,México,Nuevo
+564,68,M,8121.42,4330.85,,Puebla,Frecuente
+367,72,M,20758.35,9266.26,Metepec,México,Frecuente
+671,40,F,18731.95,10625.36,CDMX,Ciudad de México,Nuevo
+855,27,M,13790.13,7490.94,Monterrey,Nuevo León,Frecuente
+614,56,M,26555.5,16331.45,Metepec,México,Nuevo
+69,25,M,29751.63,17829.03,Guadalajara,Jalisco,Nuevo
+896,23,M,18096.34,9777.18,CDMX,Ciudad de México,Nuevo
+554,74,F,18450.45,10473.41,Toluca,México,Nuevo
+147,47,M,13087.31,7469.8,CDMX,Ciudad de México,Premium
+467,32,F,25927.42,16272.37,CDMX,Ciudad de México,Frecuente
+365,40,M,24553.51,12789.44,CDMX,Ciudad de México,Frecuente
+126,32,M,18101.18,12559.37,Toluca,México,Frecuente
+859,42,M,28976.88,17669.07,Metepec,México,Frecuente
+954,42,F,17646.16,8421.65,CDMX,Ciudad de México,Nuevo
+287,50,M,11054.86,7264.29,Toluca,México,Nuevo
+407,42,F,30592.26,17706.32,Toluca,México,Nuevo
+63,67,F,15029.65,6935.3,Toluca,México,Frecuente
+71,29,M,20906.46,10487.9,Monterrey,Nuevo León,Nuevo
+172,27,M,28470.04,11276.07,Querétaro,Querétaro,Nuevo
+515,23,M,21650.49,13172.04,Monterrey,Nuevo León,Frecuente
+461,72,F,25803.7,13774.86,Toluca,México,Nuevo
+965,75,F,15244.42,8869.99,Guadalajara,Jalisco,Frecuente
+849,30,F,15613.3,8047.61,CDMX,Ciudad de México,Frecuente
+908,19,F,18201.24,13499.92,Toluca,México,Frecuente
+227,42,F,8695.95,3357.67,Guadalajara,Jalisco,Frecuente
+763,18,M,26421.37,14109.76,Guadalajara,Jalisco,Nuevo
+969,19,F,10789.27,5035.37,Monterrey,Nuevo León,Nuevo
+186,27,M,17321.17,12088.07,Lerma,México,Frecuente
+106,71,M,11831.65,5411.3,Puebla,Puebla,Nuevo
+732,38,F,18575.34,11364.74,Guadalajara,Jalisco,Nuevo
+653,57,M,14944.45,9012.0,Toluca,México,Frecuente
+827,67,M,24653.18,14132.6,Monterrey,Nuevo León,Nuevo
+714,28,F,23531.05,12959.37,Toluca,México,Frecuente
+588,51,M,24408.67,14903.61,Toluca,México,Premium
+344,62,M,15687.06,11695.26,CDMX,Ciudad de México,Nuevo
+728,68,M,14840.24,6556.34,Monterrey,Nuevo León,Nuevo
+900,54,M,15019.01,9227.23,Guadalajara,Jalisco,Nuevo
+892,73,F,15898.07,9758.43,Toluca,México,Frecuente
+555,54,F,23689.27,10787.15,Puebla,Puebla,Frecuente
+26,28,F,17238.45,10582.69,Querétaro,Querétaro,Premium
+741,67,M,15487.66,11389.81,Toluca,México,Frecuente
+264,77,F,20696.38,8895.05,Toluca,México,Nuevo
+78,66,M,21169.9,12964.94,Toluca,México,Premium
+877,78,F,18837.28,13892.98,Querétaro,Querétaro,Frecuente
+460,75,M,19623.59,13559.29,Monterrey,Nuevo León,Nuevo
+816,29,M,23723.45,14357.68,CDMX,Ciudad de México,Frecuente
+182,52,M,16335.15,6366.49,Guadalajara,Jalisco,Frecuente
+654,63,M,5489.57,3944.13,Toluca,México,Premium
+486,51,M,26428.78,14497.91,Lerma,México,Frecuente
+416,,F,22648.32,14514.98,Querétaro,Querétaro,Nuevo
+115,24,M,16783.46,10977.78,Guadalajara,Jalisco,Nuevo
+846,67,M,14967.87,5748.13,CDMX,Ciudad de México,Frecuente
+62,68,M,25195.63,13457.52,Lerma,México,Nuevo
+518,74,F,21600.69,9177.28,Metepec,México,Frecuente
+59,29,M,23154.85,9744.05,CDMX,Ciudad de México,Nuevo
+771,48,M,11234.96,4202.04,Monterrey,Nuevo León,Nuevo
+643,63,M,17500.83,7274.43,Tolucaa,México,Nuevo
+369,72,F,18166.35,11057.54,Querétaro,Querétaro,Frecuente
+882,20,M,15326.5,8132.91,Monterrey,Nuevo León,Nuevo
+258,51,M,18297.47,13537.6,Toluca,México,Frecuente
+90,39,M,12130.99,6360.7,Toluca,México,Frecuente
+699,49,M,14916.06,7877.82,Monterrey,Nuevo León,Nuevo
+592,78,M,19899.62,12045.75,CDMX,Ciudad de México,Frecuente
+918,42,F,16047.81,11024.24,Guadalajara,Jalisco,Nuevo
+520,74,M,12675.52,5132.25,Toluca,México,Nuevo
+374,38,M,17351.48,8825.88,Metepec,México,Nuevo
+25,66,M,20199.44,10996.5,Toluca,México,Nuevo
+286,40,F,18756.08,9940.53,Guadalajara,Jalisco,Frecuente
+439,49,F,15244.53,11432.78,CDMX,Ciudad de México,Nuevo
+793,58,F,11721.45,5136.77,Toluca,México,Frecuente
+837,31,M,17817.7,10302.1,Guadalajara,Jalisco,Frecuente
+630,67,M,18675.43,11799.65,Guadalajara,Jalisco,Frecuente
+396,33,M,17211.02,6553.53,Toluca,México,Frecuente
+52,75,M,287500.0,6745.76,CDMX,Ciudad de México,Nuevo
+252,,M,22756.74,10576.23,Monterrey,Nuevo León,Frecuente
+311,70,F,21202.68,13431.81,Metepec,México,Nuevo
+81,70,M,13520.13,8816.48,CDMX,Ciudad de México,Frecuente
+887,19,F,23446.63,11892.76,Lerma,México,Frecuente
+89,75,F,21507.29,13847.55,Monterrey,Nuevo León,Nuevo
+67,51,M,20882.73,7679.72,CDMX,Ciudad de México,Frecuente
+248,35,F,20027.18,9293.12,Monterrey,Nuevo León,Frecuente
+632,40,M,31551.86,19394.46,Metepec,México,Frecuente
+145,35,M,19533.12,9492.12,Monterrey,Nuevo León,Nuevo
+107,39,F,9269.98,5357.49,Guadalajara,Jalisco,Premium
+362,76,M,12430.08,9290.16,Metepec,México,Nuevo
+496,53,F,24530.02,16875.15,Lerma,México,Nuevo
+861,33,M,11912.85,8583.68,Toluca,México,Nuevo
+459,39,M,14569.68,6664.39,Monterrey,Nuevo León,Nuevo
+873,19,M,17768.85,7554.84,,México,Frecuente
+871,38,M,22230.79,9074.81,Toluca,México,Nuevo
+200,25,F,20988.77,12060.87,Lerma,México,Premium
+406,67,F,18693.02,6634.83,CDMX,Ciudad de México,Premium
+914,52,M,7252.8,4358.06,Puebla,Puebla,Nuevo
+240,74,M,14427.03,9498.03,Puebla,Puebla,Frecuente
+468,74,F,25500.2,9969.84,Lerma,México,Nuevo
+466,18,F,12178.49,5364.34,Guadalajara,Jalisco,Nuevo
+707,64,M,11504.11,8039.97,Toluca,México,Nuevo
+506,78,F,22262.84,11823.86,Metepec,México,Frecuente
+113,64,F,14389.44,6801.16,Metepec,México,Nuevo
+524,32,Otro,19209.06,10791.13,Monterrey,Nuevo León,Nuevo
+939,40,M,22763.45,15668.23,Metepec,México,Nuevo
+225,55,F,12250.26,7381.44,Monterrey,Nuevo León,Frecuente
+177,25,F,13948.04,8793.27,Guadalajara,Jalisco,Premium
+729,45,F,22041.58,15095.75,Guadalajara,Jalisco,Nuevo
+574,,M,22356.66,12432.71,Toluca,México,Nuevo
+276,59,F,18641.51,10472.5,CDMX,Ciudad de México,Premium
+899,29,F,14070.24,5418.18,Toluca,México,Nuevo
+803,60,Otro,21663.65,13954.19,Toluca,México,Nuevo
+563,53,F,16568.92,6375.9,CDMX,Ciudad de México,Nuevo
+648,67,M,17196.06,10043.33,Querétaro,Querétaro,Nuevo
+553,75,M,15312.43,10166.7,CDMX,Ciudad de México,Nuevo
+907,74,M,9112.27,5003.52,Monterrey,Nuevo León,Frecuente
+639,47,M,10495.4,6034.15,Guadalajara,Jalisco,Nuevo
+319,61,M,23877.98,13449.29,CDMX,Ciudad de México,Frecuente
+824,21,M,16566.21,11245.32,Monterrey,Nuevo León,Nuevo
+764,73,F,16747.82,6536.66,CDMX,Ciudad de México,Frecuente
+422,59,F,16230.96,9337.48,Guadalajara,Jalisco,Frecuente
+629,22,F,11670.79,8228.35,CDMX,Ciudad de México,Nuevo
+619,64,F,4571.39,3025.39,Toluca,México,Nuevo
+138,41,M,24300.43,12521.99,Toluca,México,Nuevo
+33,61,M,12760.08,6849.74,Monterrey,Nuevo León,Frecuente
+390,20,F,21950.88,16390.06,Guadalajara,Jalisco,Nuevo
+850,40,M,16764.62,6029.94,Lerma,México,Premium
+296,56,F,27976.62,15210.9,Toluca,México,Premium
+900,54,M,15019.01,9227.23,Guadalajara,Jalisco,Nuevo
+546,42,F,23955.08,9095.27,Toluca,México,Nuevo
+684,55,F,19692.65,11763.2,Monterrey,Nuevo León,Frecuente
+32,44,F,26155.23,11696.59,CDMX,Ciudad de México,Nuevo
+568,56,M,10285.79,4733.17,Toluca,México,Nuevo
+905,45,M,16784.61,11166.36,Guadalajara,Jalisco,Nuevo
+820,30,F,15939.93,5778.38,Toluca,México,Frecuente
+743,57,F,21275.88,11791.5,Guadalajara,Jalisco,Nuevo
+314,48,F,16817.35,7416.74,Toluca,México,Frecuente
+724,44,M,14526.38,10078.94,CDMX,Ciudad de México,Frecuente
+535,53,M,13925.62,6641.31,Guadalajara,Jalisco,Premium
+791,68,F,15125.65,10121.87,Guadalajara,Jalisco,Nuevo
+584,31,F,27945.2,19299.92,CDMX,Ciudad de México,Frecuente
+964,65,M,16200.75,6243.42,CDMX,Ciudad de México,Frecuente
+607,74,M,15748.7,9268.87,Lerma,México,Nuevo
+19,35,M,26761.83,16664.17,CDMX,Ciudad de México,Nuevo
+963,51,F,7256.05,4718.12,Metepec,México,Premium
+284,37,F,24397.71,14511.25,Toluca,México,Frecuente
+375,49,F,12926.11,5876.53,CDMX,Ciudad de México,Frecuente
+580,31,M,26701.84,11085.61,Guadalajara,Jalisco,Frecuente
+297,66,F,11097.24,5417.1,CDMX,Ciudad de México,Frecuente
+562,71,M,21292.96,15946.46,Guadalajara,Jalisco,Nuevo
+254,25,M,19466.36,12475.87,CDMX,Ciudad de México,Nuevo
+213,25,F,26843.84,17600.55,Metepec,México,Frecuente
+222,59,F,29156.8,17230.49,Monterrey,Nuevo León,Premium
+656,61,M,17792.87,12936.65,Monterrey,Nuevo León,Frecuente
+323,75,Otro,17197.51,9964.08,CDMX,Ciudad de México,Frecuente
+53,26,M,11125.43,4090.09,Lerma,México,Nuevo
+636,69,M,22452.85,9969.07,CDMX,Ciudad de México,Nuevo
+171,36,M,24232.49,17633.38,Querétaro,Querétaro,Nuevo
+626,78,M,10774.7,6771.55,Toluca,México,Nuevo
+201,36,M,23377.35,16746.07,Toluca,México,Nuevo
+739,23,F,21430.34,11543.83,Guadalajara,Jalisco,Nuevo
+151,76,F,16753.68,11526.8,Toluca,México,Frecuente
+104,45,F,17297.98,11788.28,Guadalajara,Jalisco,Frecuente
+624,43,F,14079.14,9517.3,Toluca,México,Nuevo
+300,30,M,22146.36,16022.91,Monterrey,Nuevo León,Nuevo
+501,21,Otro,16682.19,12398.98,CDMX,Ciudad de México,Nuevo
+749,52,M,16530.28,9179.51,Metepec,México,Frecuente
+759,49,M,16438.24,8924.6,Guadalajara,Jalisco,Premium
+249,74,F,19176.08,13695.59,Monterrey,Nuevo León,Nuevo
+228,46,M,6057.06,4038.41,Puebla,Puebla,Frecuente
+360,61,M,12661.93,7439.87,CDMX,Ciudad de México,Nuevo
+894,57,M,19495.52,7849.45,Toluca,México,Nuevo
+533,78,M,24221.55,17784.03,CDMX,Ciudad de México,Frecuente
+691,27,F,17428.57,12413.52,Puebla,Puebla,Nuevo
+477,73,M,34033.72,24625.77,Toluca,México,Nuevo
+12,38,M,15866.18,9920.56,cdmx,México,Frecuente
+603,20,M,14263.59,10499.87,CDMX,Ciudad de México,Frecuente
+928,,F,19305.24,9221.34,CDMX,Ciudad de México,Nuevo
+76,48,M,16341.08,5879.03,Metepec,México,Frecuente
+238,29,M,5245.72,2595.22,CDMX,Ciudad de México,Nuevo
+395,70,M,18576.47,8041.07,Toluca,México,Nuevo
+452,66,M,25679.97,17361.52,Toluca,México,Premium
+673,25,M,11027.25,7177.12,Guadalajara,Jalisco,Nuevo
+485,63,F,14706.22,9504.09,Toluca,México,Nuevo
+737,68,F,20773.53,8103.99,CDMX,Ciudad de México,Frecuente
+543,74,F,12689.29,5285.54,CDMX,Ciudad de México,Frecuente
+682,32,M,16890.09,9681.97,Guadalajara,Jalisco,Nuevo
+432,31,F,25209.21,13154.7,Toluca,México,Frecuente
+539,49,F,20730.93,12560.01,Toluca,México,Frecuente
+794,61,F,9800.86,6997.64,Monterrey,Nuevo León,Frecuente
+781,77,M,17993.82,9155.58,Toluca,México,Frecuente
+890,42,M,11030.3,5461.95,CDMX,Ciudad de México,Premium
+606,22,M,11082.51,6110.17,Lerma,México,Nuevo
+247,63,M,23960.02,11943.71,Querétaro,Querétaro,Premium
+108,69,F,20788.0,8787.83,Toluca,México,Nuevo
+14,49,F,19392.81,12356.43,toluca ,México,Premium
+801,42,M,14645.38,10373.02,Metepec,México,Nuevo
+531,76,M,21209.19,8530.25,Monterrey,Nuevo León,Premium
+357,70,F,15537.68,8821.95,CDMX,Ciudad de México,Nuevo
+924,64,F,14623.8,9076.8,Toluca,México,Nuevo
+418,45,M,8480.38,3825.27,Toluca,México,Nuevo
+618,76,F,19746.69,6932.97,Guadalajara,Jalisco,Frecuente
+734,44,M,21269.41,13234.73,Monterrey,Nuevo León,Frecuente
+8,60,F,17098.13,7299.46,Tolucaa,México,Nuevo
+70,43,M,14089.57,6674.42,CDMX,Ciudad de México,Frecuente
+65,20,F,21064.75,12264.65,Querétaro,Querétaro,Nuevo
+830,38,M,15986.66,7610.64,Querétaro,Querétaro,Nuevo
+677,23,M,13403.75,8184.48,Lerma,México,Nuevo
+412,56,M,11193.3,6578.94,Lerma,México,Nuevo
+478,48,M,15738.3,8947.89,Toluca,México,Frecuente
+346,41,F,16102.59,9020.71,CDMX,Ciudad de México,Frecuente
+458,68,M,18342.3,11535.76,Puebla,Puebla,Nuevo
+484,25,F,10830.55,4849.83,Querétaro,Querétaro,Frecuente
+354,42,F,8694.86,4603.19,Puebla,Puebla,Frecuente
+950,45,M,14023.87,6616.74,Querétaro,Querétaro,Premium
+957,26,F,25066.35,15369.95,Querétaro,Querétaro,Frecuente
+904,58,M,24338.49,9084.92,Guadalajara,Jalisco,Nuevo
+938,47,M,27182.55,18090.3,Puebla,Puebla,Nuevo
+156,58,M,16056.71,8407.11,Toluca,México,Nuevo
+250,33,F,15893.66,5901.36,CDMX,Ciudad de México,Nuevo
+935,62,F,18644.94,7218.7,Monterrey,Nuevo León,Nuevo
+921,23,F,20417.28,7451.45,Toluca,México,Nuevo
+382,22,M,25674.07,14366.64,Puebla,Puebla,Frecuente
+813,54,F,16105.57,9133.37,CDMX,Ciudad de México,Nuevo
+560,66,F,24622.66,14727.04,Toluca,México,Premium
+208,64,F,21827.78,10616.12,CDMX,Ciudad de México,Premium
+355,29,Otro,14396.28,8802.08,Lerma,México,Nuevo
+668,27,M,19123.76,12122.09,Toluca,México,Frecuente
+245,,F,14887.13,7834.19,Monterrey,Nuevo León,Frecuente
+829,56,F,11799.0,7232.94,CDMX,Ciudad de México,Nuevo
+750,54,M,20317.01,12752.51,Querétaro,Querétaro,Nuevo
+7,57,M,23288.19,13293.28,toluca ,Nuevo León,Nuevo
+60,73,M,26412.16,19078.2,Monterrey,Nuevo León,Nuevo
+203,32,M,13874.81,5493.79,Metepec,México,Frecuente
+3,52,F,16725.14,7184.03,Guadalajara,Jalisco,Nuevo
+10,62,M,19924.37,9804.95,Guadalajara,Jalisco,Frecuente
+274,41,F,14752.32,5560.05,Monterrey,Nuevo León,Premium
+223,61,M,13738.18,7906.24,Guadalajara,Jalisco,Frecuente
+672,31,M,14842.9,7165.46,CDMX,Ciudad de México,Frecuente
+345,66,M,10100.58,4417.64,Metepec,México,Frecuente
+494,50,M,10172.66,3877.36,CDMX,Ciudad de México,Nuevo
+792,43,F,26920.57,13855.87,Guadalajara,Jalisco,Frecuente
+910,30,M,14262.33,8628.73,Toluca,México,Nuevo
+622,20,F,7672.91,2977.08,Monterrey,Nuevo León,Nuevo
+41,48,M,150000.0,8474.95,Toluca,México,Premium
+769,72,M,19174.99,10543.16,Querétaro,Querétaro,Frecuente
+620,36,F,18497.7,8184.57,Querétaro,Querétaro,Nuevo
+558,74,F,14051.36,9790.39,CDMX,Ciudad de México,Nuevo
+415,61,M,23347.35,13702.35,CDMX,Ciudad de México,Nuevo
+955,41,M,19393.17,11096.16,Puebla,Puebla,Nuevo
+471,75,F,24666.55,12998.13,Toluca,México,Frecuente
+495,74,F,19110.73,7039.85,CDMX,Ciudad de México,Nuevo
+795,26,F,13735.08,5840.16,Toluca,México,Frecuente
+932,45,F,28757.09,11283.44,Toluca,México,Frecuente
+414,35,M,31075.44,20596.48,Lerma,México,Nuevo
+320,57,M,16359.59,9935.57,Guadalajara,Jalisco,Premium
+231,41,F,13558.6,7587.76,Guadalajara,Jalisco,Nuevo
+344,62,M,15687.06,11695.26,CDMX,Ciudad de México,Nuevo
+388,68,F,6679.95,3012.44,Lerma,México,Nuevo
+233,34,M,15505.13,8887.31,CDMX,Ciudad de México,Frecuente
+371,53,F,20489.27,13413.89,Monterrey,Nuevo León,Nuevo
+301,78,F,11563.47,5474.33,Toluca,México,Nuevo
+161,78,F,13577.71,7720.82,Toluca,México,Frecuente
+541,18,F,21564.38,13838.17,Lerma,México,Nuevo
+880,42,M,20837.1,7641.6,Monterrey,Nuevo León,Nuevo
+449,26,M,12880.23,7768.17,Toluca,México,Frecuente
+587,34,M,33111.56,20073.48,Puebla,Puebla,Premium
+930,36,M,27133.37,11033.05,Guadalajara,Jalisco,Nuevo
+532,63,M,16180.08,6048.48,Toluca,México,Frecuente
+821,34,F,22157.32,12415.38,Guadalajara,Jalisco,Nuevo
+822,76,F,11099.57,7071.96,Toluca,México,Nuevo
+709,76,F,14747.75,9830.62,CDMX,Ciudad de México,Nuevo
+903,51,F,23620.36,10859.87,CDMX,Ciudad de México,Nuevo
+117,,M,24892.17,15656.35,Toluca,México,Nuevo
+17,45,M,20535.43,12341.35,Monterrey,Nuevo León,Nuevo
+706,50,F,17983.09,10710.99,TOLUCA,México,Nuevo
+616,51,Otro,14083.84,6054.64,Metepec,México,Nuevo
+133,35,F,18280.85,10193.14,CDMX,Ciudad de México,Frecuente
+364,53,M,13256.82,6832.88,Metepec,México,Premium
+721,27,M,11796.12,5163.7,CDMX,Ciudad de México,Frecuente
+476,,M,17454.08,8803.04,Metepec,México,Frecuente
+685,56,F,13928.12,6489.59,Guadalajara,Jalisco,Frecuente
+893,36,M,22476.95,14431.66,Querétaro,Querétaro,Nuevo
+436,76,M,13672.9,8469.48,Monterrey,Nuevo León,Nuevo
+523,35,F,25317.05,9157.72,Monterrey,Nuevo León,Premium
+111,33,F,17028.08,7963.93,CDMX,Ciudad de México,Frecuente
+556,40,M,19638.05,12116.43,Toluca,México,Nuevo
+723,26,F,24545.8,9266.95,CDMX,Ciudad de México,Nuevo
+631,62,M,20235.1,14149.54,CDMX,Ciudad de México,Nuevo
+49,60,M,250000.0,8666.61,CDMX,Ciudad de México,Nuevo
+303,72,F,23923.39,12876.4,CDMX,Ciudad de México,Nuevo
+438,45,F,20054.07,11803.23,Guadalajara,Jalisco,Frecuente
+536,55,M,13120.91,8722.74,Metepec,México,Nuevo
+874,32,M,14850.65,6782.96,Guadalajara,Jalisco,Nuevo
+542,24,M,10626.14,4007.31,Metepec,México,Nuevo
+692,29,M,14249.29,9745.08,toluca ,México,Frecuente
+670,32,M,10377.92,6886.92,Lerma,México,Frecuente
+308,20,F,24053.59,12280.68,Toluca,México,Nuevo
+836,41,M,6917.78,3405.36,Toluca,México,Nuevo
+82,75,F,16261.2,11093.84,CDMX,Ciudad de México,Premium
+448,31,M,38054.5,15105.9,Monterrey,Nuevo León,Frecuente
+841,72,M,20524.19,13508.12,Monterrey,Nuevo León,Nuevo
+761,69,F,17263.17,10024.14,Toluca,México,Premium
+86,44,F,16596.25,8514.54,CDMX,Ciudad de México,
+538,20,F,13429.0,10041.04,Querétaro,Querétaro,Nuevo
+540,28,M,10948.48,4874.25,Querétaro,Querétaro,Premium
+508,47,F,16377.81,10778.81,CDMX,Ciudad de México,Nuevo
+159,49,M,21421.27,10775.28,Guadalajara,Jalisco,Nuevo
+784,71,F,16439.96,9873.71,Toluca,México,Nuevo
+475,75,M,8886.65,4160.88,Toluca,México,Nuevo
+350,19,F,17348.37,10740.5,Lerma,México,Frecuente
+526,42,F,14390.1,8350.24,Querétaro,Querétaro,Frecuente
+658,68,F,28392.34,10580.18,Metepec,México,Nuevo
+910,30,M,14262.33,8628.73,Toluca,México,Nuevo
+437,62,F,19835.18,9365.22,Toluca,México,Nuevo
+445,20,M,19609.08,9740.71,Monterrey,Nuevo León,Nuevo
+191,37,F,11353.7,8100.87,Guadalajara,Jalisco,Premium
+378,30,F,21640.93,13807.02,Metepec,México,Nuevo
+889,23,F,12840.34,5336.41,Monterrey,Nuevo León,Nuevo
+920,78,F,13375.01,5952.64,CDMX,Ciudad de México,Frecuente
+738,28,F,4860.64,3056.48,Guadalajara,Jalisco,Frecuente
+275,46,M,21109.03,11187.13,CDMX,Ciudad de México,Frecuente
+488,51,F,20484.44,9914.56,CDMX,Ciudad de México,Frecuente
+634,73,F,26275.88,18118.22,Puebla,Puebla,Frecuente
+457,64,Otro,17819.34,11754.6,Monterrey,Nuevo León,Frecuente
+502,32,M,21486.78,9925.39,Toluca,México,Frecuente
+857,59,M,15941.68,9520.15,Toluca,México,Nuevo
+525,21,M,15608.05,10559.07,Puebla,Puebla,Premium
+796,57,M,17132.3,10229.56,Metepec,México,Nuevo
+99,54,M,20448.39,11890.2,Querétaro,Querétaro,Premium
+368,44,M,24252.97,17362.62,Guadalajara,Jalisco,Nuevo
+135,49,F,16883.66,6995.41,CDMX,Ciudad de México,Premium
+318,,M,23070.97,12861.45,Guadalajara,Jalisco,Nuevo
+443,28,M,18317.33,8424.89,CDMX,Ciudad de México,Frecuente
+124,33,F,25202.58,11488.81,Toluca,México,Nuevo
+306,,F,16453.3,,Guadalajara,Jalisco,Premium
+124,33,F,25202.58,11488.81,Toluca,México,Nuevo
+618,76,F,19746.69,6932.97,Guadalajara,Jalisco,Frecuente
+625,74,M,22316.55,12079.9,CDMX,Ciudad de México,Nuevo
+413,62,M,12421.24,9160.54,Metepec,México,Premium
+934,52,F,13107.86,8325.58,Guadalajara,Jalisco,Premium
+167,61,M,19534.79,12741.19,Monterrey,Nuevo León,Frecuente
+214,63,F,14836.35,6235.39,CDMX,Ciudad de México,Frecuente
+817,,M,12972.34,6204.38,Toluca,México,Nuevo
+835,54,F,23415.09,12983.87,Guadalajara,Jalisco,Nuevo
+594,76,F,9297.36,5951.0,CDMX,Ciudad de México,Frecuente
+942,39,F,20010.73,14799.07,CDMX,Ciudad de México,Frecuente
+183,70,F,22103.23,16296.33,Querétaro,Querétaro,Frecuente
+922,30,F,22745.11,12352.08,CDMX,Ciudad de México,Nuevo
+409,58,M,15810.23,7125.35,Metepec,México,Frecuente
+95,22,M,17988.97,13145.76,Metepec,México,Frecuente
+936,47,M,10905.35,6802.66,Monterrey,Nuevo León,Premium
+875,72,M,20208.33,13376.51,Toluca,México,Frecuente
+73,50,M,14198.14,7478.36,Guadalajara,Jalisco,Premium
+57,40,M,23014.48,14334.03,Guadalajara,Jalisco,
+331,20,M,15696.76,10131.86,Puebla,Puebla,Nuevo
+725,52,M,23215.97,13695.69,Puebla,Puebla,Nuevo
+50,26,F,262500.0,20274.22,Querétaro,Querétaro,Premium
+217,78,M,16622.67,12242.26,Toluca,México,Frecuente
+133,35,F,18280.85,10193.14,CDMX,Ciudad de México,Frecuente
+583,59,F,17850.62,8428.78,Querétaro,Querétaro,Premium
+333,36,M,18834.42,12234.86,Puebla,Puebla,Nuevo
+464,43,M,28614.25,20359.61,Toluca,México,Frecuente
+45,26,M,200000.0,8298.91,Metepec,México,Nuevo
+338,38,F,8306.02,4254.31,CDMX,Ciudad de México,Frecuente
+722,34,F,19126.45,8085.78,Guadalajara,Jalisco,Frecuente
+261,40,M,23776.47,15518.23,Toluca,México,Frecuente
+276,59,F,18641.51,10472.5,CDMX,Ciudad de México,Premium
+788,69,F,20465.75,10005.04,CDMX,Ciudad de México,Nuevo
+492,72,F,24498.13,17591.88,Toluca,México,Frecuente
+472,45,F,14329.25,8394.5,CDMX,Ciudad de México,Nuevo
+84,36,F,20833.45,9580.03,Toluca,México,Nuevo
+135,49,F,16883.66,6995.41,CDMX,Ciudad de México,Premium
+158,54,M,22014.24,8986.83,CDMX,Ciudad de México,Nuevo
+746,71,M,22835.2,8815.9,Metepec,México,Frecuente
+109,30,F,8677.05,4966.02,CDMX,Ciudad de México,Frecuente
+605,40,F,14570.54,6549.88,Guadalajara,Jalisco,Nuevo
+383,63,F,18510.29,12716.9,Metepec,México,Nuevo
+404,45,F,13210.37,5163.84,Toluca,México,Frecuente
+931,19,M,13632.89,7719.36,Toluca,México,Frecuente
+292,70,M,12297.95,8448.84,Guadalajara,Jalisco,Nuevo
+27,30,M,14639.36,8281.76,Monterrey,Nuevo León,Nuevo
+337,29,M,17182.98,9916.51,Monterrey,Nuevo León,Frecuente
+97,47,M,18448.04,7300.92,Querétaro,Querétaro,Frecuente
+511,72,F,14922.69,6260.77,Querétaro,Querétaro,Frecuente
+968,21,M,30110.8,19294.66,Guadalajara,Jalisco,Frecuente
+79,47,F,18686.6,12550.74,Guadalajara,Jalisco,Nuevo
+427,46,M,14401.94,7822.71,CDMX,Ciudad de México,Nuevo
+856,51,F,17380.16,8701.25,Puebla,Puebla,Nuevo
+828,74,F,15722.26,8387.64,Guadalajara,Jalisco,Frecuente
+790,77,M,19677.13,10579.98,Toluca,México,Frecuente
+5,23,F,16282.47,11933.18,Lerma,México,Nuevo
+598,44,F,12581.42,7829.15,CDMX,Ciudad de México,Premium
+742,60,M,14243.84,7486.4,Toluca,México,Frecuente
+600,23,M,20794.23,14451.11,Toluca,México,Frecuente
+577,61,F,13840.47,7041.71,Querétaro,Querétaro,Nuevo
+280,38,M,20826.33,,Puebla,Puebla,Frecuente
+521,63,F,24884.57,8904.0,CDMX,Ciudad de México,Frecuente
+805,37,F,17769.79,7087.6,CDMX,Ciudad de México,Premium
+778,59,F,14366.55,6702.61,Metepec,México,Premium
+291,57,M,13342.13,7768.57,Toluca,México,Frecuente
+844,50,F,16059.13,8483.18,Guadalajara,Jalisco,Nuevo
+96,30,M,16201.09,10558.14,Querétaro,Querétaro,Frecuente
+358,74,M,25852.14,10652.34,toluca ,México,Nuevo
+127,52,F,12280.25,8884.36,CDMX,Ciudad de México,Nuevo
+152,27,F,20201.25,10383.27,Guadalajara,Jalisco,Frecuente
+907,74,M,9112.27,5003.52,Monterrey,Nuevo León,Frecuente
+705,33,M,15603.68,7732.34,toluca ,México,Frecuente
+469,22,M,22344.55,13554.88,Guadalajara,Jalisco,Nuevo
+497,41,M,15510.14,10016.92,Metepec,México,Nuevo
+575,74,M,19277.63,11132.23,Toluca,México,Frecuente
+366,44,F,13931.57,9255.05,Lerma,México,Nuevo
+453,33,F,29036.43,11636.5,Puebla,Puebla,Nuevo
+42,23,M,162500.0,6631.17,Querétaro,Querétaro,Nuevo
+777,39,F,13735.48,9791.05,Toluca,México,Nuevo
+119,43,M,30411.89,16455.62,Monterrey,Nuevo León,Frecuente
+681,22,F,17528.31,11161.1,Toluca,México,Frecuente
+479,21,M,20045.45,9118.16,Toluca,México,Nuevo
+168,37,M,21885.84,15568.74,Guadalajara,Jalisco,Nuevo
+696,37,M,24414.6,12946.05,Guadalajara,Jalisco,Nuevo
+482,38,F,21376.97,15813.09,Toluca,México,Frecuente
+37,28,F,25459.85,18345.01,Puebla,Puebla,Nuevo
+188,68,M,33588.62,12102.38,Toluca,México,Frecuente
+236,68,F,15631.95,7406.93,CDMX,Ciudad de México,Nuevo
+947,55,M,16799.01,7341.92,Toluca,México,Frecuente
+798,27,F,29882.1,19149.73,Metepec,México,Nuevo
+835,54,F,23415.09,12983.87,Guadalajara,Jalisco,Nuevo
+55,41,M,25932.04,10622.33,Toluca,México,Nuevo
+719,58,F,23860.08,12220.72,Querétaro,Querétaro,Frecuente
+652,71,M,32002.27,22547.99,CDMX,Ciudad de México,Premium
+674,,F,19110.79,,Guadalajara,Jalisco,Nuevo
+570,37,F,24882.98,8910.42,Monterrey,Nuevo León,Frecuente
+155,36,Otro,10627.12,4717.46,Guadalajara,Jalisco,Frecuente
+896,23,M,18096.34,9777.18,CDMX,Ciudad de México,Nuevo
+324,36,F,13540.34,9909.41,Monterrey,Nuevo León,Premium
+169,44,F,16071.2,11472.44,Lerma,México,Nuevo
+447,,F,11801.6,6253.58,Lerma,México,Premium
+768,69,M,23286.52,16126.46,Toluca,México,Nuevo
+530,19,M,33142.35,12344.44,Guadalajara,Jalisco,Nuevo
+271,45,F,9624.09,6877.79,Guadalajara,Jalisco,Premium
+628,71,M,14657.65,5299.13,Guadalajara,Jalisco,Premium
+270,45,F,25575.37,12086.88,Guadalajara,Jalisco,Nuevo
+770,34,M,14778.84,7039.03,CDMX,Ciudad de México,Frecuente
+441,49,F,24610.69,18101.94,CDMX,Ciudad de México,Nuevo
+370,42,M,21704.78,14797.51,TOLUCA,México,Frecuente
+288,28,F,15680.33,6266.87,Toluca,México,Premium
+512,69,M,27711.11,12468.37,CDMX,Ciudad de México,Nuevo
+131,61,M,13584.03,6114.81,Toluca,México,Frecuente
+46,22,F,212500.0,12468.33,Monterrey,Nuevo León,Frecuente
+321,67,F,17160.59,12468.79,Querétaro,Querétaro,Nuevo
+120,69,M,22151.91,13835.65,Toluca,México,Nuevo
+946,67,M,15229.9,5992.93,Monterrey,Nuevo León,Nuevo
+146,60,M,7312.08,3432.45,Guadalajara,Jalisco,Nuevo
+444,50,F,13439.48,8856.87,CDMX,Ciudad de México,Nuevo
+544,73,M,20171.67,7878.48,CDMX,Ciudad de México,Frecuente
+909,20,F,17705.09,10554.41,CDMX,Ciudad de México,Frecuente
+797,36,F,26390.05,9470.13,Querétaro,Querétaro,Frecuente
+713,68,M,18951.03,12827.85,Lerma,México,Frecuente
+480,67,F,18215.28,8462.73,Monterrey,Nuevo León,Frecuente
+348,63,M,20621.29,10861.98,Guadalajara,Jalisco,Nuevo
+505,62,M,18355.13,8737.11,Monterrey,Nuevo León,Nuevo
+516,47,F,17934.89,8655.74,Toluca,México,Premium
+174,47,F,10627.8,3778.9,CDMX,Ciudad de México,Frecuente
+897,31,F,21277.93,12797.7,Monterrey,Nuevo León,Nuevo
+184,19,F,19641.01,11915.84,Guadalajara,Jalisco,Nuevo
+595,37,F,16780.9,8258.11,Monterrey,Nuevo León,Premium
+43,54,F,175000.0,14301.86,Querétaro,Querétaro,Frecuente
+573,51,M,6639.85,3405.37,CDMX,Ciudad de México,Frecuente
+136,47,F,20331.97,13732.75,CDMX,Ciudad de México,Nuevo
+380,47,F,12398.08,7927.62,Monterrey,Nuevo León,Frecuente
+943,62,F,4500.0,2595.98,Lerma,México,Frecuente
+405,56,M,16937.08,8325.69,Toluca,México,Premium
+310,71,F,18998.16,9635.52,Guadalajara,Jalisco,Nuevo
+391,49,M,16232.34,5742.68,Toluca,México,Frecuente
+635,53,M,15882.95,7326.21,CDMX,Ciudad de México,Nuevo
+517,45,F,9936.85,5449.87,CDMX,Ciudad de México,Nuevo
+941,33,M,22209.41,11868.49,Guadalajara,Jalisco,Frecuente
+6,20,M,20696.99,10091.49,toluca ,México,Frecuente
+47,26,M,225000.0,8854.78,CDMX,Ciudad de México,Premium
+613,18,F,17852.79,7715.94,Guadalajara,Jalisco,Frecuente
+687,36,Otro,19715.61,13183.99,Puebla,Puebla,Nuevo
+953,45,M,20627.66,9548.21,Toluca,México,Nuevo
+363,27,Otro,11288.64,5398.97,Lerma,México,Frecuente
+895,49,F,11537.64,7764.62,Guadalajara,Jalisco,Frecuente
+241,29,M,23442.67,13805.35,Toluca,México,Frecuente
+891,28,M,15525.52,8851.69,Toluca,México,Frecuente
+868,73,F,20121.91,11399.9,Monterrey,Nuevo León,Frecuente
+61,48,F,22617.52,11376.99,Toluca,México,Frecuente
+571,37,Otro,23255.99,17186.15,Metepec,México,Nuevo
+98,65,M,24214.28,10100.16,Guadalajara,Jalisco,Frecuente
+75,37,F,16216.91,11851.32,Metepec,México,Nuevo
+263,20,F,19221.99,12233.22,Querétaro,Querétaro,Nuevo
+612,44,F,15039.7,5382.66,Guadalajara,Jalisco,Nuevo
+957,26,F,25066.35,15369.95,Querétaro,Querétaro,Frecuente
+726,56,M,28633.95,15545.27,Toluca,México,Nuevo
+393,35,F,19500.62,12225.23,Guadalajara,Jalisco,Nuevo
+783,32,F,16298.52,11777.89,CDMX,Ciudad de México,Nuevo
+218,72,F,23433.0,16822.74,Toluca,México,Nuevo
+831,52,F,11111.3,5326.54,Metepec,México,Frecuente
+408,28,F,9466.3,4329.53,Toluca,México,Nuevo
+710,63,Otro,12206.73,9060.27,Lerma,México,Frecuente
+332,76,F,14731.61,10354.82,Toluca,México,Frecuente
+834,19,M,4500.0,1974.4,Puebla,Puebla,Premium
+481,37,F,23926.71,14270.34,Metepec,México,Premium
+11,42,F,15391.78,9876.15,cdmx,México,Premium
+88,66,F,24032.62,8468.1,Lerma,México,Premium
+470,64,F,7671.0,4679.37,CDMX,Ciudad de México,Frecuente
+814,71,M,11221.61,7215.06,Metepec,México,Premium
+701,75,F,20954.19,12586.08,Monterrey,Nuevo León,Frecuente
+597,74,F,22862.09,16637.21,Toluca,México,Nuevo
+379,34,M,21235.65,12992.89,Guadalajara,Jalisco,Nuevo
+255,22,F,20926.76,12672.84,Guadalajara,Jalisco,Premium
+462,62,M,23637.93,17651.28,CDMX,Ciudad de México,Premium
+802,67,Otro,17066.59,11217.16,,México,Nuevo
+917,39,Otro,18577.59,7611.65,Puebla,Puebla,Frecuente
+807,33,F,27738.7,16196.04,CDMX,Ciudad de México,Nuevo
+298,35,F,32834.16,15683.12,CDMX ,Ciudad de México,Nuevo
+30,20,M,22933.33,,Toluca,México,Nuevo
+150,20,F,20461.37,12497.96,Toluca,México,Premium
+566,24,M,15365.75,11062.9,Guadalajara,Jalisco,Premium
+185,53,F,27648.52,11946.43,Monterrey,Nuevo León,Nuevo
+429,33,M,13053.91,5427.05,Querétaro,Querétaro,Frecuente
+194,38,F,12210.15,7365.54,CDMX,Ciudad de México,Frecuente
+694,64,M,21073.67,7943.62,Toluca,México,Premium
+745,18,M,11394.47,5836.02,Toluca,México,Nuevo
+290,37,M,31193.53,17790.81,Toluca,México,Nuevo
+221,24,F,9775.73,5945.38,Toluca,México,Nuevo
+800,21,F,22637.93,15561.73,Querétaro,Querétaro,Nuevo
+212,56,F,17607.78,6482.6,CDMX,Ciudad de México,Nuevo
+442,28,F,25645.73,16260.85,CDMX,Ciudad de México,Nuevo
+898,72,F,15004.78,9172.58,Toluca,México,Frecuente
+392,24,M,17392.29,8391.92,Querétaro,Querétaro,Premium
+906,40,M,10605.04,5940.48,Querétaro,Querétaro,Frecuente
+765,49,F,18501.26,11012.57,CDMX,Ciudad de México,Nuevo
+295,62,F,18321.19,9388.46,CDMX,Ciudad de México,Nuevo
+273,61,M,17997.92,6523.46,Puebla,Puebla,Nuevo
+196,31,F,24269.68,15959.38,Monterrey,Nuevo León,Premium
+209,21,M,8619.93,3553.41,Monterrey,Nuevo León,Nuevo
+847,53,M,14371.46,7302.53,Guadalajara,Jalisco,Frecuente
+818,27,M,23770.0,14815.6,Monterrey,Nuevo León,Nuevo
+122,37,M,17894.49,8985.74,Puebla,Puebla,Premium
+507,44,F,15245.51,6338.32,CDMX,Ciudad de México,Nuevo
+690,37,F,17782.12,10044.42,Querétaro,Querétaro,Frecuente
+872,77,M,27632.83,14217.11,CDMX,Ciudad de México,Frecuente
+446,65,M,7887.15,3449.97,CDMX,Ciudad de México,Frecuente
+539,49,F,20730.93,12560.01,Toluca,México,Frecuente
+736,60,F,24344.59,15685.54,Puebla,Puebla,Nuevo
+15,34,M,13828.64,6204.23,Guadalajara,Jalisco,Nuevo
+121,68,M,20759.79,13613.8,Guadalajara,Jalisco,Frecuente
+581,67,Otro,16088.96,8266.55,Toluca,México,Frecuente
+175,61,F,17588.76,10648.58,CDMX,Ciudad de México,Nuevo
+823,53,M,19728.0,,Toluca,México,Premium
+810,68,F,24474.79,14876.51,Guadalajara,Jalisco,Nuevo
+153,39,M,17275.68,8793.21,Toluca,México,Premium
+876,49,M,18365.21,9174.96,Puebla,Puebla,Nuevo
+615,68,F,23293.14,13907.85,Metepec,México,Nuevo
+440,73,F,10576.54,7263.91,Guadalajara,Jalisco,Nuevo
+633,18,M,24120.34,17048.85,Guadalajara,Jalisco,Nuevo
+858,76,M,27484.15,16879.37,Guadalajara,Jalisco,Premium
+51,39,F,275000.0,8258.18,Toluca,México,Frecuente
+173,53,F,14320.59,7288.67,Puebla,Puebla,Frecuente
+719,58,F,23860.08,12220.72,Querétaro,Querétaro,Frecuente
+269,24,F,4500.0,1899.82,Metepec,México,Frecuente
+871,38,M,22230.79,9074.81,Toluca,México,Nuevo
+474,74,F,20274.47,7313.6,Puebla,Puebla,Frecuente
+92,59,F,7599.74,4375.6,Toluca,México,Premium
+235,26,M,22106.34,13538.41,Guadalajara,Jalisco,Premium
+642,69,F,12867.99,6260.83,Monterrey,Nuevo León,Frecuente
+627,57,F,23357.54,13490.79,CDMX,Ciudad de México,Nuevo
+663,,M,15326.05,5443.6,Metepec,México,Premium
+572,44,M,11501.17,7824.58,Metepec,México,Nuevo
+24,33,F,11347.1,8443.7,Monterrey,Nuevo León,Premium
+956,26,F,20668.03,15479.99,Guadalajara,Jalisco,Frecuente
+230,50,M,24939.12,12154.71,Monterrey,Nuevo León,Nuevo
+585,60,Otro,20490.74,8010.34,CDMX,Ciudad de México,Frecuente
+387,27,F,22169.54,8708.34,Toluca,México,Frecuente
+923,,M,21328.98,,Monterrey,Nuevo León,Premium
+187,69,F,15302.07,11400.21,cdmx,Ciudad de México,Frecuente
+959,42,F,13672.12,7104.72,Monterrey,Nuevo León,Nuevo
+425,24,F,12498.12,6098.92,Toluca,México,Premium
+87,74,M,10756.43,7835.25,Toluca,México,Nuevo
+204,57,M,23669.29,17510.98,Monterrey,Nuevo León,Frecuente
+289,23,F,20049.71,11178.9,Metepec,México,Frecuente
+948,27,F,16451.92,5759.39,Toluca,México,Nuevo
+336,59,F,16275.09,7849.05,Monterrey,Nuevo León,Nuevo
+608,66,F,26582.68,19895.95,Cdmx,Ciudad de México,Premium
+704,64,M,18975.71,8336.46,Monterrey,Nuevo León,Nuevo
+178,24,F,13380.38,6312.14,CDMX,Ciudad de México,Frecuente
+267,29,M,13209.86,9677.43,Lerma,México,Nuevo
+137,18,M,25063.56,17443.34,Monterrey,Nuevo León,Frecuente
+753,71,F,12493.67,6954.0,Toluca,México,Nuevo
+490,75,M,16979.65,7011.3,Monterrey,Nuevo León,Frecuente
+463,41,F,14413.14,10098.39,Toluca,México,Nuevo
+328,67,F,19771.37,12593.24,Toluca,México,Premium
+812,26,F,24422.35,15281.06,Lerma,México,Nuevo
+421,40,F,16502.13,10851.5,Guadalajara,Jalisco,Frecuente
+703,59,M,22161.16,15681.11,CDMX,Ciudad de México,Nuevo
+609,26,F,22867.86,10093.13,Monterrey,Nuevo León,Nuevo
+134,23,M,14598.0,8815.93,CDMX,Ciudad de México,Nuevo
+782,66,Otro,14217.81,5126.17,CDMX,Ciudad de México,Nuevo
+665,30,F,18221.97,10775.65,Monterrey,Nuevo León,Nuevo
+787,58,M,9195.0,6444.94,CDMX,Ciudad de México,Nuevo
+731,51,F,17971.76,11635.96,Toluca,México,Nuevo
+529,37,F,24190.54,16997.5,CDMX,Ciudad de México,Nuevo
+256,50,M,20813.08,12252.57,Toluca,México,Frecuente
+162,34,F,18981.11,11494.49,CDMX,Ciudad de México,Nuevo
+114,29,F,22852.46,12896.68,Monterrey,Nuevo León,Frecuente
+85,27,M,19764.1,8109.85,CDMX,Ciudad de México,Nuevo
+590,76,F,8690.56,4770.68,Metepec,México,Nuevo
+322,40,M,22554.63,14254.42,Lerma,México,
+313,68,Otro,17514.86,9455.15,Querétaro,Querétaro,Frecuente
+644,25,M,16391.96,7404.51,Toluca,México,Nuevo
+205,35,M,11761.2,7378.84,Toluca,México,Nuevo
+411,70,M,10769.12,5188.74,Lerma,México,Frecuente
+4,66,M,17957.09,8283.18,Puebla,Puebla,Frecuente
+140,56,M,18637.73,,Querétaro,Querétaro,Frecuente
+866,32,F,22971.09,13667.32,Guadalajara,Jalisco,Frecuente
+811,75,F,15137.06,9201.19,Lerma,México,Nuevo
+455,74,M,17332.58,9200.08,Guadalajara,Jalisco,Nuevo
+646,75,F,20557.31,12722.03,Toluca,México,Frecuente
+189,25,M,22298.19,8934.96,CDMX,Ciudad de México,Nuevo
+867,26,F,13739.0,8135.52,CDMX,Ciudad de México,Nuevo
+657,19,F,15613.33,10512.8,CDMX,Ciudad de México,Nuevo
+54,45,M,10272.64,6641.18,CDMX,Ciudad de México,Nuevo
+781,77,M,17993.82,9155.58,Toluca,México,Frecuente
+29,,F,18790.98,10998.8,Metepec,México,Frecuente
+712,51,F,26953.83,16477.81,Puebla,Puebla,Premium
+465,31,M,18191.45,7030.63,Toluca,México,Nuevo
+335,47,F,11817.13,8572.43,Puebla,Puebla,Frecuente
+756,33,M,18754.03,7990.47,Monterrey,Nuevo León,Premium
+561,23,Otro,19887.47,8493.75,Toluca,México,Nuevo
+833,74,F,15672.65,9220.3,CDMX,Ciudad de México,Nuevo
+747,47,M,12186.74,5368.48,Querétaro,Querétaro,Frecuente
+617,62,M,15256.94,8685.1,Puebla,Puebla,
+431,57,M,21149.23,11057.95,Toluca,México,Nuevo
+361,73,M,17668.58,7840.18,Toluca,México,Nuevo
+68,60,F,15891.84,10135.37,Monterrey,Nuevo León,Nuevo
+519,48,F,12109.71,6654.97,Puebla,Puebla,Nuevo
+268,69,F,21479.24,15459.13,CDMX,Ciudad de México,Nuevo
+716,48,M,21079.77,14217.65,Monterrey,Nuevo León,Nuevo
+913,20,M,24249.27,13134.45,CDMX,Ciudad de México,Nuevo
+845,65,F,18705.18,9062.05,CDMX,Ciudad de México,Nuevo
+103,45,Otro,17473.21,9051.53,CDMX,Ciudad de México,Frecuente
+840,40,M,15768.76,5871.8,Monterrey,Nuevo León,Nuevo
+433,,F,18713.1,7311.22,Puebla,Puebla,Nuevo
+735,54,F,21048.12,11439.74,Querétaro,Querétaro,Frecuente
+341,37,F,13192.85,4945.34,Toluca,México,Frecuente
+951,72,F,25258.19,15018.43,CDMX,Ciudad de México,Nuevo
+423,50,M,23700.93,8395.32,Metepec,México,Frecuente
+361,73,M,17668.58,7840.18,Toluca,México,Nuevo
+483,64,M,22211.26,8361.34,Guadalajara,Jalisco,Nuevo
+504,21,F,12941.51,6570.93,Guadalajara,Jalisco,Premium
+799,62,M,9533.03,5237.05,CDMX,Ciudad de México,Nuevo
+919,35,F,18953.06,13136.89,Guadalajara,Jalisco,
+83,67,M,9266.51,6356.32,Metepec,México,Frecuente
+929,52,F,28430.85,16315.05,Toluca,México,Nuevo
+281,63,M,13667.55,6423.51,Toluca,México,Frecuente
+35,33,M,20201.94,10479.81,Metepec,México,Nuevo
+809,66,M,18051.98,,Lerma,México,Nuevo
+417,,F,14425.73,,CDMX,Ciudad de México,Nuevo
+660,61,M,28518.39,15144.34,,Jalisco,Premium
+786,62,M,27568.55,14554.48,Querétaro,Querétaro,Frecuente
+933,40,F,24011.05,15032.12,CDMX,Ciudad de México,Frecuente
+966,48,M,11732.52,6306.79,CDMX,Ciudad de México,Nuevo
+434,49,M,16156.04,6391.04,Guadalajara,Jalisco,Frecuente
+647,21,M,20846.45,11455.78,CDMX,Ciudad de México,Nuevo
+450,52,F,24988.34,16796.57,Guadalajara,Jalisco,Frecuente
+165,65,M,24316.47,17980.6,Puebla,Puebla,Premium
+912,19,M,19921.64,12745.04,Guadalajara,Jalisco,Nuevo
+881,63,M,24647.21,13912.46,Guadalajara,Jalisco,
+216,54,F,13523.79,9396.92,Guadalajara,Jalisco,Frecuente
+305,50,F,14728.14,8414.03,Toluca,México,Frecuente
+648,67,M,17196.06,10043.33,Querétaro,Querétaro,Nuevo
+775,57,F,8524.31,4507.42,Toluca,México,Frecuente
+843,61,M,13508.17,8498.09,Toluca,México,Nuevo
+93,39,M,19775.84,9511.01,CDMX,Ciudad de México,Nuevo
+309,38,M,12004.46,7112.69,CDMX,Ciudad de México,Nuevo
+262,47,Otro,22403.52,9410.28,Monterrey,Nuevo León,Nuevo
+403,37,F,17688.25,6944.77,Toluca,México,Frecuente
+9,58,M,21511.28,8398.02,Tolucaa,México,Nuevo
+398,21,F,11848.74,6520.56,Querétaro,Querétaro,Nuevo
+454,43,M,17478.58,7848.27,Puebla,Puebla,Frecuente
+879,74,F,10927.28,6831.14,Puebla,Puebla,Nuevo
+243,68,F,15238.88,9055.52,Monterrey,Nuevo León,Frecuente
+888,,F,13738.21,,Toluca,México,Nuevo
+548,74,F,12567.91,9136.58,Toluca,México,Nuevo
+125,32,F,24017.83,14111.06,Metepec,México,Nuevo
+702,43,M,26443.16,9585.06,Guadalajara,Jalisco,Nuevo
+832,46,F,10358.26,7462.7,Metepec,México,Nuevo
+925,72,M,19802.38,9394.1,Toluca,México,Nuevo
+962,62,F,30477.44,12046.69,CDMX,Ciudad de México,Frecuente
+718,54,F,13712.32,8252.3,Toluca,México,Nuevo
+655,40,M,9534.71,4566.67,Toluca,México,Frecuente
+317,65,M,9967.38,7158.66,Puebla,Puebla,Frecuente
+394,54,M,29740.09,21419.82,Puebla,Puebla,Nuevo
+566,24,M,15365.75,11062.9,Guadalajara,Jalisco,Premium
+260,40,F,17946.63,6397.92,Monterrey,Nuevo León,Frecuente
+246,69,M,11563.45,8516.56,Monterrey,Nuevo León,Premium
+688,,M,26952.49,,Puebla,Puebla,Frecuente
+808,56,F,18924.76,12554.5,CDMX,Ciudad de México,Frecuente
+940,68,F,22088.45,8640.4,Monterrey,Nuevo León,Frecuente
+708,22,F,15122.96,6616.71,CDMX,Ciudad de México,Nuevo
+56,75,M,15147.16,6073.68,Lerma,México,Premium
+819,71,M,16315.38,9124.87,Toluca,México,Nuevo
+679,31,M,15384.43,9602.38,Puebla,Puebla,Frecuente
+758,49,M,21566.97,8225.54,Querétaro,Querétaro,Frecuente
+862,19,F,17975.11,9813.93,Monterrey,Nuevo León,Nuevo
+36,24,F,23582.86,15876.19,Puebla,Puebla,Premium
+621,61,F,22329.29,15427.29,CDMX,Ciudad de México,Frecuente
+927,30,F,27179.24,16458.13,Toluca,México,Nuevo
+661,69,M,17663.56,7860.96,Monterrey,Nuevo León,Frecuente
+22,41,M,24458.31,13527.04,Toluca,México,Frecuente
+316,44,F,10790.43,4600.11,CDMX,Ciudad de México,Frecuente
+842,37,M,16816.97,11115.47,CDMX,Ciudad de México,Nuevo
+377,34,M,11936.91,5234.45,Toluca,México,Frecuente
+733,54,F,11475.18,5215.71,CDMX,Ciudad de México,Nuevo
+970,35,F,14447.25,7978.33,Puebla,Puebla,Frecuente
+372,76,F,15467.19,11025.22,Lerma,México,Premium
+149,42,Otro,26748.97,16907.79,Monterrey,Nuevo León,Frecuente
+960,72,M,13766.34,8147.32,Guadalajara,Jalisco,Frecuente
+804,38,F,17874.16,11128.04,Lerma,México,Frecuente
+901,37,F,11048.68,7983.69,Toluca,México,Premium
+285,26,Otro,12393.6,,Guadalajara,Jalisco,Frecuente
+253,31,M,10539.94,7508.05,Toluca,México,Frecuente
+700,72,M,23481.47,13916.32,Puebla,Puebla,Premium
+487,74,F,19428.23,12870.22,Metepec,México,Premium
+956,26,F,20668.03,15479.99,Guadalajara,Jalisco,Frecuente
+559,51,M,9483.75,3451.06,Guadalajara,Jalisco,Frecuente
+325,31,F,28978.65,17746.2,Monterrey,Nuevo León,Frecuente
+116,63,M,25238.84,12476.88,Lerma,México,Nuevo
+101,69,F,18381.84,8651.1,Guadalajara,Jalisco,Premium
+717,26,M,11317.33,5821.18,Metepec,México,Nuevo
+384,58,M,12351.36,6575.91,Toluca,México,Frecuente
+547,75,M,32195.7,15620.72,Querétaro,Querétaro,Nuevo
+503,24,M,16386.11,12122.8,Toluca,México,Frecuente
+58,27,M,19283.97,9884.02,Guadalajara,Jalisco,Nuevo
+604,66,M,13842.2,10105.19,Puebla,Puebla,Nuevo
+884,37,M,14276.68,6659.67,CDMX,Ciudad de México,Nuevo
+261,40,M,23776.47,15518.23,Toluca,México,Frecuente
+419,76,M,24272.08,12386.58,CDMX,Ciudad de México,Nuevo
+451,72,M,14168.35,6598.67,Metepec,México,Premium
+282,25,Otro,16592.39,11075.06,CDMX,Ciudad de México,Frecuente
+220,50,F,19303.39,10697.81,Toluca,México,Frecuente
+180,24,M,21410.56,8817.06,CDMX,Ciudad de México,Frecuente
+110,62,M,11564.73,6307.76,Monterrey,Nuevo León,Frecuente
+148,42,F,16785.23,12459.84,Metepec,México,Frecuente
+224,73,Otro,13577.26,8202.29,Guadalajara,Jalisco,Nuevo
+434,49,M,16156.04,6391.04,Guadalajara,Jalisco,Frecuente
+958,68,M,26992.16,13937.19,CDMX,Ciudad de México,Premium
+242,46,F,12651.77,8522.45,Toluca,México,Nuevo
+762,73,M,21827.73,7924.01,Lerma,México,Nuevo
+767,35,M,22893.64,10105.86,Toluca,México,Frecuente
+826,51,M,18530.94,10426.7,Toluca,México,Frecuente
+400,32,F,21446.77,14228.2,CDMX,Ciudad de México,Premium
+755,78,M,12918.27,9142.6,Metepec,México,Premium
+599,76,Otro,20390.59,10474.17,Guadalajara,Jalisco,Nuevo
