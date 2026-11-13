@@ -200,9 +200,9 @@
 - Test que verifica las cantidades sembradas (duplicados, nulos, outliers, variantes).
 
 **Criterio de aceptación**
-- [ ] El script es idempotente: dos ejecuciones producen el mismo CSV.
-- [ ] `pytest -q tests/test_sample_data.py` valida conteos > 0 de cada problema sembrado.
-- [ ] `sample.csv` está commiteado y pesa < 200 KB.
+- [x] El script es idempotente: dos ejecuciones producen el mismo CSV.
+- [x] `pytest -q tests/test_sample_data.py` valida conteos > 0 de cada problema sembrado.
+- [x] `sample.csv` está commiteado y pesa < 200 KB.
 
 ---
 

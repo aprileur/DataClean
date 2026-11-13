@@ -208,14 +208,13 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 > 5. Indica siempre el estado de las pruebas (`pytest`) y si la app abre.
 
 **Última actualización:** 2026-11-12 / Antigravity Plus / Build
-**Estado de pruebas:** pasan (15)
+**Estado de pruebas:** pasan (25)
 **¿La app abre?:** sí (DataClean 0.0.1-alpha con tema QSS y WorkflowController)
 
 ### Tareas en orden de importancia
 
 | # | Tarea | Estado | Prioridad | Razón si no se terminó |
 |---|-------|--------|-----------|------------------------|
-| T04 | Dataset de ejemplo y fixtures (`tests/data/sample.csv`) | PENDIENTE | Normal | — |
 | T05 | `services/loader.py` + pruebas | PENDIENTE | Normal | — |
 | T06 | Vista Paso 1 (carga) | PENDIENTE | Normal | — |
 | T07 | `services/profiling.py` + pruebas | PENDIENTE | Normal | — |
@@ -240,6 +239,7 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 | T01 | Andamiaje: venv, git, estructura, ventana base | COMPLETADA | Normal | 2026-11-12 (commit b2532a3) |
 | T02 | Textos ES, tema QSS y widgets base | COMPLETADA | Normal | 2026-11-12 (commit b55b534) |
 | T03 | AppState + WorkflowController + pruebas | COMPLETADA | Normal | 2026-11-12 (commit 45ae93b) |
+| T04 | Dataset de ejemplo y fixtures (`tests/data/sample.csv`) | COMPLETADA | Normal | 2026-11-12 (commit a7fa232) |
 
 ### Plantilla para marcar una tarea no terminada
 
