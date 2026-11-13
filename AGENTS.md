@@ -239,7 +239,7 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 | T23 | Pulido visual y pruebas de reescalado | PENDIENTE | Normal | — |
 | T24 | Empaquetado `.exe` con PyInstaller (`0.0.1-alpha`) | PENDIENTE | Normal | — |
 | T25 | Cierre: suite completa y verificación de criterios | PENDIENTE | Normal | — |
-| T01 | Andamiaje: venv, git, estructura, ventana base | COMPLETADA | Normal | 2026-11-12 |
+| T01 | Andamiaje: venv, git, estructura, ventana base | COMPLETADA | Normal | 2026-11-12 (commit b2532a3) |
 
 ### Plantilla para marcar una tarea no terminada
 
