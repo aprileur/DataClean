@@ -47,6 +47,26 @@ LOAD_BTN_LOAD = "Cargar datos"
 LOAD_ERR_TITLE = "Error al cargar archivo"
 LOAD_SHEET_DIALOG_TITLE = "Seleccionar hoja de Excel"
 LOAD_SHEET_DIALOG_PROMPT = "El archivo contiene varias hojas. Selecciona la que deseas cargar:"
+LOAD_FILE_FILTER = (
+    "Archivos de datos (*.csv *.xlsx *.xls *.parquet);;"
+    "CSV (*.csv);;"
+    "Excel (*.xlsx *.xls);;"
+    "Parquet (*.parquet);;"
+    "Todos los archivos (*)"
+)
+LOAD_FILE_INFO = "{name} ({size})"
+LOAD_BTN_LOAD_TOOLTIP = "Cargar el archivo seleccionado y continuar con el flujo."
+LOAD_BTN_LOAD_DISABLED_TOOLTIP = (
+    "Selecciona un archivo válido (CSV, Excel o Parquet) para poder cargar los datos."
+)
+LOAD_INVALID_FORMAT = "Formato no soportado: «{ext}». Se admiten: {supported}."
+LOAD_UNEXPECTED_ERROR = (
+    "Ocurrió un error inesperado al cargar el archivo. "
+    "Verifica que el archivo no esté dañado e inténtalo de nuevo."
+)
+LOAD_SIZE_B = "{size} B"
+LOAD_SIZE_KB = "{size} KB"
+LOAD_SIZE_MB = "{size} MB"
 
 # Paso 2: Información general
 INFO_SHAPE_TITLE = "Forma del dataset (shape)"

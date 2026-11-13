@@ -77,6 +77,35 @@ QWidget {
     font-size: 13px;
 }
 
+/* Zona de arrastre (Paso 1) */
+#dropZone {
+    background-color: #ffffff;
+    border: 2px dashed #c39bd3;
+    border-radius: 12px;
+}
+
+#dropZone[dragActive="true"] {
+    background-color: #f3e5f5;
+    border: 2px dashed #8e44ad;
+}
+
+#dropZoneTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+#dropZoneSubtitle {
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+#dropZoneFileInfo {
+    font-size: 12px;
+    color: #34495e;
+    font-weight: 600;
+}
+
 /* Encabezado de Paso con círculo lila */
 #stepHeaderWidget {
     background: transparent;
