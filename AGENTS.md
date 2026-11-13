@@ -207,15 +207,14 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 > 4. No borres tareas completadas: déjalas al final con fecha y commit.
 > 5. Indica siempre el estado de las pruebas (`pytest`) y si la app abre.
 
-**Última actualización:** 2026-11-12 / Antigravity Plus / Build
-**Estado de pruebas:** pasan (25)
+**Última actualización:** 2026-11-12 / DeepSeek V4.1 Flash (subagente T05) / Build
+**Estado de pruebas:** pasan (68)
 **¿La app abre?:** sí (DataClean 0.0.1-alpha con tema QSS y WorkflowController)
 
 ### Tareas en orden de importancia
 
 | # | Tarea | Estado | Prioridad | Razón si no se terminó |
 |---|-------|--------|-----------|------------------------|
-| T05 | `services/loader.py` + pruebas | PENDIENTE | Normal | — |
 | T06 | Vista Paso 1 (carga) | PENDIENTE | Normal | — |
 | T07 | `services/profiling.py` + pruebas | PENDIENTE | Normal | — |
 | T08 | Widget tabla reutilizable (`DataFrameTable`) | PENDIENTE | Normal | — |
@@ -240,6 +239,7 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 | T02 | Textos ES, tema QSS y widgets base | COMPLETADA | Normal | 2026-11-12 (commit b55b534) |
 | T03 | AppState + WorkflowController + pruebas | COMPLETADA | Normal | 2026-11-12 (commit 45ae93b) |
 | T04 | Dataset de ejemplo y fixtures (`tests/data/sample.csv`) | COMPLETADA | Normal | 2026-11-12 (commit a7fa232) |
+| T05 | `services/loader.py` + pruebas | COMPLETADA | Normal | 2026-11-12 (commit e15fd60) |
 
 ### Plantilla para marcar una tarea no terminada
 
@@ -252,5 +252,14 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 - Cumple todas las reglas de control de flujo de §6: bloqueo de saltos (`StepLockedError`), avance paso a paso, retroceso libre, invalidación en cascada y reinicio completo.
 - Señales Qt disponibles: `step_changed`, `step_completed`, `steps_invalidated`, `state_reset`.
 - `MainWindow` inicializa y enlaza `self.controller = WorkflowController(parent=self)`.
-- Suite con 15 tests pasando en limpio. Ruff y Black al 100%.
-- La siguiente tarea en orden es **T04: Dataset de ejemplo y fixtures (`tests/data/sample.csv`)**.
+- **T05 lista:** `app/services/loader.py` (lógica pura, sin Qt) expone `LoaderError`, `LoadResult`,
+  `detect_encoding`, `detect_separator`, `list_sheets` y `load_file`. 43 pruebas en `tests/test_loader.py`.
+- Contrato útil para T06: `load_file(path, sheet=None) -> LoadResult` con `df`, `encoding`,
+  `separator`, `sheet` y `file_name`. Para Excel con varias hojas, llamar antes a `list_sheets(path)`
+  y preguntar al usuario; `load_file` sin `sheet` usa la primera hoja.
+- `LoaderError` ya trae mensajes en español listos para `QMessageBox`; la UI **no** debe mostrar el
+  traceback (loguear con `logger.debug/info`, que ya hace el servicio).
+- Dependencia nueva: `xlrd>=2.0.1` (solo para `.xls` antiguo). Registrada en `requirements.txt` y
+  justificada en `PLAN.md` (T05).
+- Suite con 68 tests pasando en limpio. Ruff y Black al 100%.
+- La siguiente tarea en orden es **T06: Vista Paso 1 (carga)**.
