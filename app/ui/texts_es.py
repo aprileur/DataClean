@@ -139,6 +139,7 @@ OUTLIERS_ACTION_KEEP = "Conservar valores"
 # Paso 5E: Typos
 TYPOS_COL_SELECT = "Seleccionar columna categórica:"
 TYPOS_SIMILARITY_LABEL = "Similitud mínima:"
+TYPOS_SIMILARITY_SUFFIX = " %"
 TYPOS_TABLE_VARIANT = "Variante detectada"
 TYPOS_TABLE_CANONICAL = "Valor canónico propuesto"
 TYPOS_TABLE_COUNT = "Ocurrencias"
@@ -150,3 +151,74 @@ EXPORT_BTN = "Exportar dataset limpio"
 EXPORT_SUMMARY_TITLE = "Resumen de cambios aplicados:"
 EXPORT_SUCCESS_TITLE = "Exportación exitosa"
 EXPORT_SUCCESS_MSG = "El dataset limpio fue guardado exitosamente en:\n{path}"
+
+# Paso 5: limpieza (textos compartidos por las sub-vistas A–E)
+CLEAN_NO_DATA = "No hay datos cargados."
+CLEAN_HISTORY_SKIP = "Omitido: {step_name}"
+CLEAN_STEP_SKIPPED = "Sub-paso omitido por el usuario."
+CLEAN_PROGRESS_LABEL = "Sub-pasos completados: {done} de {total}"
+CLEAN_TAB_COMPLETED_SUFFIX = "  ✓"
+CLEAN_DIAGNOSIS_TITLE = "Diagnóstico"
+
+# Paso 5A: imputación
+MISSING_IMPUTE_DIALOG_TITLE = "Imputar datos faltantes"
+MISSING_IMPUTE_COLUMN_LABEL = "Columna:"
+MISSING_IMPUTE_STRATEGY_LABEL = "Estrategia:"
+MISSING_IMPUTE_VALUE_LABEL = "Valor constante:"
+MISSING_STRATEGY_MEAN = "Media"
+MISSING_STRATEGY_MEDIAN = "Mediana"
+MISSING_STRATEGY_MODE = "Moda"
+MISSING_STRATEGY_CONSTANT = "Constante (Desconocido si se deja vacío)"
+MISSING_HISTORY_DROP = "Eliminar registros con datos faltantes"
+MISSING_HISTORY_IMPUTE = "Imputar columna «{column}» con {strategy}"
+
+# Paso 5B: columnas irrelevantes
+IRRELEVANT_SUGGESTION_LABEL = "Sugerencia: {reason}"
+IRRELEVANT_HISTORY_DROP = "Eliminar columnas: {columns}"
+IRRELEVANT_NO_COLUMNS = "El dataset no tiene columnas para evaluar."
+
+# Paso 5C: duplicados
+DUPLICATES_COLUMNS_LABEL = "Columnas para comparar:"
+DUPLICATES_EXAMPLES_TITLE = "Ejemplos de registros duplicados:"
+DUPLICATES_HISTORY_DROP = "Eliminar duplicados ({count} filas)"
+DUPLICATES_NO_COLUMNS = "Selecciona al menos una columna para comparar."
+
+# Paso 5D: outliers
+OUTLIERS_TABLE_TITLE = "Resumen de valores atípicos por columna:"
+OUTLIERS_TABLE_COL = "Columna"
+OUTLIERS_TABLE_COUNT = "Outliers"
+OUTLIERS_TABLE_PCT = "Porcentaje"
+OUTLIERS_TABLE_LOWER = "Límite inferior"
+OUTLIERS_TABLE_UPPER = "Límite superior"
+OUTLIERS_COLUMN_LABEL = "Columna a visualizar:"
+OUTLIERS_CHART_EMPTY = "Sin datos para graficar"
+OUTLIERS_CHART_BOX = "Diagrama de caja"
+OUTLIERS_CHART_HIST = "Histograma"
+OUTLIERS_CHART_VALUE = "Valor"
+OUTLIERS_CHART_FREQUENCY = "Frecuencia"
+OUTLIERS_CHART_TITLE = "Distribución de «{column}»"
+OUTLIERS_HISTORY_DROP = "Eliminar outliers de «{column}»"
+OUTLIERS_HISTORY_CLIP = "Limitar outliers de «{column}»"
+OUTLIERS_KEEP_NOTE = "Se conservan los valores de «{column}»."
+OUTLIERS_NO_NUMERIC = "No hay columnas numéricas en el dataset."
+OUTLIERS_COLUMN_COUNT = "Outliers detectados en «{column}»: {count}"
+OUTLIERS_DROP_CONFIRM_TITLE = "Confirmar eliminación de outliers"
+OUTLIERS_DROP_CONFIRM_MSG = (
+    "Se eliminarán {count} filas con valores atípicos en la columna «{column}». "
+    "¿Deseas continuar?"
+)
+OUTLIERS_CLIP_CONFIRM_TITLE = "Confirmar limitación de outliers"
+OUTLIERS_CLIP_CONFIRM_MSG = (
+    "Se limitarán {count} valores atípicos de la columna «{column}» a los bordes "
+    "calculados. ¿Deseas continuar?"
+)
+
+# Paso 5E: errores tipográficos
+TYPOS_PROPOSALS_TITLE = "Propuestas de fusión:"
+TYPOS_TABLE_ACCEPT = "Aplicar"
+TYPOS_TABLE_SCORE = "Similitud"
+TYPOS_BTN_DISCARD = "Descartar propuestas de esta columna"
+TYPOS_NO_COLUMNS = "No hay columnas categóricas en el dataset."
+TYPOS_NO_SUGGESTIONS = "No se encontraron variantes similares en esta columna."
+TYPOS_COLUMN_REVIEWED = "Columna «{column}» revisada."
+TYPOS_HISTORY_APPLY = "Fusionar variantes de «{column}» ({count} propuestas)"
