@@ -1,0 +1,29 @@
+# Entorno virtual
+.venv/
+env/
+venv/
+
+# Bytecode y cache de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+
+# Logs
+*.log
+data_clean.log
+
+# Exportaciones y salidas de usuario
+exports/
+
+# Compilación PyInstaller y empaquetado
+build/dataclean/
+dist/
+*.manifest
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
