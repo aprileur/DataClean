@@ -22,6 +22,7 @@ BTN_RESTORE_ORIGINAL = "Restaurar original"
 # Tooltips de navegación
 TOOLTIP_STEP_LOCKED = "Completa primero: {step_name}"
 TOOLTIP_STEP_COMPLETED = "Paso completado: {step_name}"
+ERROR_STEP_LOCKED = "El paso '{step_name}' está bloqueado. Completa primero los pasos anteriores."
 
 # Nombres de los pasos del flujo
 STEP_1_NAME = "1. Cargar datos"

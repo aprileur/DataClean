@@ -15,6 +15,7 @@ from PySide6.QtWidgets import (
 )
 
 from app import __app_name__, __version__
+from app.state import WorkflowController
 from app.theme import apply_theme
 from app.ui import texts_es
 
@@ -28,6 +29,7 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(900, 600)
         self.resize(1920, 1080)
 
+        self.controller = WorkflowController(parent=self)
         self._setup_ui()
         apply_theme(self)
 

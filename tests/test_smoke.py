@@ -30,5 +30,9 @@ def test_main_window_smoke(qtbot: QtBot) -> None:
     assert window.content_stack.sizePolicy().horizontalPolicy() == QSizePolicy.Policy.Expanding
     assert window.content_stack.sizePolicy().verticalPolicy() == QSizePolicy.Policy.Expanding
 
+    # Máquina de estados
+    assert window.controller is not None
+    assert window.controller.state.current.value == "LOAD"
+
     window.show()
     assert window.isVisible()
