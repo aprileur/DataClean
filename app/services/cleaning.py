@@ -1,4 +1,4 @@
-"""Limpieza del dataset: datos faltantes (sub-paso 5A).
+"""Limpieza del dataset: servicios puros para los pasos 5A–5E.
 
 Este módulo es lógica pura: **no** importa Qt ni conoce la interfaz gráfica.
 Todas las funciones reciben un `pd.DataFrame` y devuelven un DataFrame nuevo
@@ -14,8 +14,10 @@ import logging
 from typing import Any, Final
 
 import pandas as pd
+from rapidfuzz import fuzz
 
 from app.services import profiling
+from app.ui import texts_es
 
 logger = logging.getLogger(__name__)
 
@@ -36,39 +38,23 @@ class CleaningError(Exception):
     """Error de limpieza con un mensaje descriptivo listo para el usuario."""
 
 
+# --------------------------------------------------------------------------- #
+# Sub-paso 5A: Datos Faltantes
+# --------------------------------------------------------------------------- #
+
+
 def missing_report(df: pd.DataFrame, only_with_missing: bool = True) -> pd.DataFrame:
-    """Resumen de datos faltantes por columna.
-
-    Args:
-        df: DataFrame a analizar (no se modifica).
-        only_with_missing: Si es True, solo incluye columnas con al menos un
-            faltante; si es False, incluye todas las columnas.
-
-    Returns:
-        DataFrame con columnas `columna`, `faltantes` y `porcentaje`, ordenado
-        por cantidad de faltantes de forma descendente.
-    """
+    """Resumen de datos faltantes por columna."""
     return profiling.missing_summary(df, only_with_missing=only_with_missing)
 
 
 def missing_union(df: pd.DataFrame) -> tuple[int, float]:
-    """Filas con al menos un valor faltante (unión, no suma por columna).
-
-    Cuenta cada fila una sola vez aunque tenga varios huecos, para no
-    inflar el impacto real de eliminar registros incompletos.
-
-    Returns:
-        `(filas_afectadas, porcentaje_del_total)` con el porcentaje redondeado
-        a 2 decimales.
-    """
+    """Filas con al menos un valor faltante (unión, no suma por columna)."""
     return profiling.missing_row_union(df)
 
 
 def drop_missing_rows(df: pd.DataFrame) -> pd.DataFrame:
-    """Devuelve una copia del dataset sin las filas que tengan algún faltante.
-
-    El DataFrame de entrada no se modifica.
-    """
+    """Devuelve una copia del dataset sin las filas que tengan algún faltante."""
     return df.dropna().copy()
 
 
@@ -78,23 +64,7 @@ def impute_column(
     strategy: str,
     fill_value: Any = None,
 ) -> pd.DataFrame:
-    """Imputa los valores faltantes de `column` y devuelve una copia del dataset.
-
-    Args:
-        df: DataFrame de origen (no se modifica).
-        column: Nombre de la columna a imputar.
-        strategy: Una de `mean`, `median`, `mode` o `constant`.
-        fill_value: Valor de respaldo para `constant` y para columnas sin moda
-            calculable. Si es `None` se usa "Desconocido" en columnas
-            categóricas y `0` en numéricas.
-
-    Returns:
-        Copia del DataFrame con los faltantes de `column` reemplazados.
-
-    Raises:
-        CleaningError: si la estrategia no es válida, la columna no existe o
-            se pide media/mediana en una columna no numérica.
-    """
+    """Imputa los valores faltantes de `column` y devuelve una copia del dataset."""
     normalized = strategy.strip().lower() if isinstance(strategy, str) else ""
     if normalized not in IMPUTATION_STRATEGIES:
         allowed = ", ".join(IMPUTATION_STRATEGIES)
@@ -133,20 +103,7 @@ def impute_column(
 
 
 def heatmap_sample(df: pd.DataFrame, max_rows: int = HEATMAP_MAX_ROWS) -> pd.DataFrame:
-    """Máscara booleana de faltantes lista para dibujar el mapa de calor.
-
-    Args:
-        df: DataFrame a representar (no se modifica).
-        max_rows: Número máximo de filas a devolver. Si el dataset es mayor,
-            se toma una muestra determinista para no saturar el gráfico.
-
-    Returns:
-        DataFrame booleano con la misma forma que la muestra (`True` = faltante),
-        con el índice original de las filas conservadas.
-
-    Raises:
-        CleaningError: si `max_rows` no es un entero positivo.
-    """
+    """Máscara booleana de faltantes lista para dibujar el mapa de calor."""
     if max_rows < 1:
         raise CleaningError(
             f"El número máximo de filas del mapa de calor debe ser positivo (recibido: {max_rows})."
@@ -157,6 +114,274 @@ def heatmap_sample(df: pd.DataFrame, max_rows: int = HEATMAP_MAX_ROWS) -> pd.Dat
 
     sample = df.sample(n=max_rows, random_state=HEATMAP_RANDOM_STATE)
     return sample.sort_index().isna()
+
+
+# --------------------------------------------------------------------------- #
+# Sub-paso 5B: Columnas Irrelevantes
+# --------------------------------------------------------------------------- #
+
+
+def suggest_irrelevant(df: pd.DataFrame) -> dict[str, str]:
+    """Sugiere columnas candidatas a ser eliminadas por irrelevancia.
+
+    Criterios automáticos de sugerencia:
+    - Columna constante (un solo valor único, incluyendo nulos).
+    - Columna con más del 90% de valores faltantes.
+    - Columna con un valor único por fila (posibles identificadores / IDs).
+
+    Returns:
+        Diccionario {nombre_columna: razon_en_espanol}.
+    """
+    suggestions: dict[str, str] = {}
+    total_rows = len(df)
+    if total_rows == 0:
+        return suggestions
+
+    for col in df.columns:
+        series = df[col]
+        # 1. Columna con > 90% de valores faltantes
+        missing_pct = series.isna().mean()
+        if missing_pct > 0.90:
+            suggestions[col] = texts_es.IRRELEVANT_SUGGESTION_EMPTY
+            continue
+
+        # 2. Columna constante (1 solo valor único)
+        unique_count_with_na = series.nunique(dropna=False)
+        if unique_count_with_na <= 1:
+            suggestions[col] = texts_es.IRRELEVANT_SUGGESTION_CONST
+            continue
+
+        # 3. Posible ID único por fila (todos valores únicos y sin nulos)
+        if total_rows > 1 and series.nunique(dropna=True) == total_rows:
+            suggestions[col] = texts_es.IRRELEVANT_SUGGESTION_ID
+
+    return suggestions
+
+
+def drop_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
+    """Elimina las columnas especificadas y devuelve una copia del DataFrame."""
+    if not columns:
+        return df.copy()
+
+    missing = [c for c in columns if c not in df.columns]
+    if missing:
+        raise CleaningError(
+            f"Las siguientes columnas no existen en el dataset: {', '.join(missing)}."
+        )
+
+    return df.drop(columns=columns).copy()
+
+
+# --------------------------------------------------------------------------- #
+# Sub-paso 5C: Registros Repetidos
+# --------------------------------------------------------------------------- #
+
+
+def duplicate_mask(
+    df: pd.DataFrame, subset: list[str] | None = None, keep: str = "first"
+) -> pd.Series:
+    """Devuelve máscara booleana (`True` = registro duplicado a descartar)."""
+    valid_keep = keep if keep in ("first", "last", False) else "first"
+    cols = subset if (subset and len(subset) > 0) else None
+    return df.duplicated(subset=cols, keep=valid_keep)
+
+
+def count_duplicates(df: pd.DataFrame, subset: list[str] | None = None) -> int:
+    """Devuelve la cantidad de filas duplicadas exactas o por subconjunto."""
+    return int(duplicate_mask(df, subset=subset, keep="first").sum())
+
+
+def get_duplicate_examples(
+    df: pd.DataFrame, subset: list[str] | None = None, max_rows: int = 20
+) -> pd.DataFrame:
+    """Devuelve una muestra de ejemplos de registros duplicados para previsualizar."""
+    mask = df.duplicated(subset=subset, keep=False)
+    duplicates = df[mask]
+    if len(duplicates) > max_rows:
+        return duplicates.head(max_rows).copy()
+    return duplicates.copy()
+
+
+def drop_duplicates(
+    df: pd.DataFrame, subset: list[str] | None = None, keep: str = "first"
+) -> pd.DataFrame:
+    """Elimina los registros duplicados y devuelve una copia del DataFrame."""
+    valid_keep = keep if keep in ("first", "last") else "first"
+    cols = subset if (subset and len(subset) > 0) else None
+    return df.drop_duplicates(subset=cols, keep=valid_keep).copy()
+
+
+# --------------------------------------------------------------------------- #
+# Sub-paso 5D: Valores Atípicos (Outliers)
+# --------------------------------------------------------------------------- #
+
+
+def outlier_bounds_iqr(series: pd.Series, k: float = 1.5) -> tuple[float, float]:
+    """Calcula los límites inferior y superior por el método IQR."""
+    clean = series.dropna()
+    if clean.empty:
+        return (0.0, 0.0)
+    q1 = float(clean.quantile(0.25))
+    q3 = float(clean.quantile(0.75))
+    iqr = q3 - q1
+    return (q1 - k * iqr, q3 + k * iqr)
+
+
+def outlier_bounds_zscore(series: pd.Series, threshold: float = 3.0) -> tuple[float, float]:
+    """Calcula los límites inferior y superior por el método Z-score."""
+    clean = series.dropna()
+    if clean.empty or len(clean) < 2:
+        return (0.0, 0.0)
+    mean = float(clean.mean())
+    std = float(clean.std())
+    if std == 0.0:
+        return (mean, mean)
+    return (mean - threshold * std, mean + threshold * std)
+
+
+def outlier_bounds(
+    series: pd.Series, method: str = "iqr", threshold: float = 1.5
+) -> tuple[float, float]:
+    """Obtiene los límites de outliers según el método ('iqr' o 'zscore')."""
+    m = method.strip().lower()
+    if m == "zscore":
+        return outlier_bounds_zscore(series, threshold=threshold)
+    return outlier_bounds_iqr(series, k=threshold)
+
+
+def outlier_mask(series: pd.Series, method: str = "iqr", threshold: float = 1.5) -> pd.Series:
+    """Devuelve máscara booleana con `True` donde el valor es un outlier."""
+    if not pd.api.types.is_numeric_dtype(series.dtype):
+        return pd.Series(False, index=series.index)
+    clean = series.dropna()
+    if clean.empty:
+        return pd.Series(False, index=series.index)
+    lower, upper = outlier_bounds(series, method=method, threshold=threshold)
+    return (series < lower) | (series > upper)
+
+
+def analyze_outliers(df: pd.DataFrame, method: str = "iqr", threshold: float = 1.5) -> pd.DataFrame:
+    """Genera un reporte de outliers para todas las columnas numéricas."""
+    numeric_cols = [c for c in df.columns if pd.api.types.is_numeric_dtype(df[c].dtype)]
+    records = []
+    total_rows = len(df)
+
+    for col in numeric_cols:
+        series = df[col]
+        lower, upper = outlier_bounds(series, method=method, threshold=threshold)
+        mask = (series < lower) | (series > upper)
+        count = int(mask.sum())
+        pct = round((count / total_rows * 100), 2) if total_rows > 0 else 0.0
+        records.append(
+            {
+                "columna": col,
+                "outliers": count,
+                "porcentaje": pct,
+                "limite_inferior": round(lower, 2),
+                "limite_superior": round(upper, 2),
+            }
+        )
+
+    if not records:
+        return pd.DataFrame(
+            columns=["columna", "outliers", "porcentaje", "limite_inferior", "limite_superior"]
+        )
+    return pd.DataFrame(records).sort_values(by="outliers", ascending=False).reset_index(drop=True)
+
+
+def clip_outliers(
+    df: pd.DataFrame, column: str, method: str = "iqr", threshold: float = 1.5
+) -> pd.DataFrame:
+    """Winsoriza (recorta a los límites) los outliers de la columna."""
+    if column not in df.columns:
+        raise CleaningError(f"La columna «{column}» no existe en el dataset.")
+    if not pd.api.types.is_numeric_dtype(df[column].dtype):
+        raise CleaningError(f"La columna «{column}» no es numérica.")
+
+    result = df.copy()
+    lower, upper = outlier_bounds(result[column], method=method, threshold=threshold)
+    result[column] = result[column].clip(lower=lower, upper=upper)
+    return result
+
+
+def drop_outliers(
+    df: pd.DataFrame, column: str, method: str = "iqr", threshold: float = 1.5
+) -> pd.DataFrame:
+    """Elimina las filas que contienen outliers en la columna indicada."""
+    if column not in df.columns:
+        raise CleaningError(f"La columna «{column}» no existe en el dataset.")
+    if not pd.api.types.is_numeric_dtype(df[column].dtype):
+        raise CleaningError(f"La columna «{column}» no es numérica.")
+
+    mask = outlier_mask(df[column], method=method, threshold=threshold)
+    return df[~mask].copy()
+
+
+# --------------------------------------------------------------------------- #
+# Sub-paso 5E: Errores Tipográficos (Typos)
+# --------------------------------------------------------------------------- #
+
+
+def normalize_text(series: pd.Series) -> pd.Series:
+    """Normaliza texto eliminando espacios sobrantes en extremos e interiores."""
+    return series.astype(str).str.strip().str.replace(r"\s+", " ", regex=True)
+
+
+def suggest_merges(series: pd.Series, cutoff: float = 85.0) -> list[tuple[str, str, int, float]]:
+    """Detecta variantes similares que podrían fusionarse a un valor canónico.
+
+    Usa `rapidfuzz` para calcular similitud fonética/textual entre valores únicos.
+    El valor canónico se selecciona por mayor frecuencia en el dataset (o alfabético en empate).
+
+    Returns:
+        Lista de tuplas: (variante, valor_canonico, conteo_de_variante, puntaje_similitud).
+    """
+    clean_series = series.dropna()
+    if clean_series.empty:
+        return []
+
+    # Conteo de frecuencias por valor exacto (como string)
+    value_counts = clean_series.astype(str).value_counts().to_dict()
+    unique_values = list(value_counts.keys())
+    if len(unique_values) < 2:
+        return []
+
+    # Ordenar por frecuencia descendente y luego alfabético
+    sorted_unique = sorted(unique_values, key=lambda v: (-value_counts[v], v))
+    processed: set[str] = set()
+    suggestions: list[tuple[str, str, int, float]] = []
+
+    for i, canonical in enumerate(sorted_unique):
+        if canonical in processed:
+            continue
+        canonical_norm = canonical.strip().lower()
+
+        for j in range(i + 1, len(sorted_unique)):
+            candidate = sorted_unique[j]
+            if candidate in processed:
+                continue
+
+            candidate_norm = candidate.strip().lower()
+
+            # Comparar similitud con WRatio
+            score = fuzz.WRatio(canonical_norm, candidate_norm)
+            if score >= cutoff:
+                processed.add(candidate)
+                suggestions.append((candidate, canonical, value_counts[candidate], float(score)))
+
+    return sorted(suggestions, key=lambda x: -x[2])
+
+
+def apply_merges(df: pd.DataFrame, column: str, mapping: dict[str, str]) -> pd.DataFrame:
+    """Aplica las fusiones de variantes tipográficas a la columna indicada."""
+    if column not in df.columns:
+        raise CleaningError(f"La columna «{column}» no existe en el dataset.")
+    if not mapping:
+        return df.copy()
+
+    result = df.copy()
+    result[column] = result[column].astype(str).replace(mapping)
+    return result
 
 
 # --------------------------------------------------------------------------- #
@@ -187,11 +412,7 @@ def _imputation_value(
 
 
 def _fill_series(series: pd.Series, value: Any) -> pd.Series:
-    """Rellena una serie conservando el dtype cuando el valor es compatible.
-
-    Si el dtype no admite el valor (por ejemplo, una media decimal en una
-    columna entera nullable) se convierte la columna a `float64`.
-    """
+    """Rellena una serie conservando el dtype cuando el valor es compatible."""
     try:
         return series.fillna(value)
     except (TypeError, ValueError):
@@ -206,5 +427,5 @@ def _is_missing(value: Any) -> bool:
         return True
     try:
         return bool(pd.isna(value))
-    except (TypeError, ValueError):  # pragma: no cover - valores no escalares
+    except (TypeError, ValueError):
         return True
