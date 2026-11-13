@@ -244,10 +244,10 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Al cargar: `controller.reset()` si había datos, guarda `original_df` inmutable y `working_df = original_df.copy()`, completa `LOAD`.
 
 **Criterio de aceptación**
-- [ ] Arrastrar CSV válido habilita el botón; arrastrar `.txt` lo mantiene deshabilitado.
-- [ ] Cargar el ejemplo lleva a `INFO` y `original_df` no se modifica al editar `working_df`.
-- [ ] Cargar un segundo archivo limpia historial y pasos completados.
-- [ ] Test con monkeypatch de `QMessageBox` verifica el texto en español.
+- [x] Arrastrar CSV válido habilita el botón; arrastrar `.txt` lo mantiene deshabilitado.
+- [x] Cargar el ejemplo lleva a `INFO` y `original_df` no se modifica al editar `working_df`.
+- [x] Cargar un segundo archivo limpia historial y pasos completados.
+- [x] Test con monkeypatch de `QMessageBox` verifica el texto en español.
 
 ---
 
@@ -264,9 +264,9 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Tests con `sample_df` y DataFrames sintéticos (incluye dtype `str` de pandas 3 y bool).
 
 **Criterio de aceptación**
-- [ ] `missing_row_union` < suma de faltantes por columna en `overlap_missing_df`.
-- [ ] Columna `str` y `bool` aparecen en categóricas; `datetime` en su grupo.
-- [ ] `looks_like_id` marca `id` pero **no** reclasifica nada.
+- [x] `missing_row_union` < suma de faltantes por columna en `overlap_missing_df`.
+- [x] Columna `str` y `bool` aparecen en categóricas; `datetime` en su grupo.
+- [x] `looks_like_id` marca `id` pero **no** reclasifica nada.
 
 ---
 
