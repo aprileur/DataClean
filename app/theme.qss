@@ -1,0 +1,193 @@
+/* DataClean - Tema Centralizado QSS */
+/* Paleta: Fondo #f8f9fa, Lila #8e44ad / #9b59b6, Lila Claro #f3e5f5 / #e8d7ea, Borde #dcdde1 */
+
+QWidget {
+    font-family: "Segoe UI", "SF Pro Display", -apple-system, sans-serif;
+    font-size: 13px;
+    color: #2c3e50;
+    background-color: #f8f9fa;
+}
+
+/* Barra superior */
+#topBar {
+    background-color: #9b59b6;
+    border-radius: 10px;
+    padding: 10px 18px;
+    margin: 8px 12px 4px 12px;
+}
+
+#topBarTitle {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#topBarSubtitle {
+    color: #f3e5f5;
+    font-size: 12px;
+}
+
+/* Sidebar */
+#sidebar {
+    background-color: #ffffff;
+    border-right: 1px solid #e1e2e6;
+}
+
+#sidebarTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 8px;
+}
+
+/* Tarjetas (Cards) */
+.StatCard, .InfoCard {
+    background-color: #ffffff;
+    border: 1px solid #e1e2e6;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.StatCard QLabel#cardTitle, .InfoCard QLabel#cardTitle {
+    font-size: 12px;
+    font-weight: 600;
+    color: #7f8c8d;
+    text-transform: uppercase;
+}
+
+.StatCard QLabel#cardValue {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-top: 4px;
+}
+
+/* Banner de Advertencia */
+#warningBanner {
+    background-color: #fff9db;
+    border: 1px solid #f59f00;
+    border-left: 5px solid #f59f00;
+    border-radius: 6px;
+    padding: 10px 14px;
+}
+
+#warningBanner QLabel {
+    color: #7f4f00;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+/* Encabezado de Paso con círculo lila */
+#stepHeaderWidget {
+    background: transparent;
+    margin-bottom: 12px;
+}
+
+#stepBadge {
+    background-color: #9b59b6;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 15px;
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    qproperty-alignment: 'AlignCenter';
+}
+
+#stepTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-left: 8px;
+}
+
+/* Botones */
+QPushButton {
+    background-color: #ffffff;
+    border: 1px solid #ced6e0;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-weight: 600;
+    color: #2f3542;
+}
+
+QPushButton:hover {
+    background-color: #f1f2f6;
+    border-color: #a4b0be;
+}
+
+QPushButton:pressed {
+    background-color: #e4e7ea;
+}
+
+QPushButton:disabled {
+    background-color: #f8f9fa;
+    border-color: #e9ecef;
+    color: #a4b0be;
+}
+
+/* Botón primario lila */
+QPushButton#primaryButton {
+    background-color: #9b59b6;
+    border: 1px solid #8e44ad;
+    color: #ffffff;
+}
+
+QPushButton#primaryButton:hover {
+    background-color: #8e44ad;
+}
+
+QPushButton#primaryButton:pressed {
+    background-color: #7d3c98;
+}
+
+QPushButton#primaryButton:disabled {
+    background-color: #d7bde2;
+    border-color: #d7bde2;
+    color: #fdfefe;
+}
+
+/* Botón destructivo / DangerButton */
+QPushButton#dangerButton {
+    background-color: #ffffff;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+QPushButton#dangerButton:hover {
+    background-color: #fdedec;
+    border-color: #c0392b;
+    color: #c0392b;
+}
+
+QPushButton#dangerButton:pressed {
+    background-color: #f5b7b1;
+}
+
+QPushButton#dangerButton:disabled {
+    border-color: #fadbd8;
+    color: #fadbd8;
+    background-color: #ffffff;
+}
+
+/* Tablas */
+QTableView {
+    background-color: #ffffff;
+    border: 1px solid #dfe4ea;
+    border-radius: 6px;
+    gridline-color: #f1f2f6;
+    selection-background-color: #f3e5f5;
+    selection-color: #2c3e50;
+}
+
+QHeaderView::section {
+    background-color: #f8f9fa;
+    border: none;
+    border-bottom: 1px solid #dfe4ea;
+    border-right: 1px solid #f1f2f6;
+    padding: 6px 10px;
+    font-weight: 600;
+}
