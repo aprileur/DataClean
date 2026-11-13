@@ -208,14 +208,13 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 > 5. Indica siempre el estado de las pruebas (`pytest`) y si la app abre.
 
 **Última actualización:** 2026-11-12 / Antigravity Plus / Build
-**Estado de pruebas:** pasan (1)
-**¿La app abre?:** sí (DataClean 0.0.1-alpha)
+**Estado de pruebas:** pasan (6)
+**¿La app abre?:** sí (DataClean 0.0.1-alpha con tema QSS)
 
 ### Tareas en orden de importancia
 
 | # | Tarea | Estado | Prioridad | Razón si no se terminó |
 |---|-------|--------|-----------|------------------------|
-| T02 | Textos ES, tema QSS y widgets base | PENDIENTE | Normal | — |
 | T03 | AppState + WorkflowController + pruebas | PENDIENTE | Normal | — |
 | T04 | Dataset de ejemplo y fixtures (`tests/data/sample.csv`) | PENDIENTE | Normal | — |
 | T05 | `services/loader.py` + pruebas | PENDIENTE | Normal | — |
@@ -240,6 +239,7 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 | T24 | Empaquetado `.exe` con PyInstaller (`0.0.1-alpha`) | PENDIENTE | Normal | — |
 | T25 | Cierre: suite completa y verificación de criterios | PENDIENTE | Normal | — |
 | T01 | Andamiaje: venv, git, estructura, ventana base | COMPLETADA | Normal | 2026-11-12 (commit b2532a3) |
+| T02 | Textos ES, tema QSS y widgets base | COMPLETADA | Normal | 2026-11-12 (commit b55b534) |
 
 ### Plantilla para marcar una tarea no terminada
 
@@ -248,8 +248,9 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 ```
 
 ### Notas para el siguiente agente
-- Entorno configurado en `.venv` con Python 3.13.15 y dependencias completas (PySide6, pandas, matplotlib, rapidfuzz, pytest, etc.).
-- La ventana principal inicia en 1920x1080 (mínimo 900x600) con sidebar fija de 240px y QStackedWidget expandible.
-- El título de la app se obtiene de `app.__version__` (`DataClean 0.0.1-alpha`).
-- La siguiente tarea en orden es **T02: Textos ES, tema QSS y widgets base**.
-- Comandos útiles: `.\.venv\Scripts\Activate.ps1`, `python -m pytest -q`, `python -m app`.
+- Textos centralizados en `app/ui/texts_es.py`. Ningún string de UI visible hardcodeado.
+- Estilo visual QSS centralizado en `app/theme.qss` y gestor `app/theme.py`.
+- Widgets base creados y probados: `StatCard`, `InfoCard`, `WarningBanner`, `StepHeader`, `PrimaryButton`, `DangerButton`.
+- `MainWindow` cuenta con barra superior lila (`#topBar`), sidebar y contenedor con QSS aplicado.
+- Suite con 6 tests pasando en limpio. Ruff y Black al 100%.
+- La siguiente tarea en orden es **T03: AppState + WorkflowController + pruebas**.
