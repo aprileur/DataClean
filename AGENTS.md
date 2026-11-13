@@ -207,32 +207,32 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 > 4. No borres tareas completadas: déjalas al final con fecha y commit.
 > 5. Indica siempre el estado de las pruebas (`pytest`) y si la app abre.
 
-**Última actualización:** 2026-11-12 / Gemini 3.8 Flash (Organizador) / Build
-**Estado de pruebas:** pasan (101)
-**¿La app abre?:** sí (DataClean 0.0.1-alpha con tema QSS y WorkflowController)
+**Última actualización:** 2026-11-13 / Agente A (Big Pickle, OpenCode) / Build
+**Estado de pruebas:** pasan (235)
+**¿La app abre?:** sí (`python -m app` con `QT_QPA_PLATFORM=offscreen` sin traceback)
 
 ### Tareas en orden de importancia
 
 | # | Tarea | Estado | Prioridad | Razón si no se terminó |
 |---|-------|--------|-----------|------------------------|
-| T08 | Widget tabla reutilizable (`DataFrameTable`) | EN PROGRESO | Normal | En ejecución con subagente MiMo |
-| T09 | Vistas Pasos 2 y 4 | PENDIENTE | Normal | — |
-| T10 | Vista Paso 3 (vista previa) | PENDIENTE | Normal | — |
-| T11 | Limpieza A: servicio de faltantes | PENDIENTE | Normal | — |
-| T12 | Vista 5A: diagnóstico + banner + tabla | PENDIENTE | Normal | — |
-| T13 | Vista 5A: mapa de calor + acciones | PENDIENTE | Normal | — |
-| T14 | Limpieza B: columnas irrelevantes | PENDIENTE | Normal | — |
-| T15 | Limpieza C: duplicados | PENDIENTE | Normal | — |
-| T16 | Limpieza D: outliers | PENDIENTE | Normal | — |
-| T17 | Limpieza E: errores tipográficos (`rapidfuzz`) | PENDIENTE | Normal | — |
-| T18 | Contenedor Paso 5: pestañas, omitir, auto-completar | PENDIENTE | Normal | — |
-| T19 | Historial, deshacer y restaurar original | PENDIENTE | Normal | — |
-| T20 | Exportación y resumen final (`<stem>_nuevo.<ext>`) | PENDIENTE | Normal | — |
+| T19 | Historial, deshacer y restaurar original (UI) | PENDIENTE | Normal | `app/history.py` listo (2150cb8); faltan botones en la UI |
+| T20 | Vista de exportación y resumen final | PENDIENTE | Normal | `app/services/exporter.py` listo (eeac5a0); falta `app/views/export.py` |
 | T21 | Hilos para operaciones pesadas (`QThread` worker) | PENDIENTE | Normal | — |
 | T22 | Logging y borde de errores | PENDIENTE | Normal | — |
 | T23 | Pulido visual y pruebas de reescalado | PENDIENTE | Normal | — |
 | T24 | Empaquetado `.exe` con PyInstaller (`0.0.1-alpha`) | PENDIENTE | Normal | — |
 | T25 | Cierre: suite completa y verificación de criterios | PENDIENTE | Normal | — |
+| T08 | Widget tabla reutilizable (`DataFrameTable`) | COMPLETADA | Normal | 2026-11-13 (commit ab91345) |
+| T09 | Vistas Pasos 2 y 4 | COMPLETADA | Normal | 2026-11-13 (commit f5a8a2a) |
+| T10 | Vista Paso 3 (vista previa) | COMPLETADA | Normal | 2026-11-13 (commit e9c75d1) |
+| T11 | Limpieza A: servicio de faltantes | COMPLETADA | Normal | 2026-11-13 (commit a5bba5c) |
+| T12 | Vista 5A: diagnóstico + banner + tabla | COMPLETADA | Normal | 2026-11-13 (commit 1f4ba75) |
+| T13 | Vista 5A: mapa de calor + acciones | COMPLETADA | Normal | 2026-11-13 (commit 1f4ba75) |
+| T14 | Limpieza B: columnas irrelevantes | COMPLETADA | Normal | 2026-11-13 (commit 622affa) |
+| T15 | Limpieza C: duplicados | COMPLETADA | Normal | 2026-11-13 (commit ef371ab) |
+| T16 | Limpieza D: outliers | COMPLETADA | Normal | 2026-11-13 (commit d04f106) |
+| T17 | Limpieza E: errores tipográficos (`rapidfuzz`) | COMPLETADA | Normal | 2026-11-13 (commit c3a1c92) |
+| T18 | Contenedor Paso 5: pestañas, omitir, auto-completar | COMPLETADA | Normal | 2026-11-13 (commit fd1b30d) |
 | T01 | Andamiaje: venv, git, estructura, ventana base | COMPLETADA | Normal | 2026-11-12 (commit b2532a3) |
 | T02 | Textos ES, tema QSS y widgets base | COMPLETADA | Normal | 2026-11-12 (commit b55b534) |
 | T03 | AppState + WorkflowController + pruebas | COMPLETADA | Normal | 2026-11-12 (commit 45ae93b) |
@@ -248,18 +248,12 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 ```
 
 ### Notas para el siguiente agente
-- `AppState` y `WorkflowController` implementados en `app/state.py` con `Step(StrEnum)` y `STEP_ORDER`.
-- Cumple todas las reglas de control de flujo de §6: bloqueo de saltos (`StepLockedError`), avance paso a paso, retroceso libre, invalidación en cascada y reinicio completo.
-- Señales Qt disponibles: `step_changed`, `step_completed`, `steps_invalidated`, `state_reset`.
-- `MainWindow` inicializa y enlaza `self.controller = WorkflowController(parent=self)`.
-- **T05 lista:** `app/services/loader.py` (lógica pura, sin Qt) expone `LoaderError`, `LoadResult`,
-  `detect_encoding`, `detect_separator`, `list_sheets` y `load_file`. 43 pruebas en `tests/test_loader.py`.
-- Contrato útil para T06: `load_file(path, sheet=None) -> LoadResult` con `df`, `encoding`,
-  `separator`, `sheet` y `file_name`. Para Excel con varias hojas, llamar antes a `list_sheets(path)`
-  y preguntar al usuario; `load_file` sin `sheet` usa la primera hoja.
-- `LoaderError` ya trae mensajes en español listos para `QMessageBox`; la UI **no** debe mostrar el
-  traceback (loguear con `logger.debug/info`, que ya hace el servicio).
-- Dependencia nueva: `xlrd>=2.0.1` (solo para `.xls` antiguo). Registrada en `requirements.txt` y
-  justificada en `PLAN.md` (T05).
-- Suite con 68 tests pasando en limpio. Ruff y Black al 100%.
-- La siguiente tarea en orden es **T06: Vista Paso 1 (carga)**.
+- Paso 5 completo en `app/views/step5_cleaning/`: `base.py` (historial + invalidación + omitir), vistas `missing`, `irrelevant`, `duplicates`, `outliers`, `typos` y contenedor en `__init__.py`.
+- El contenedor expone `export_requested` y lo emite al pulsar **Siguiente** (con A–E completos). **MainWindow aún no monta las vistas**; T25/T23 debe conectar los Pasos 1–5 y la exportación al `QStackedWidget`.
+- Navegación: Anterior/Omitir/Siguiente viven en el contenedor (no duplicados en cada pestaña); cada sub-vista expone `refresh()`, `skip()` y la señal `step_done`.
+- Acciones de limpieza: snapshot en `state.history`, `working_df` actualizado y `invalidate_from(step, inclusive=False)`; `original_df` nunca se muta.
+- Auto-completado: A sin faltantes, B sin sugerencias, C sin duplicados, D sin outliers y E sin propuestas marcan el sub-paso como resuelto.
+- Para pruebas de UI usar `QT_QPA_PLATFORM=offscreen`; `tests/test_views_step5.py` tiene 16 pruebas de humo e integración.
+- `Step` sigue siendo `StrEnum`; recordar comparar con `Step.CLEAN_X`, no con cadenas.
+- Suite: 235 tests; `ruff check app tests` y `black --check app tests` limpios.
+
