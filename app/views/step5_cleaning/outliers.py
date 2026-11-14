@@ -7,6 +7,8 @@ por columna: eliminar, limitar (winsorizar) o conservar.
 
 from __future__ import annotations
 
+import logging
+
 import matplotlib
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
@@ -36,8 +38,11 @@ from app.services.cleaning import (  # noqa: E402
 from app.state import Step, WorkflowController  # noqa: E402
 from app.ui import texts_es  # noqa: E402
 from app.views.step5_cleaning.base import CleaningStepView  # noqa: E402
-from app.widgets import DangerButton, PrimaryButton  # noqa: E402
+from app.widgets import BusyIndicator, DangerButton, PrimaryButton  # noqa: E402
 from app.widgets.dataframe_table import DataFrameTable  # noqa: E402
+from app.workers import Worker, run_in_thread  # noqa: E402
+
+logger = logging.getLogger(__name__)
 
 #: Umbral por defecto del método IQR.
 IQR_DEFAULT_THRESHOLD = 1.5
@@ -157,6 +162,15 @@ class OutliersView(CleaningStepView):
     def __init__(self, controller: WorkflowController, parent: QWidget | None = None) -> None:
         super().__init__(controller, parent)
         self._resolved: set[str] = set()
+        #: Worker del análisis en curso (referencia viva hasta su señal final).
+        self._refresh_worker: Worker | None = None
+        #: Token que invalida resultados de análisis obsoletos.
+        self._refresh_token = 0
+        #: Parámetros (token, método, umbral) del análisis en curso.
+        self._pending: tuple[int, str, float] | None = None
+        #: Último reporte calculado y la clave (método, umbral) que lo produjo.
+        self._report: pd.DataFrame | None = None
+        self._report_key: tuple[str, float] | None = None
 
         self.method_label = QLabel(texts_es.OUTLIERS_METHOD_LABEL, self)
         self.method_combo = QComboBox(self)
@@ -230,6 +244,9 @@ class OutliersView(CleaningStepView):
         actions_row.addWidget(self.keep_button)
         actions_row.addStretch()
 
+        self.busy_indicator = BusyIndicator(texts_es.OUTLIERS_PROGRESS_LABEL, self)
+
+        self.body_layout.addWidget(self.busy_indicator)
         self.body_layout.addLayout(controls_row)
         self.body_layout.addWidget(self.table_title)
         self.body_layout.addWidget(self.splitter, 1)
@@ -247,49 +264,29 @@ class OutliersView(CleaningStepView):
 
     # -- API pública ------------------------------------------------------- #
 
-    def refresh(self) -> None:
-        """Recalcula el reporte de outliers y actualiza la tabla y el gráfico."""
-        df = self.dataframe
-        method, threshold = self._method_and_threshold()
+    @property
+    def is_busy(self) -> bool:
+        """Indica si hay un análisis de outliers en curso en segundo plano."""
+        return self._refresh_worker is not None
 
-        if df is None:
-            self.table.set_dataframe(None)
-            self.no_issues_label.setVisible(False)
-            self.no_numeric_label.setVisible(False)
-            self.count_label.setText("")
-            self._rebuild_columns([])
-            self.chart.clear()
-            self._set_action_enabled(False)
+    def refresh(self) -> None:
+        """Lanza en segundo plano el análisis de outliers y actualiza la vista.
+
+        El cálculo (`analyze_outliers`) se ejecuta en el `QThreadPool` para no
+        congelar la interfaz con datasets grandes. Cualquier llamada invalida el
+        resultado de un análisis anterior: si ya hay uno en curso, al terminar
+        se relanza con los valores actuales del formulario («el último gana»).
+        """
+        self._refresh_token += 1
+        if self._refresh_worker is not None:
             return
 
-        report = analyze_outliers(df, method=method, threshold=threshold)
-        display = report.rename(
-            columns={
-                "columna": texts_es.OUTLIERS_TABLE_COL,
-                "outliers": texts_es.OUTLIERS_TABLE_COUNT,
-                "porcentaje": texts_es.OUTLIERS_TABLE_PCT,
-                "limite_inferior": texts_es.OUTLIERS_TABLE_LOWER,
-                "limite_superior": texts_es.OUTLIERS_TABLE_UPPER,
-            }
-        )
-        self.table.set_dataframe(display)
+        df = self.dataframe
+        if df is None:
+            self._clear_display()
+            return
 
-        numeric_columns = [str(col) for col in report["columna"]]
-        self.no_numeric_label.setVisible(not numeric_columns)
-        self._rebuild_columns(numeric_columns)
-
-        total_outliers = int(report["outliers"].sum()) if not report.empty else 0
-        self.no_issues_label.setVisible(bool(numeric_columns) and total_outliers == 0)
-
-        for column in numeric_columns:
-            count = self._count_for(report, column)
-            if count == 0:
-                self._resolved.add(column)
-
-        self._update_selected_column()
-
-        self.complete_if_no_issues(has_issues=bool(numeric_columns) and total_outliers > 0)
-        self._maybe_complete(report)
+        self._start_refresh(self._refresh_token, df)
 
     def drop_selected_outliers(self) -> None:
         """Elimina las filas con outliers en la columna activa, con confirmación."""
@@ -355,6 +352,10 @@ class OutliersView(CleaningStepView):
     def reset_diagnostics(self) -> None:
         """Olvida las columnas conservadas al reiniciar el flujo."""
         self._resolved.clear()
+        self._report = None
+        self._report_key = None
+        # Invalida cualquier análisis en curso: su resultado ya no aplica.
+        self._refresh_token += 1
         super().reset_diagnostics()
 
     # -- Utilidades internas ----------------------------------------------- #
@@ -362,6 +363,109 @@ class OutliersView(CleaningStepView):
     def selected_column(self) -> str:
         """Columna numérica seleccionada en el combo (o cadena vacía)."""
         return str(self.column_combo.currentText())
+
+    def _start_refresh(self, token: int, df: pd.DataFrame) -> None:
+        """Lanza el análisis del DataFrame en el `QThreadPool`."""
+        method, threshold = self._method_and_threshold()
+        self._report = None
+        self._report_key = None
+        self._pending = (token, method, threshold)
+        self._set_busy(True)
+        self._refresh_worker = run_in_thread(
+            analyze_outliers,
+            df,
+            method=method,
+            threshold=threshold,
+            on_result=self._on_report_ready,
+            on_error=self._on_refresh_error,
+        )
+
+    def _on_report_ready(self, report: pd.DataFrame) -> None:
+        """Aplica el reporte si sigue vigente; si no, relanza el análisis."""
+        pending = self._pending
+        self._pending = None
+        self._refresh_worker = None
+
+        token, method, threshold = (
+            pending if pending is not None else (self._refresh_token, *self._method_and_threshold())
+        )
+        if token != self._refresh_token or (method, threshold) != self._method_and_threshold():
+            self.refresh()
+            return
+        self._set_busy(False)
+        self._apply_report(report)
+
+    def _on_refresh_error(self, message: str) -> None:
+        """Informa del error en español y deja la vista lista para reintentar."""
+        pending = self._pending
+        self._pending = None
+        self._refresh_worker = None
+
+        if pending is not None and pending[0] != self._refresh_token:
+            self.refresh()
+            return
+        self._set_busy(False)
+        self._set_action_enabled(False)
+        logger.warning("No se pudo analizar los valores atípicos: %s", message)
+        QMessageBox.critical(self, texts_es.OUTLIERS_ERR_TITLE, message)
+
+    def _apply_report(self, report: pd.DataFrame) -> None:
+        """Vuelca el reporte ya calculado en la tabla, el combo y el gráfico."""
+        method, threshold = self._method_and_threshold()
+        self._report = report
+        self._report_key = (method, threshold)
+
+        display = report.rename(
+            columns={
+                "columna": texts_es.OUTLIERS_TABLE_COL,
+                "outliers": texts_es.OUTLIERS_TABLE_COUNT,
+                "porcentaje": texts_es.OUTLIERS_TABLE_PCT,
+                "limite_inferior": texts_es.OUTLIERS_TABLE_LOWER,
+                "limite_superior": texts_es.OUTLIERS_TABLE_UPPER,
+            }
+        )
+        self.table.set_dataframe(display)
+
+        numeric_columns = [str(col) for col in report["columna"]]
+        self.no_numeric_label.setVisible(not numeric_columns)
+        self._rebuild_columns(numeric_columns)
+
+        total_outliers = int(report["outliers"].sum()) if not report.empty else 0
+        self.no_issues_label.setVisible(bool(numeric_columns) and total_outliers == 0)
+
+        for column in numeric_columns:
+            count = self._count_for(report, column)
+            if count == 0:
+                self._resolved.add(column)
+
+        self._update_selected_column()
+
+        self.complete_if_no_issues(has_issues=bool(numeric_columns) and total_outliers > 0)
+        self._maybe_complete(report)
+
+    def _clear_display(self) -> None:
+        """Deja la vista vacía cuando no hay dataset cargado."""
+        self._set_busy(False)
+        self._report = None
+        self._report_key = None
+        self.table.set_dataframe(None)
+        self.no_issues_label.setVisible(False)
+        self.no_numeric_label.setVisible(False)
+        self.count_label.setText("")
+        self._rebuild_columns([])
+        self.chart.clear()
+        self._set_action_enabled(False)
+
+    def _set_busy(self, busy: bool) -> None:
+        """Deshabilita los controles y muestra la barra mientras se analiza."""
+        self.busy_indicator.set_busy(busy)
+        self.method_combo.setEnabled(not busy)
+        self.threshold_spin.setEnabled(not busy)
+        self.column_combo.setEnabled(not busy)
+        self.table.setEnabled(not busy)
+        self.chart.setEnabled(not busy)
+        if busy:
+            self._set_action_enabled(False)
 
     def _method_and_threshold(self) -> tuple[str, float]:
         """Método y umbral actuales del formulario."""
@@ -430,23 +534,17 @@ class OutliersView(CleaningStepView):
         self.keep_button.setEnabled(enabled)
 
     def _current_report(self) -> pd.DataFrame:
-        """Reporte de outliers con el método y umbral actuales."""
-        df = self.dataframe
-        if df is None:
+        """Reporte de outliers ya calculado para el método y umbral actuales."""
+        if self._report is None or self._report_key != self._method_and_threshold():
             return pd.DataFrame()
-        method, threshold = self._method_and_threshold()
-        return analyze_outliers(df, method=method, threshold=threshold)
+        return self._report
 
     def _maybe_complete(self, report: pd.DataFrame) -> None:
         """Completa el sub-paso cuando todas las columnas numéricas están resueltas."""
-        if self.dataframe is None:
+        if self.dataframe is None or report.empty:
             return
 
-        numeric_columns = [str(col) for col in report["columna"]] if not report.empty else []
-        if not numeric_columns:
-            self.complete_if_no_issues(has_issues=False)
-            return
-
+        numeric_columns = [str(col) for col in report["columna"]]
         unresolved = [
             column
             for column in numeric_columns

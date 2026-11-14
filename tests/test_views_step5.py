@@ -6,8 +6,9 @@ import pandas as pd
 import pytest
 from PySide6.QtWidgets import QMessageBox
 
-from app.services.cleaning import missing_union
+from app.services.cleaning import CleaningError, missing_union
 from app.state import Step, WorkflowController
+from app.ui import texts_es
 from app.views.step5_cleaning import Step5CleaningView
 from app.views.step5_cleaning.duplicates import DuplicatesView
 from app.views.step5_cleaning.irrelevant import IrrelevantView
@@ -66,6 +67,8 @@ def test_outliers_view_smoke(qtbot, sample_df):
     view = OutliersView(controller)
     qtbot.addWidget(view)
     view.show()
+
+    qtbot.waitUntil(lambda: not view.is_busy, timeout=10000)
 
     assert view.column_combo.count() > 0
     assert view.table.dataframe is not None
@@ -196,6 +199,7 @@ def test_outliers_keep_action_completes_step(qtbot, sample_df):
     controller = _controller(sample_df)
     view = OutliersView(controller)
     qtbot.addWidget(view)
+    qtbot.waitUntil(lambda: not view.is_busy, timeout=10000)
 
     assert Step.CLEAN_D not in controller.state.completed
 
@@ -204,7 +208,54 @@ def test_outliers_keep_action_completes_step(qtbot, sample_df):
         if view.keep_button.isEnabled():
             view.keep_button.click()
 
+    qtbot.waitUntil(lambda: Step.CLEAN_D in controller.state.completed, timeout=10000)
     assert Step.CLEAN_D in controller.state.completed
+
+
+def test_outliers_analysis_is_async_and_disables_controls(qtbot, sample_df):
+    """El análisis arranca en segundo plano y bloquea los controles mientras corre."""
+    controller = _controller(sample_df)
+    view = OutliersView(controller)
+    qtbot.addWidget(view)
+
+    assert view.is_busy is True
+    assert view.busy_indicator.is_busy is True
+    assert view.busy_indicator.label.text() == texts_es.OUTLIERS_PROGRESS_LABEL
+    assert view.method_combo.isEnabled() is False
+    assert view.threshold_spin.isEnabled() is False
+    assert view.drop_button.isEnabled() is False
+
+    qtbot.waitUntil(lambda: not view.is_busy, timeout=10000)
+
+    assert view.busy_indicator.is_busy is False
+    assert view.method_combo.isEnabled() is True
+    assert view.threshold_spin.isEnabled() is True
+
+
+def test_outliers_error_is_reported_in_spanish(qtbot, sample_df, monkeypatch):
+    """Un fallo del análisis se muestra como diálogo en español."""
+    messages: list[tuple[str, str]] = []
+
+    def fake_critical(parent, title, text, *args, **kwargs):  # noqa: ANN001, ANN002, ANN003
+        messages.append((str(title), str(text)))
+        return QMessageBox.StandardButton.Ok
+
+    def boom(df, method="iqr", threshold=1.5):  # noqa: ANN001, ANN202
+        raise CleaningError("No se pudo analizar el dataset.")
+
+    monkeypatch.setattr(QMessageBox, "critical", fake_critical)
+    monkeypatch.setattr("app.views.step5_cleaning.outliers.analyze_outliers", boom)
+
+    controller = _controller(sample_df)
+    view = OutliersView(controller)
+    qtbot.addWidget(view)
+
+    qtbot.waitUntil(lambda: bool(messages), timeout=10000)
+
+    assert messages[0][0] == texts_es.OUTLIERS_ERR_TITLE
+    assert messages[0][1] == "No se pudo analizar el dataset."
+    assert "Traceback" not in messages[0][1]
+    assert view.is_busy is False
 
 
 def test_history_records_actions(qtbot, sample_df, monkeypatch):

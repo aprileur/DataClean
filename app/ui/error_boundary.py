@@ -70,12 +70,15 @@ class ErrorContext:
         if issubclass(exc_type, (KeyboardInterrupt, SystemExit)):
             return False
 
-        logger.exception("Exception handled by ErrorContext", exc_info=(exc_type, exc_value, exc_tb))
+        logger.exception(
+            "Exception handled by ErrorContext",
+            exc_info=(exc_type, exc_value, exc_tb),
+        )
         _show_error_dialog()
         return True
 
 
-def qt_slot_error_handler(func: F) -> F:
+def qt_slot_error_handler(func: F) -> F:  # noqa: UP047
     """Decorador para slots Qt: captura, loguea y muestra un diálogo.
 
     Uso:

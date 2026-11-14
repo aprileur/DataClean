@@ -199,6 +199,8 @@ ERROR_UNEXPECTED_MSG = (
 )
 WORKER_ERROR_GENERIC = "Ocurrió un error inesperado al procesar la operación."
 LOAD_PROGRESS_LABEL = "Cargando datos, por favor espera..."
+OUTLIERS_PROGRESS_LABEL = "Analizando valores atípicos, por favor espera..."
+OUTLIERS_ERR_TITLE = "Error al analizar valores atípicos"
 
 
 # Paso 5A: imputación

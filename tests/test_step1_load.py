@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -11,9 +12,13 @@ from PySide6.QtGui import QDragEnterEvent, QDropEvent
 from PySide6.QtWidgets import QFileDialog, QInputDialog, QMessageBox
 from pytestqt.qtbot import QtBot
 
+from app.services.loader import LoadResult
 from app.state import Step, WorkflowController
 from app.ui import texts_es
 from app.views.step1_load import Step1LoadView
+
+#: Tiempo máximo de espera de las operaciones en segundo plano (ms).
+ASYNC_TIMEOUT_MS = 15000
 
 
 @pytest.fixture()
@@ -118,11 +123,14 @@ def test_invalid_extension_is_rejected(
     assert ".txt" in message
 
 
-def test_load_button_click_loads_dataset(view: Step1LoadView, sample_path: Path) -> None:
+def test_load_button_click_loads_dataset(
+    view: Step1LoadView, sample_path: Path, qtbot: QtBot
+) -> None:
     """Clic en «Cargar datos» deja el dataset cargado y avanza al paso 2."""
     view.select_file(sample_path)
 
     view.load_button.click()
+    qtbot.waitUntil(lambda: not view.is_loading, timeout=ASYNC_TIMEOUT_MS)
 
     assert view.controller.state.has_data is True
     assert Step.LOAD in view.controller.state.completed
@@ -132,7 +140,9 @@ def test_load_button_click_loads_dataset(view: Step1LoadView, sample_path: Path)
     assert view.controller.state.original_df is not None
 
 
-def test_load_uses_controller_signal_flow(view: Step1LoadView, sample_path: Path) -> None:
+def test_load_uses_controller_signal_flow(
+    view: Step1LoadView, sample_path: Path, qtbot: QtBot
+) -> None:
     """El controlador recibe el dataset y emite los eventos del flujo."""
     seen: list[str] = []
     view.controller.step_changed.connect(lambda step: seen.append(f"changed:{step}"))
@@ -141,12 +151,16 @@ def test_load_uses_controller_signal_flow(view: Step1LoadView, sample_path: Path
     view.select_file(sample_path)
     view.load_selected_file()
 
+    qtbot.waitUntil(lambda: "changed:INFO" in seen, timeout=ASYNC_TIMEOUT_MS)
     assert "completed:LOAD" in seen
     assert "changed:INFO" in seen
 
 
 def test_load_error_is_handled_without_traceback(
-    view: Step1LoadView, tmp_path: Path, captured_errors: list[tuple[str, str]]
+    view: Step1LoadView,
+    tmp_path: Path,
+    captured_errors: list[tuple[str, str]],
+    qtbot: QtBot,
 ) -> None:
     """Un archivo corrupto muestra un error en español y no rompe la vista."""
     broken = tmp_path / "corrupto.csv"
@@ -155,7 +169,7 @@ def test_load_error_is_handled_without_traceback(
     view.select_file(broken)
     view.load_selected_file()
 
-    assert captured_errors, "Debe mostrarse un error al usuario"
+    qtbot.waitUntil(lambda: bool(captured_errors), timeout=ASYNC_TIMEOUT_MS)
     title, message = captured_errors[0]
     assert title == texts_es.LOAD_ERR_TITLE
     assert message
@@ -166,7 +180,7 @@ def test_load_error_is_handled_without_traceback(
 
 
 def test_unexpected_error_is_handled(
-    view: Step1LoadView, sample_path: Path, monkeypatch: pytest.MonkeyPatch
+    view: Step1LoadView, sample_path: Path, monkeypatch: pytest.MonkeyPatch, qtbot: QtBot
 ) -> None:
     """Una excepción inesperada se traduce a un mensaje amigable."""
 
@@ -185,13 +199,13 @@ def test_unexpected_error_is_handled(
     view.select_file(sample_path)
     view.load_selected_file()
 
-    assert messages
+    qtbot.waitUntil(lambda: bool(messages), timeout=ASYNC_TIMEOUT_MS)
     assert messages[0][1] == texts_es.LOAD_UNEXPECTED_ERROR
     assert view.controller.state.has_data is False
 
 
 def test_excel_with_multiple_sheets_asks_for_sheet(
-    view: Step1LoadView, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    view: Step1LoadView, tmp_path: Path, monkeypatch: pytest.MonkeyPatch, qtbot: QtBot
 ) -> None:
     """Con varias hojas se pregunta cuál cargar y se usa la elegida."""
     excel_path = tmp_path / "libro.xlsx"
@@ -210,7 +224,7 @@ def test_excel_with_multiple_sheets_asks_for_sheet(
     view.select_file(excel_path)
     view.load_selected_file()
 
-    assert view.controller.state.has_data is True
+    qtbot.waitUntil(lambda: view.controller.state.has_data, timeout=ASYNC_TIMEOUT_MS)
     working = view.controller.state.working_df
     assert working is not None
     assert list(working["b"]) == ["z", "w"]
@@ -235,20 +249,122 @@ def test_excel_sheet_dialog_can_be_cancelled(
 
 
 def test_loading_a_new_file_resets_the_flow(
-    view: Step1LoadView, sample_path: Path, tmp_path: Path
+    view: Step1LoadView, sample_path: Path, tmp_path: Path, qtbot: QtBot
 ) -> None:
     """Cargar un segundo archivo reinicia el flujo y reemplaza los datos."""
     view.select_file(sample_path)
     view.load_selected_file()
-    assert view.controller.state.current == Step.INFO
+    qtbot.waitUntil(lambda: view.controller.state.current == Step.INFO, timeout=ASYNC_TIMEOUT_MS)
 
     other = tmp_path / "otro.csv"
     other.write_text("a,b\n1,2\n", encoding="utf-8")
 
     view.select_file(other)
     view.load_selected_file()
+    qtbot.waitUntil(
+        lambda: view.controller.state.working_df is not None
+        and list(view.controller.state.working_df.columns) == ["a", "b"],
+        timeout=ASYNC_TIMEOUT_MS,
+    )
 
     assert view.controller.state.completed == {Step.LOAD}
     assert view.controller.state.current == Step.INFO
     assert view.controller.state.working_df is not None
     assert list(view.controller.state.working_df.columns) == ["a", "b"]
+
+
+def test_load_runs_in_background_and_disables_view(
+    view: Step1LoadView, sample_path: Path, qtbot: QtBot
+) -> None:
+    """Mientras carga, la vista queda deshabilitada y la barra es visible."""
+    view.select_file(sample_path)
+
+    view.load_selected_file()
+
+    assert view.is_loading is True
+    assert view.busy_indicator.is_busy is True
+    assert view.busy_indicator.label.text() == texts_es.LOAD_PROGRESS_LABEL
+    assert view.busy_indicator.bar.minimum() == 0
+    assert view.busy_indicator.bar.maximum() == 0  # indeterminada
+    assert view.isEnabled() is False
+    assert view.load_button.isEnabled() is False
+
+    qtbot.waitUntil(lambda: not view.is_loading, timeout=ASYNC_TIMEOUT_MS)
+
+    assert view.busy_indicator.is_busy is False
+    assert view.isEnabled() is True
+    assert view.controller.state.current == Step.INFO
+
+
+def test_error_restores_view_and_hides_progress(
+    view: Step1LoadView,
+    tmp_path: Path,
+    captured_errors: list[tuple[str, str]],
+    qtbot: QtBot,
+) -> None:
+    """Tras un error la vista vuelve a estar operativa y sin barra de progreso."""
+    broken = tmp_path / "corrupto.csv"
+    broken.write_text("", encoding="utf-8")
+
+    view.select_file(broken)
+    view.load_selected_file()
+    qtbot.waitUntil(lambda: bool(captured_errors), timeout=ASYNC_TIMEOUT_MS)
+
+    assert view.is_loading is False
+    assert view.busy_indicator.is_busy is False
+    assert view.isEnabled() is True
+    assert view.load_button.isEnabled() is True
+
+
+def test_second_load_request_is_ignored_while_busy(
+    view: Step1LoadView, sample_path: Path, monkeypatch: pytest.MonkeyPatch, qtbot: QtBot
+) -> None:
+    """Un doble clic no lanza dos cargas concurrentes."""
+    calls: list[Path] = []
+
+    def fake_load(path, sheet=None):  # noqa: ANN001, ANN202
+        calls.append(Path(path))
+        return LoadResult(
+            df=pd.DataFrame({"a": [1]}),
+            encoding=None,
+            separator=None,
+            sheet=None,
+            file_name=Path(path).name,
+        )
+
+    monkeypatch.setattr("app.views.step1_load.load_file", fake_load)
+
+    view.select_file(sample_path)
+    view.load_selected_file()
+    view.load_selected_file()
+    assert view.is_loading is True
+
+    qtbot.waitUntil(lambda: not view.is_loading, timeout=ASYNC_TIMEOUT_MS)
+    assert calls == [sample_path]
+
+
+def test_large_file_load_does_not_block_the_ui(
+    view: Step1LoadView, tmp_path: Path, qtbot: QtBot
+) -> None:
+    """Cargar 100 000 filas devuelve el control al hilo de UI de inmediato."""
+    big = tmp_path / "grande.csv"
+    rows = 100_000
+    with big.open("w", encoding="utf-8") as handle:
+        handle.write("a,b\n")
+        for index in range(rows):
+            handle.write(f"{index},{index * 2}\n")
+
+    view.select_file(big)
+    started = time.perf_counter()
+    view.load_selected_file()
+    elapsed = time.perf_counter() - started
+
+    # El hilo de UI solo lanzó el worker: la lectura sigue en curso.
+    assert view.is_loading is True
+    assert elapsed < 0.5
+
+    qtbot.waitUntil(lambda: not view.is_loading, timeout=ASYNC_TIMEOUT_MS)
+
+    working = view.controller.state.working_df
+    assert working is not None
+    assert len(working) == rows

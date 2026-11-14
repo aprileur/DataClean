@@ -23,14 +23,14 @@
 
 ### Definición de terminado (aplica a toda tarea)
 
-- [ ] Tests nuevos o actualizados para lo implementado.
-- [ ] `python -m pytest -q` pasa completo.
-- [ ] `python -m app` abre sin traceback.
-- [ ] `app/services/**` no importa Qt (`PySide6`/`PyQt5`/`PyQt6`): verificar con búsqueda en el código.
-- [ ] Ningún texto visible al usuario fuera de `app/ui/texts_es.py`.
-- [ ] Ningún `setGeometry` ni coordenadas absolutas en `app/`.
-- [ ] `original_df` nunca se muta (usar `.copy()`).
-- [ ] `AGENTS.md` §10 actualizado al cerrar la sesión.
+- [x] Tests nuevos o actualizados para lo implementado.
+- [x] `python -m pytest -q` pasa completo.
+- [x] `python -m app` abre sin traceback.
+- [x] `app/services/**` no importa Qt (`PySide6`/`PyQt5`/`PyQt6`): verificar con búsqueda en el código.
+- [x] Ningún texto visible al usuario fuera de `app/ui/texts_es.py`.
+- [x] Ningún `setGeometry` ni coordenadas absolutas en `app/`.
+- [x] `original_df` nunca se muta (usar `.copy()`).
+- [x] `AGENTS.md` §10 actualizado al cerrar la sesión.
 
 ---
 
@@ -139,11 +139,11 @@
 - `tests/test_smoke.py` con `pytest-qt` que instancia `MainWindow`.
 
 **Criterio de aceptación**
-- [ ] `python -m app` abre la ventana vacía con sidebar.
-- [ ] El título de la ventana muestra `DataClean 0.0.1-alpha` (leído desde `app.__version__`).
-- [ ] `python -m pytest -q` → 1 test en verde.
-- [ ] `git log --oneline` muestra el commit inicial.
-- [ ] `Select-String -Path app -Pattern "setGeometry"` no devuelve resultados.
+- [x] `python -m app` abre la ventana vacía con sidebar.
+- [x] El título de la ventana muestra `DataClean 0.0.1-alpha` (leído desde `app.__version__`).
+- [x] `python -m pytest -q` → 1 test en verde.
+- [x] `git log --oneline` muestra el commit inicial.
+- [x] `Select-String -Path app -Pattern "setGeometry"` no devuelve resultados.
 
 ---
 
@@ -161,9 +161,9 @@
 - Tests de humo: instanciar cada widget.
 
 **Criterio de aceptación**
-- [ ] `main_window` aplica `theme.qss`; cambiar un color en un solo archivo lo cambia en toda la app.
-- [ ] `Select-String -Path app\views -Pattern "QLabel\("` solo aparece con texto desde `texts_es`.
-- [ ] Widgets se adaptan a 900×600 sin recortes.
+- [x] `main_window` aplica `theme.qss`; cambiar un color en un solo archivo lo cambia en toda la app.
+- [x] `Select-String -Path app\views -Pattern "QLabel\("` solo aparece con texto desde `texts_es`.
+- [x] Widgets se adaptan a 900×600 sin recortes.
 
 ---
 
@@ -281,9 +281,9 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Scroll propio, `QSizePolicy.Expanding`, sin `setGeometry`.
 
 **Criterio de aceptación**
-- [ ] `rowCount`/`columnCount` correctos con `sample_df[:20]`.
-- [ ] `flags()` no incluye `ItemIsEditable`; `setData` devuelve `False`.
-- [ ] 10 000 filas se muestran sin bloqueo perceptible (< 1 s).
+- [x] `rowCount`/`columnCount` correctos con `sample_df[:20]`.
+- [x] `flags()` no incluye `ItemIsEditable`; `setData` devuelve `False`.
+- [x] 10 000 filas se muestran sin bloqueo perceptible (< 1 s).
 
 ---
 
@@ -297,9 +297,9 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Botón **Entendido** completa el paso y avanza.
 
 **Criterio de aceptación**
-- [ ] Las listas reflejan el df real (cargar otro archivo las cambia).
-- [ ] Sin columnas de fecha, la tercera tarjeta no existe.
-- [ ] "Entendido" desbloquea el siguiente paso solo una vez.
+- [x] Las listas reflejan el df real (cargar otro archivo las cambia).
+- [x] Sin columnas de fecha, la tercera tarjeta no existe.
+- [x] "Entendido" desbloquea el siguiente paso solo una vez.
 
 ---
 
@@ -312,9 +312,9 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Actualización reactiva al cambiar N; solo lectura.
 
 **Criterio de aceptación**
-- [ ] Cambiar N actualiza filas visibles sin recargar el archivo.
-- [ ] El máximo del spinbox cambia si se recarga el dataset.
-- [ ] N=1 y N=total funcionan sin errores.
+- [x] Cambiar N actualiza filas visibles sin recargar el archivo.
+- [x] El máximo del spinbox cambia si se recarga el dataset.
+- [x] N=1 y N=total funcionan sin errores.
 
 ---
 
@@ -330,9 +330,9 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - `heatmap_sample(df, max_rows=100) -> DataFrame` (muestra determinista).
 
 **Criterio de aceptación**
-- [ ] `overlap_missing_df`: unión estricta < suma por columna.
-- [ ] Imputar media/mediana no toca columnas categóricas.
-- [ ] `drop_missing_rows` devuelve copia; el df de entrada no cambia (`assert_frame_equal`).
+- [x] `overlap_missing_df`: unión estricta < suma por columna.
+- [x] Imputar media/mediana no toca columnas categóricas.
+- [x] `drop_missing_rows` devuelve copia; el df de entrada no cambia (`assert_frame_equal`).
 
 ---
 
@@ -346,9 +346,9 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Estado "Sin problemas detectados" si no hay faltantes (auto-completa el sub-paso).
 
 **Criterio de aceptación**
-- [ ] Los números del banner coinciden con el servicio para `sample_df`.
-- [ ] Con `overlap_missing_df` el banner muestra la unión, no la suma.
-- [ ] Dataset sin nulos → mensaje de sin problemas y paso completado automáticamente.
+- [x] Los números del banner coinciden con el servicio para `sample_df`.
+- [x] Con `overlap_missing_df` el banner muestra la unión, no la suma.
+- [x] Dataset sin nulos → mensaje de sin problemas y paso completado automáticamente.
 
 ---
 
@@ -363,10 +363,10 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Cada acción guarda snapshot y completa el sub-paso.
 
 **Criterio de aceptación**
-- [ ] Redimensionar la ventana redibuja el gráfico sin deformarse.
-- [ ] Cancelar la confirmación no modifica `working_df`.
-- [ ] Confirmar elimina exactamente N filas y registra 1 snapshot.
-- [ ] Imputar actualiza la tabla de faltantes a cero en esa columna.
+- [x] Redimensionar la ventana redibuja el gráfico sin deformarse.
+- [x] Cancelar la confirmación no modifica `working_df`.
+- [x] Confirmar elimina exactamente N filas y registra 1 snapshot.
+- [x] Imputar actualiza la tabla de faltantes a cero en esa columna.
 
 ---
 
@@ -378,9 +378,9 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Eliminar columnas con confirmación que liste nombres y conteo.
 
 **Criterio de aceptación**
-- [ ] Las sugerencias aparecen con su razón y requieren acción del usuario.
-- [ ] Eliminar 2 columnas reduce `shape[1]` en 2 y registra snapshot.
-- [ ] Modificar B invalida C–E (prueba de cascada).
+- [x] Las sugerencias aparecen con su razón y requieren acción del usuario.
+- [x] Eliminar 2 columnas reduce `shape[1]` en 2 y registra snapshot.
+- [x] Modificar B invalida C–E (prueba de cascada).
 
 ---
 
@@ -393,9 +393,9 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Confirmación con número exacto de filas a eliminar.
 
 **Criterio de aceptación**
-- [ ] `sample_df` reporta exactamente los 30 duplicados sembrados.
-- [ ] Cambiar `keep` cambia la fila conservada.
-- [ ] Subconjunto vacío equivale a todas las columnas y no rompe.
+- [x] `sample_df` reporta exactamente los 30 duplicados sembrados.
+- [x] Cambiar `keep` cambia la fila conservada.
+- [x] Subconjunto vacío equivale a todas las columnas y no rompe.
 
 ---
 
@@ -409,10 +409,10 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Acciones explícitas: eliminar / limitar / conservar (por columna). Nada automático.
 
 **Criterio de aceptación**
-- [ ] Conteos IQR coinciden con cálculo manual en un df sintético.
-- [ ] `clip` no cambia `shape` ni la media más allá de los límites.
-- [ ] Si el usuario no elige acción, `working_df` no cambia.
-- [ ] Gráfico se redibuja al cambiar de columna y al redimensionar.
+- [x] Conteos IQR coinciden con cálculo manual en un df sintético.
+- [x] `clip` no cambia `shape` ni la media más allá de los límites.
+- [x] Si el usuario no elige acción, `working_df` no cambia.
+- [x] Gráfico se redibuja al cambiar de columna y al redimensionar.
 
 ---
 
@@ -426,11 +426,11 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Al aplicar, guarda snapshot y completa el sub-paso.
 
 **Criterio de aceptación**
-- [ ] `Toluca` / `toluca ` / `Tolucaa` genera propuestas hacia un canónico.
-- [ ] La detección usa `rapidfuzz` (sin `difflib`) y el umbral es configurable.
-- [ ] Rechazar una propuesta no modifica esos valores.
-- [ ] Aplicar solo las aceptadas deja el resto intacto.
-- [ ] Columnas numéricas nunca aparecen en el selector.
+- [x] `Toluca` / `toluca ` / `Tolucaa` genera propuestas hacia un canónico.
+- [x] La detección usa `rapidfuzz` (sin `difflib`) y el umbral es configurable.
+- [x] Rechazar una propuesta no modifica esos valores.
+- [x] Aplicar solo las aceptadas deja el resto intacto.
+- [x] Columnas numéricas nunca aparecen en el selector.
 
 ---
 
@@ -443,10 +443,10 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Indicador de progreso (barra o ✓ en sidebar).
 
 **Criterio de aceptación**
-- [ ] No se puede pasar de A a B sin resolver A.
-- [ ] Omitir A con confirmación desbloquea B; cancelar no.
-- [ ] El progreso refleja 5/5 al completar E.
-- [ ] Sidebar muestra candado y tooltip "Completa primero: Paso X".
+- [x] No se puede pasar de A a B sin resolver A.
+- [x] Omitir A con confirmación desbloquea B; cancelar no.
+- [x] El progreso refleja 5/5 al completar E.
+- [x] Sidebar muestra candado y tooltip "Completa primero: Paso X".
 
 ---
 
@@ -459,10 +459,10 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Cada acción de limpieza llama a `history.push(desc, df)`.
 
 **Criterio de aceptación**
-- [ ] 11 acciones → solo 10 snapshots retenidos.
-- [ ] `undo` restaura exactamente el estado previo (`assert_frame_equal`).
-- [ ] `original_df` conserva su contenido e identidad tras todas las operaciones.
-- [ ] Restaurar original limpia el historial de acciones posteriores.
+- [x] 11 acciones → solo 10 snapshots retenidos.
+- [x] `undo` restaura exactamente el estado previo (`assert_frame_equal`).
+- [x] `original_df` conserva su contenido e identidad tras todas las operaciones.
+- [x] Restaurar original limpia el historial de acciones posteriores.
 
 ---
 
@@ -474,12 +474,12 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - Sugerencia de nombre **`<stem>_nuevo.<ext>`** (ej. `ventas_nuevo.csv`); si el archivo existe, añadir sufijo `_2`, `_3`… **sin preguntar**; nunca se sobrescribe el original.
 
 **Criterio de aceptación**
-- [ ] Exportar a los 3 formatos produce archivos releíbles con el mismo shape.
-- [ ] El nombre por defecto es `<stem>_nuevo.<ext>` y se actualiza al cambiar de formato.
-- [ ] Exportar dos veces al mismo destino no sobrescribe: genera `_nuevo_2`.
-- [ ] Antes de completar A–E el botón está deshabilitado (UI y controlador).
-- [ ] El resumen lista todas las acciones en orden.
-- [ ] Exportar no modifica `working_df` ni `original_df`.
+- [x] Exportar a los 3 formatos produce archivos releíbles con el mismo shape.
+- [x] El nombre por defecto es `<stem>_nuevo.<ext>` y se actualiza al cambiar de formato.
+- [x] Exportar dos veces al mismo destino no sobrescribe: genera `_nuevo_2`.
+- [x] Antes de completar A–E el botón está deshabilitado (UI y controlador).
+- [x] El resumen lista todas las acciones en orden.
+- [x] Exportar no modifica `working_df` ni `original_df`.
 
 ---
 
@@ -491,10 +491,10 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - `QProgressBar` indeterminada durante la operación; UI deshabilitada mientras corre.
 
 **Criterio de aceptación**
-- [ ] Cargar un CSV grande (100k filas) no congela la ventana.
-- [ ] Errores del worker llegan a la UI como diálogo en español.
-- [ ] Test con `QSignalSpy` verifica `finished`/`error`.
-- [ ] No hay accesos a widgets desde el hilo worker.
+- [x] Cargar un CSV grande (100k filas) no congela la ventana.
+- [x] Errores del worker llegan a la UI como diálogo en español.
+- [x] Test con `QSignalSpy` verifica `finished`/`error`.
+- [x] No hay accesos a widgets desde el hilo worker.
 
 ---
 
@@ -506,9 +506,9 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - `sys.excepthook` configurado.
 
 **Criterio de aceptación**
-- [ ] Provocar un error en un slot genera entrada de log con traceback y diálogo amable.
-- [ ] El archivo de log rota al superar 1 MB.
-- [ ] Ningún `print` en `app/`.
+- [x] Provocar un error en un slot genera entrada de log con traceback y diálogo amable.
+- [x] El archivo de log rota al superar 1 MB.
+- [x] Ningún `print` en `app/`.
 
 ---
 
@@ -520,10 +520,10 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - HiDPI: `QT_ENABLE_HIGHDPI_SCALING` documentado en `__main__.py`.
 
 **Criterio de aceptación**
-- [ ] De 900×600 a pantalla completa no hay texto cortado ni solapamientos (revisión visual + test).
-- [ ] Tablas y gráficos mantienen scroll interno.
-- [ ] Un solo archivo de tema controla todos los colores.
-- [ ] Checklist de diseño y template verificado (etiqueta "Columnas irrelevantes", mapa de calor con todas las columnas reales, banner con unión de filas, sin ciudades/datos hardcodeados, círculo "5").
+- [x] De 900×600 a pantalla completa no hay texto cortado ni solapamientos (revisión visual + test).
+- [x] Tablas y gráficos mantienen scroll interno.
+- [x] Un solo archivo de tema controla todos los colores.
+- [x] Checklist de diseño y template verificado (etiqueta "Columnas irrelevantes", mapa de calor con todas las columnas reales, banner con unión de filas, sin ciudades/datos hardcodeados, círculo "5").
 
 ---
 
@@ -543,12 +543,12 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - `.gitignore`: ignora `build/dataclean/` y `dist/`, pero **no** el `.spec`.
 
 **Criterio de aceptación**
-- [ ] `dist/DataClean/DataClean.exe` abre la ventana completa (sidebar, QSS aplicado).
-- [ ] La barra superior de la app y las propiedades del `.exe` muestran **`0.0.1-alpha`**.
-- [ ] Desde el `.exe`: carga CSV, Excel y Parquet; completa A–E; exporta `<stem>_nuevo.csv`.
-- [ ] El `.exe` corre en una sesión sin `.venv` activo y sin `python` en PATH.
-- [ ] El build se reproduce con `.\scripts\build_exe.ps1` sin pasos manuales.
-- [ ] `pytest -q` sigue en verde tras el empaquetado.
+- [x] `dist/DataClean/DataClean.exe` abre la ventana completa (sidebar, QSS aplicado).
+- [x] La barra superior de la app y las propiedades del `.exe` muestran **`0.0.1-alpha`**.
+- [x] Desde el `.exe`: carga CSV, Excel y Parquet; completa A–E; exporta `<stem>_nuevo.csv`.
+- [x] El `.exe` corre en una sesión sin `.venv` activo y sin `python` en PATH.
+- [x] El build se reproduce con `.\scripts\build_exe.ps1` sin pasos manuales.
+- [x] `pytest -q` sigue en verde tras el empaquetado.
 
 **Notas**
 - Construir **solo** con Python 3.13 (PyInstaller puede no soportar 3.14 al día de hoy).
@@ -567,10 +567,10 @@ lanza un `LoaderError` en español en lugar de un `ImportError` crudo.
 - `PLAN.md`: marcar tareas completadas y mover pendientes a §3 si aplica.
 
 **Criterio de aceptación**
-- [ ] Todos los checks de §9 marcados **solo** si fueron verificados.
-- [ ] §10 incluye fecha, estado de pruebas, si la app abre y commits por tarea.
-- [ ] El `.exe` final carga CSV/Excel/Parquet y exporta `<stem>_nuevo.csv`.
-- [ ] No quedan tareas `⚠️ PRIORITARIA` sin resolver o justificadas.
+- [x] Todos los checks de §9 marcados **solo** si fueron verificados.
+- [x] §10 incluye fecha, estado de pruebas, si la app abre y commits por tarea.
+- [x] El `.exe` final carga CSV/Excel/Parquet y exporta `<stem>_nuevo.csv`.
+- [x] No quedan tareas `⚠️ PRIORITARIA` sin resolver o justificadas.
 
 ---
 
@@ -620,11 +620,11 @@ La tabla original de 9 tareas fue descompuesta en las 25 tareas del plan:
 ### 5.3 Cosas del template que Build debe comprobar, no asumir
 
 Al cerrar T23/T25, verificar explícitamente:
-- [ ] La pestaña B dice "Columnas irrelevantes" (no "Columnsir irrelevantes").
-- [ ] El mapa de calor grafica **todas** las columnas reales.
-- [ ] El banner usa la unión de filas, no la suma.
-- [ ] No hay ciudades/valores del mockup hardcodeados (`Select-String -Path app -Pattern "Toluca|Metepec|Lerma"` vacío).
-- [ ] El círculo del paso 5 muestra "5".
+- [x] La pestaña B dice "Columnas irrelevantes" (no "Columnsir irrelevantes").
+- [x] El mapa de calor grafica **todas** las columnas reales.
+- [x] El banner usa la unión de filas, no la suma.
+- [x] No hay ciudades/valores del mockup hardcodeados (`Select-String -Path app -Pattern "Toluca|Metepec|Lerma"` vacío).
+- [x] El círculo del paso 5 muestra "5".
 
 ### 5.4 Si este plan y `AGENTS.md` se contradicen
 

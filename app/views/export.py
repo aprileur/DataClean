@@ -159,9 +159,7 @@ class ExportView(QWidget):
             return
         except Exception:  # noqa: BLE001 - se traduce a un mensaje amigable
             logger.exception("Error inesperado al exportar el dataset")
-            QMessageBox.critical(
-                self, texts_es.EXPORT_ERR_TITLE, texts_es.ERROR_UNEXPECTED_MSG
-            )
+            QMessageBox.critical(self, texts_es.EXPORT_ERR_TITLE, texts_es.ERROR_UNEXPECTED_MSG)
             return
 
         QMessageBox.information(

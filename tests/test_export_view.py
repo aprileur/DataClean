@@ -168,9 +168,7 @@ def test_export_reports_export_error(
     ]
 
 
-def test_export_cancelled_does_nothing(
-    view: ExportView, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_export_cancelled_does_nothing(view: ExportView, monkeypatch: pytest.MonkeyPatch) -> None:
     """Si el usuario cancela el diálogo no se exporta ni se muestra mensaje."""
     called: list[Path] = []
 
@@ -204,9 +202,7 @@ def test_export_does_not_mutate_dataframes(
     monkeypatch.setattr(
         QFileDialog, "getSaveFileName", staticmethod(lambda *args, **kwargs: (str(target), ""))
     )
-    monkeypatch.setattr(
-        "app.views.export.export_dataset", lambda df, path: Path(path)
-    )
+    monkeypatch.setattr("app.views.export.export_dataset", lambda df, path: Path(path))
 
     view.export_button.click()
 

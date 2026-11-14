@@ -46,9 +46,7 @@ def shown_dialogs(monkeypatch: pytest.MonkeyPatch) -> list[str]:
     return messages
 
 
-def test_setup_logging_creates_log_file(
-    tmp_path: Path, clean_root_logger: logging.Logger
-) -> None:
+def test_setup_logging_creates_log_file(tmp_path: Path, clean_root_logger: logging.Logger) -> None:
     """`setup_logging` crea el archivo de log y configura la rotación."""
     log_path = setup_logging(tmp_path / "data_clean.log")
 
@@ -87,9 +85,7 @@ def test_setup_logging_adds_warning_stream_handler(
     """stderr solo recibe avisos y errores, no cada mensaje INFO."""
     setup_logging(tmp_path / "data_clean.log")
 
-    stream_handlers = [
-        h for h in clean_root_logger.handlers if h.name == STREAM_HANDLER_NAME
-    ]
+    stream_handlers = [h for h in clean_root_logger.handlers if h.name == STREAM_HANDLER_NAME]
     assert len(stream_handlers) == 1
     assert all(handler.level == logging.WARNING for handler in stream_handlers)
 

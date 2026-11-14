@@ -273,9 +273,7 @@ class MainWindow(QMainWindow):
         can_restore = state.original_df is not None
         self.restore_button.setEnabled(can_restore)
         self.restore_button.setToolTip(
-            texts_es.TOOLTIP_RESTORE_ORIGINAL
-            if can_restore
-            else texts_es.TOOLTIP_RESTORE_DISABLED
+            texts_es.TOOLTIP_RESTORE_ORIGINAL if can_restore else texts_es.TOOLTIP_RESTORE_DISABLED
         )
 
     def _on_undo(self) -> None:
