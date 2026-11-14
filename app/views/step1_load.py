@@ -29,12 +29,14 @@ from app.services.loader import (
     EXCEL_EXTENSIONS,
     SUPPORTED_EXTENSIONS,
     LoaderError,
+    LoadResult,
     list_sheets,
     load_file,
 )
 from app.state import Step, WorkflowController
 from app.ui import texts_es
-from app.widgets import PrimaryButton, StepHeader
+from app.widgets import BusyIndicator, PrimaryButton, StepHeader
+from app.workers import Worker, run_in_thread
 
 logger = logging.getLogger(__name__)
 
@@ -173,6 +175,9 @@ class Step1LoadView(QWidget):
         super().__init__(parent)
         self.controller = controller
         self._selected_path: Path | None = None
+        #: Referencia al worker en curso. Mantenerla viva evita que se destruya
+        #: antes de entregar `finished`/`error` y sirve de guarda anti doble clic.
+        self._load_worker: Worker | None = None
 
         layout = QVBoxLayout(self)
         layout.setContentsMargins(24, 24, 24, 24)
@@ -201,9 +206,12 @@ class Step1LoadView(QWidget):
         buttons_row.addWidget(self.load_button)
         buttons_row.addStretch()
 
+        self.busy_indicator = BusyIndicator(texts_es.LOAD_PROGRESS_LABEL, self)
+
         layout.addWidget(self.header)
         layout.addWidget(self.drop_zone, 1)
         layout.addLayout(buttons_row)
+        layout.addWidget(self.busy_indicator)
 
     # -- API pública ------------------------------------------------------- #
 
@@ -211,6 +219,11 @@ class Step1LoadView(QWidget):
     def selected_path(self) -> Path | None:
         """Ruta del archivo seleccionado actualmente (o None)."""
         return self._selected_path
+
+    @property
+    def is_loading(self) -> bool:
+        """Indica si hay una carga en curso en segundo plano."""
+        return self._load_worker is not None
 
     def select_file(self, path: str | Path) -> bool:
         """Selecciona el archivo a cargar.
@@ -239,34 +252,66 @@ class Step1LoadView(QWidget):
             self.select_file(path)
 
     def load_selected_file(self) -> None:
-        """Carga el archivo seleccionado y avanza al paso 2 si todo va bien."""
+        """Carga el archivo seleccionado en segundo plano.
+
+        La lectura corre en el `QThreadPool` mediante `run_in_thread`; el
+        resultado se procesa en `_on_load_finished`, ya en el hilo de interfaz.
+        Mientras la operación está en curso la vista queda deshabilitada y se
+        ignora cualquier intento de arrancar una segunda carga.
+        """
         path = self._selected_path
-        if path is None:
+        if path is None or self._load_worker is not None:
             return
 
         sheet = self._ask_for_sheet(path)
         if isinstance(sheet, _Cancelled):
             return
 
-        try:
-            result = load_file(path, sheet=sheet)
-        except LoaderError as exc:
-            logger.warning("No se pudo cargar el archivo %s: %s", path, exc)
-            self._show_error(str(exc))
-            return
-        except Exception:  # noqa: BLE001 - se traduce a un mensaje amigable
-            logger.exception("Error inesperado al cargar el archivo %s", path)
-            self._show_error(texts_es.LOAD_UNEXPECTED_ERROR)
-            return
+        self._set_busy(True)
+        logger.info("Cargando %s en segundo plano (hoja=%s)", path, sheet)
+        self._load_worker = run_in_thread(
+            load_file,
+            path,
+            sheet=sheet,
+            on_result=self._on_load_finished,
+            on_error=self._on_load_error,
+        )
 
+    # -- Resultado de la carga (hilo de interfaz) -------------------------- #
+
+    def _on_load_finished(self, result: LoadResult) -> None:
+        """Aplica el `LoadResult` recibido del worker y avanza al paso 2."""
+        self._load_worker = None
+        self._set_busy(False)
+
+        df = result.df
+        file_name = result.file_name
         if self.controller.state.has_data:
             self.controller.reset()
 
-        self.controller.set_dataset(result.df, result.file_name)
+        self.controller.set_dataset(df, file_name)
         self.controller.complete(Step.LOAD)
         self.controller.go_to(Step.INFO)
 
+    def _on_load_error(self, message: str) -> None:
+        """Muestra el error en español y deja la vista lista para reintentar."""
+        self._load_worker = None
+        self._set_busy(False)
+        logger.warning("No se pudo cargar el archivo: %s", message)
+
+        # Los `LoaderError` ya traen un mensaje en español; el resto de
+        # excepciones llegan como mensaje genérico y se traducen al texto de
+        # carga para dar contexto al usuario.
+        if message == texts_es.WORKER_ERROR_GENERIC:
+            message = texts_es.LOAD_UNEXPECTED_ERROR
+        self._show_error(message)
+
     # -- Utilidades internas ----------------------------------------------- #
+
+    def _set_busy(self, busy: bool) -> None:
+        """Deshabilita la vista y muestra la barra indeterminada mientras carga."""
+        self.busy_indicator.set_busy(busy)
+        self.setEnabled(not busy)
 
     def _ask_for_sheet(self, path: Path) -> str | None | _Cancelled:
         """Pregunta qué hoja de Excel cargar si el libro tiene más de una."""
