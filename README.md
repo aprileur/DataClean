@@ -6,9 +6,12 @@ Proyecto de estudiantes de **Ingeniería en Inteligencia Artificial**, UAEMEX ·
 
 ---
 
-## Capturas de pantalla
-
-> *(se agregarán al completar el pulido visual — T23)*
+##Integrantes del equipo:
+April Garcia Mastranzo
+Anwar Andrés Sotelo Sahuaya
+Paulina Barrón Careaga
+Fátima Mercado Molina
+Carla Zareth Sanchez Bautista
 
 ---
 
