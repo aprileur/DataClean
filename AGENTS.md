@@ -207,7 +207,7 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 > 4. No borres tareas completadas: déjalas al final con fecha y commit.
 > 5. Indica siempre el estado de las pruebas (`pytest`) y si la app abre.
 
-**Última actualización:** 2026-11-13 / Agente A (Big Pickle, OpenCode) / Build
+**Última actualización:** 2026-11-13 / Agente Build (OpenCode) / Push
 **Estado de pruebas:** pasan (235)
 **¿La app abre?:** sí (`python -m app` con `QT_QPA_PLATFORM=offscreen` sin traceback)
 
@@ -215,7 +215,7 @@ Implementar la protección en **dos capas**: la interfaz y la lógica. Si solo s
 
 | # | Tarea | Estado | Prioridad | Razón si no se terminó |
 |---|-------|--------|-----------|------------------------|
-| T-PUSH | Publicar rama `feature/vistas-limpieza` y abrir PR a `main` | BLOQUEADA | ⚠️ PRIORITARIA | Sin credenciales de GitHub en el entorno: `git push` falla con `could not read Username for 'https://github.com'` (no hay credential helper), no existe `gh`, no hay claves SSH (`~/.ssh` inexistente) y `ssh -T git@github.com` falla con `Host key verification failed`. Todo el trabajo está commiteado en local (8 commits, `1f4ba75`…`26040ea`). Para continuar: configurar un PAT/helper o una clave SSH y ejecutar `git push -u origin feature/vistas-limpieza`; después abrir el PR a `main` con título `feat: vistas del Paso 5 — limpieza A–E y contenedor`. |
+| T-PUSH | Publicar rama `feature/vistas-limpieza` y abrir PR a `main` | COMPLETADA | Normal | 2026-11-13 — `git push -u origin feature/vistas-limpieza` exitoso. PR disponible en https://github.com/aprileur/DataClean/pull/new/feature/vistas-limpieza |
 | T19 | Historial, deshacer y restaurar original (UI) | PENDIENTE | Normal | `app/history.py` listo (2150cb8); faltan botones en la UI |
 | T20 | Vista de exportación y resumen final | PENDIENTE | Normal | `app/services/exporter.py` listo (eeac5a0); falta `app/views/export.py` |
 | T21 | Hilos para operaciones pesadas (`QThread` worker) | PENDIENTE | Normal | — |
