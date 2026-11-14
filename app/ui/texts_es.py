@@ -37,6 +37,20 @@ STEP_5D_NAME = "D. Valores atípicos (outliers)"
 STEP_5E_NAME = "E. Errores tipográficos"
 STEP_EXPORT_NAME = "Exportar dataset limpio"
 
+# Iconos de la sidebar (clave = valor de Step)
+STEP_ICONS = {
+    "LOAD": "📁",
+    "INFO": "ℹ️",
+    "PREVIEW": "👁️",
+    "TYPES": "🔢",
+    "CLEAN_A": "🧩",
+    "CLEAN_B": "🧹",
+    "CLEAN_C": "📑",
+    "CLEAN_D": "📈",
+    "CLEAN_E": "✏️",
+    "EXPORT": "💾",
+}
+
 # Paso 1: Carga de datos
 LOAD_DROP_TITLE = "Selecciona un archivo"
 LOAD_DROP_SUBTITLE = (
@@ -151,6 +165,24 @@ EXPORT_BTN = "Exportar dataset limpio"
 EXPORT_SUMMARY_TITLE = "Resumen de cambios aplicados:"
 EXPORT_SUCCESS_TITLE = "Exportación exitosa"
 EXPORT_SUCCESS_MSG = "El dataset limpio fue guardado exitosamente en:\n{path}"
+EXPORT_BADGE = "6"
+EXPORT_FORMAT_LABEL = "Formato de exportación:"
+EXPORT_FORMAT_CSV = "CSV (.csv)"
+EXPORT_FORMAT_EXCEL = "Excel (.xlsx)"
+EXPORT_FORMAT_PARQUET = "Parquet (.parquet)"
+EXPORT_DIALOG_TITLE = "Guardar dataset limpio"
+EXPORT_DEFAULT_STEM = "datos"
+EXPORT_FILE_FILTER_CSV = "CSV (*.csv)"
+EXPORT_FILE_FILTER_EXCEL = "Excel (*.xlsx)"
+EXPORT_FILE_FILTER_PARQUET = "Parquet (*.parquet)"
+EXPORT_LOCKED_TOOLTIP = (
+    "Completa los cinco sub-pasos de limpieza (A–E) para habilitar la exportación."
+)
+EXPORT_READY_TOOLTIP = "Guardar el dataset limpio en un archivo nuevo."
+EXPORT_ERR_TITLE = "Error de exportación"
+EXPORT_NO_ACTIONS = "Todavía no se registraron acciones de limpieza."
+EXPORT_DATASET_EMPTY = "No hay un dataset cargado para exportar."
+EXPORT_HISTORY_PLACEHOLDER = "(Dataset original, sin acciones de limpieza)"
 
 # Paso 5: limpieza (textos compartidos por las sub-vistas A–E)
 CLEAN_NO_DATA = "No hay datos cargados."
@@ -159,6 +191,15 @@ CLEAN_STEP_SKIPPED = "Sub-paso omitido por el usuario."
 CLEAN_PROGRESS_LABEL = "Sub-pasos completados: {done} de {total}"
 CLEAN_TAB_COMPLETED_SUFFIX = "  ✓"
 CLEAN_DIAGNOSIS_TITLE = "Diagnóstico"
+
+# Errores inesperados, logging y operaciones en segundo plano
+ERROR_UNEXPECTED_TITLE = "Error inesperado"
+ERROR_UNEXPECTED_MSG = (
+    "Ocurrió un error inesperado. Consulta el archivo `data_clean.log` para más detalles."
+)
+WORKER_ERROR_GENERIC = "Ocurrió un error inesperado al procesar la operación."
+LOAD_PROGRESS_LABEL = "Cargando datos, por favor espera..."
+
 
 # Paso 5A: imputación
 MISSING_IMPUTE_DIALOG_TITLE = "Imputar datos faltantes"
@@ -212,6 +253,20 @@ OUTLIERS_CLIP_CONFIRM_MSG = (
     "Se limitarán {count} valores atípicos de la columna «{column}» a los bordes "
     "calculados. ¿Deseas continuar?"
 )
+
+# Barra superior: historial y progreso
+TOOLTIP_UNDO = "Deshace la última acción registrada en el historial."
+TOOLTIP_UNDO_DISABLED = "No hay acciones anteriores que se puedan deshacer."
+TOOLTIP_RESTORE_ORIGINAL = "Descarta todos los cambios y vuelve al dataset original."
+TOOLTIP_RESTORE_DISABLED = "Carga un dataset para poder restaurar el original."
+UNDO_NOTHING_TITLE = "Nada que deshacer"
+UNDO_NOTHING_MSG = "No hay acciones anteriores que se puedan deshacer."
+RESTORE_CONFIRM_TITLE = "¿Restaurar el dataset original?"
+RESTORE_CONFIRM_MSG = (
+    "Se descartarán todos los cambios aplicados y se volverá al dataset original. "
+    "Los sub-pasos de limpieza A–E deberán resolverse de nuevo. ¿Deseas continuar?"
+)
+SIDEBAR_PROGRESS_FORMAT = "Progreso: %v de %m pasos"
 
 # Paso 5E: errores tipográficos
 TYPOS_PROPOSALS_TITLE = "Propuestas de fusión:"
